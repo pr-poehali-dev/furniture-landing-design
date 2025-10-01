@@ -416,15 +416,13 @@ const Index = () => {
               
               <div className="space-y-6 mb-8">
                 <div>
-                  <h3 className="text-sm font-medium text-muted-foreground mb-2">
-                    Luxurious Interior and Industrial Design
-                  </h3>
+                  <h3 className="text-sm font-medium text-muted-foreground mb-2">С 1998 года производим
+и устанавливаем мебель
+по индивидуальному проекту</h3>
                 </div>
                 
                 <div>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Modern Elegance: Designs featuring clean lines, neutral palettes, and high-quality materials.
-                  </p>
+                  <p className="text-base text-muted-foreground leading-relaxed">Наш 25-летний опыт в производстве премиум мебели помогает снизить риски, избежать ошибок и повысить качество. Мы сотрудничаем с лучшими поставщиками материалов, что обеспечивает превосходный результат и помогает оптимизировать ваш бюджет.</p>
                 </div>
               </div>
             </div>
