@@ -833,7 +833,7 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">МебельАрт</h3>
+              <h3 className="text-xl font-bold mb-4">Ваша мебель</h3>
               <p className="text-sm opacity-80">Производство премиальной мебели с 1998 года</p>
             </div>
             <div>
