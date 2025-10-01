@@ -513,22 +513,22 @@ const Index = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">500+</div>
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">5000+</div>
               <div className="text-muted-foreground">Продуктов</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">20+</div>
-              <div className="text-muted-foreground">Projects</div>
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">1000+</div>
+              <div className="text-muted-foreground">Проектов</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">50+</div>
-              <div className="text-muted-foreground">Satisfied Customers</div>
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">800+</div>
+              <div className="text-muted-foreground">Довольных клиентов</div>
             </div>
             <div className="text-center">
               <div className="text-5xl md:text-6xl font-bold text-primary mb-2">
                 1<sup className="text-3xl">st</sup>
               </div>
-              <div className="text-muted-foreground">Top 1 in Paris</div>
+              <div className="text-muted-foreground">Номер 1 в Приморском крае</div>
             </div>
           </div>
         </div>
