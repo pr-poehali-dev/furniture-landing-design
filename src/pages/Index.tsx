@@ -581,18 +581,12 @@ const Index = () => {
               </h2>
             </div>
             <div className="md:max-w-md">
-              <p className="text-muted-foreground text-sm md:text-base">
-                Poliform представит свое видение современной архитектуры, трендов интерьерного дизайна 
-                и инновационной жизни на Salone del Mobile Milano 2024.
-              </p>
+              <p className="text-muted-foreground text-sm md:text-base">Вдохновитесь работами, которые мы уже воплотили в жизнь. Каждый проект — это история, рассказанная через формы, фактуры и цвета.</p>
             </div>
             <Button 
               variant="outline" 
               className="rounded-full border-primary text-primary hover:bg-primary hover:text-white self-start md:self-auto"
-            >
-              View More
-              <Icon name="ArrowRight" size={16} className="ml-2" />
-            </Button>
+            >Посмотреть еще</Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[280px]">
