@@ -53,9 +53,33 @@ const Index = () => {
   ];
 
   const portfolio = [
-    { id: 1, image: '/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg', title: 'Современная кухня', category: 'Кухни' },
-    { id: 2, image: '/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg', title: 'Элегантная спальня', category: 'Спальни' },
-    { id: 3, image: '/img/3de30437-f746-455d-a0be-af860784e138.jpg', title: 'Гардеробная система', category: 'Гардеробные' },
+    { 
+      id: 1, 
+      image: '/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg', 
+      title: 'MODERN KITCHEN', 
+      subtitle: 'Roca Modern Kitchen',
+      category: 'Кухни',
+      description: 'Современный дизайн кухонного пространства с использованием премиум материалов',
+      featured: true
+    },
+    { 
+      id: 2, 
+      image: '/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg', 
+      title: 'LUXURY BEDROOM', 
+      subtitle: 'Sofa Brittocharette',
+      category: 'Спальни',
+      description: 'Элегантная спальная зона в минималистичном стиле',
+      featured: false
+    },
+    { 
+      id: 3, 
+      image: '/img/3de30437-f746-455d-a0be-af860784e138.jpg', 
+      title: 'WARDROBE SYSTEM', 
+      subtitle: 'Custom Storage',
+      category: 'Гардеробные',
+      description: 'Гардеробная система с индивидуальным дизайном',
+      featured: false
+    },
   ];
 
   const promos = [
@@ -350,28 +374,75 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="portfolio" className="py-20 px-4 bg-secondary/30">
+      <section id="portfolio" className="py-20 px-4 bg-background">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center text-primary mb-12">Наши проекты</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {portfolio.map((project) => (
-              <Card key={project.id} className="overflow-hidden hover:shadow-2xl transition-all duration-300 group">
-                <div className="relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 z-10 animate-shimmer"></div>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <div className="p-6 text-white">
-                      <Badge className="mb-2 bg-accent text-primary">{project.category}</Badge>
-                      <h3 className="text-xl font-bold">{project.title}</h3>
+          <div className="flex items-center justify-between mb-16">
+            <div>
+              <p className="text-sm text-muted-foreground mb-2 uppercase tracking-wider">МебельАрт</p>
+              <h2 className="text-5xl font-bold text-primary">НАШИ ПРОЕКТЫ</h2>
+              <p className="text-lg text-muted-foreground mt-2">Премиум интерьеры</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-12 gap-6">
+            {portfolio.map((project, index) => {
+              const isFeatured = index === 0;
+              return (
+                <div 
+                  key={project.id} 
+                  className={`group relative ${isFeatured ? 'col-span-12 md:col-span-7' : 'col-span-12 md:col-span-5'} ${index === 2 ? 'md:col-start-8' : ''}`}
+                >
+                  <div className="relative overflow-hidden rounded-3xl h-full min-h-[400px]">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                    
+                    <div className="absolute top-6 left-6">
+                      <Badge className="bg-background/90 text-primary backdrop-blur-sm border-0 px-4 py-1">
+                        {project.category}
+                      </Badge>
+                    </div>
+
+                    <div className="absolute bottom-6 left-6 right-6">
+                      <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-wide">
+                        {project.title}
+                      </h3>
+                      <p className="text-white/90 text-lg mb-4">{project.subtitle}</p>
+                      <p className="text-white/70 text-sm mb-6 max-w-lg">
+                        {project.description}
+                      </p>
+                      <Button 
+                        variant="outline" 
+                        className="rounded-full bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white hover:text-primary transition-all"
+                      >
+                        Смотреть проект
+                        <Icon name="ArrowRight" size={16} className="ml-2" />
+                      </Button>
+                    </div>
+
+                    <div className="absolute bottom-6 right-6">
+                      <div className="w-12 h-12 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center hover:bg-white hover:text-primary transition-all cursor-pointer group">
+                        <Icon name="ArrowUpRight" size={20} className="text-white group-hover:text-primary" />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </Card>
-            ))}
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button 
+              size="lg" 
+              className="rounded-full bg-primary hover:bg-primary/90 px-8"
+            >
+              Показать все проекты
+              <Icon name="ArrowRight" size={18} className="ml-2" />
+            </Button>
           </div>
         </div>
       </section>
