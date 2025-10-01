@@ -8,9 +8,29 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import Icon from '@/components/ui/icon';
+import { useEffect, useRef } from 'react';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in-up');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+    );
+
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach((el) => observerRef.current?.observe(el));
+
+    return () => observerRef.current?.disconnect();
+  }, []);
 
   const heroSlides = [
     {
@@ -152,9 +172,7 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <img src="https://cdn.poehali.dev/files/fa55d385-40c7-4b12-8dcf-a2b4b3cbd0e5.jpg" alt="Ваша мебель" className="h-10 w-auto" />
-            </div>
+            <h1 className="text-2xl font-bold text-primary">Ваша мебель</h1>
             <div className="hidden md:flex gap-6">
               {['home', 'categories', 'about', 'portfolio', 'configurator', 'promos'].map((section) => (
                 <button
@@ -187,7 +205,7 @@ const Index = () => {
         </div>
       </nav>
 
-      <section id="home" className="pt-32 pb-20 px-4 relative overflow-hidden">
+      <section id="home" className="pt-32 pb-20 px-4 relative overflow-hidden animate-on-scroll">
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-secondary/10 animate-gradient-shift bg-[length:200%_200%]"></div>
         <div className="container mx-auto relative z-10">
           <Carousel
@@ -266,7 +284,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="categories" className="py-20 px-4 bg-secondary/30">
+      <section id="categories" className="py-20 px-4 bg-secondary/30 animate-on-scroll">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center text-primary mb-12">Наши направления</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -315,7 +333,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about" className="py-20 px-4 bg-background">
+      <section id="about" className="py-20 px-4 bg-background animate-on-scroll">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-3">
@@ -357,14 +375,14 @@ const Index = () => {
                 />
               </div>
               
-              <div className="bg-secondary/30 rounded-3xl p-8">
+              <div className="bg-secondary/30 rounded-3xl p-8 flex flex-col">
                 <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
                   Наша философия
                 </h3>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
                   Мы создаем роскошные, персонализированные интерьеры, которые отражают вкусы и образ жизни наших клиентов.
                 </p>
-                <Button onClick={() => window.location.href = '/contacts'} className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Button onClick={() => window.location.href = '/contacts'} className="bg-primary hover:bg-primary/90 text-primary-foreground w-full">
                   Перейти к контактам
                   <Icon name="ArrowRight" size={16} className="ml-2" />
                 </Button>
@@ -459,7 +477,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about-old" className="py-20 px-4">
+      <section id="about-old" className="py-20 px-4 animate-on-scroll">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-6">Наша история</h2>
@@ -497,7 +515,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="portfolio" className="py-20 px-4 bg-background">
+      <section id="portfolio" className="py-20 px-4 bg-background animate-on-scroll">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-6">
             <div>
@@ -560,7 +578,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="configurator" className="py-20 px-4">
+      <section id="configurator" className="py-20 px-4 animate-on-scroll">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold text-primary mb-6">3D Конфигуратор</h2>
           <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
@@ -634,7 +652,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="promos" className="py-20 px-4 bg-secondary/30">
+      <section id="promos" className="py-20 px-4 bg-secondary/30 animate-on-scroll">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center text-primary mb-12">Актуальные акции</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -654,7 +672,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contacts" className="py-20 px-4">
+      <section id="contacts" className="py-20 px-4 animate-on-scroll">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
