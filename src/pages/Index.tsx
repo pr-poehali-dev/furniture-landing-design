@@ -363,7 +363,92 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about" className="py-20 px-4">
+      <section className="py-20 px-4 bg-secondary/20">
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-12 gap-6 mb-16">
+            <div className="md:col-span-7">
+              <div className="relative rounded-3xl overflow-hidden h-[500px] group">
+                <img
+                  src="/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg"
+                  alt="Modern Minimalist"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-6 left-6">
+                  <Badge className="bg-white/90 text-primary backdrop-blur-sm border-0 px-4 py-2">
+                    Georgeus Interior
+                  </Badge>
+                </div>
+                <div className="absolute bottom-8 left-8 bg-white/95 backdrop-blur-sm rounded-2xl px-8 py-4">
+                  <h3 className="text-4xl font-bold text-primary">
+                    Modern<br/>Minimalist
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <div className="md:col-span-5 flex flex-col gap-6">
+              <div className="bg-secondary/50 rounded-3xl p-8 flex-1 flex flex-col justify-center">
+                <Badge className="bg-primary/10 text-primary border-0 px-4 py-2 w-fit mb-6">
+                  Aesthetic
+                </Badge>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Aesthetic Furniture where every piece tells a story of style
+                </p>
+                <h3 className="text-3xl md:text-4xl font-bold text-primary leading-tight">
+                  Into a gallery<br/>of elegance
+                </h3>
+              </div>
+
+              <div className="relative rounded-3xl overflow-hidden h-[220px] group">
+                <img
+                  src="/img/3de30437-f746-455d-a0be-af860784e138.jpg"
+                  alt="Best Furniture"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute top-6 left-6">
+                  <Badge className="bg-white/90 text-primary backdrop-blur-sm border-0 px-4 py-2">
+                    Best Furniture
+                  </Badge>
+                </div>
+                <div className="absolute bottom-6 left-6">
+                  <p className="text-white text-sm font-medium">
+                    Indulge in the artistry<br/>of everyday living
+                  </p>
+                </div>
+                <div className="absolute bottom-6 right-6">
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+                    <Icon name="ArrowUpRight" size={20} className="text-primary" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">500+</div>
+              <div className="text-muted-foreground">Products</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">20+</div>
+              <div className="text-muted-foreground">Projects</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">50+</div>
+              <div className="text-muted-foreground">Satisfied Customers</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">
+                1<sup className="text-3xl">st</sup>
+              </div>
+              <div className="text-muted-foreground">Top 1 in Paris</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about-old" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-6">Наша история</h2>
