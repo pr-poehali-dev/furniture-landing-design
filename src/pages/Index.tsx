@@ -496,14 +496,11 @@ const Index = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute top-6 left-6">
-                  <Badge className="bg-background/90 text-foreground backdrop-blur-sm border-0 px-4 py-2">
-                    Best Furniture
-                  </Badge>
+                  <Badge className="bg-background/90 text-foreground backdrop-blur-sm border-0 px-4 py-2">Лучшая мебель</Badge>
                 </div>
                 <div className="absolute bottom-6 left-6">
-                  <p className="text-white text-sm font-medium">
-                    Indulge in the artistry<br/>of everyday living
-                  </p>
+                  <p className="text-white text-sm font-medium">Разрабатываем проекты, которые идеально
+вписываютсяв ваш образ жизни.</p>
                 </div>
                 <div className="absolute bottom-6 right-6">
                   <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
