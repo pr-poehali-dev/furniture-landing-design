@@ -152,9 +152,9 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-primary">Ваша мебель</h1>
+            <h1 className="text-2xl font-bold text-primary">МебельАрт</h1>
             <div className="hidden md:flex gap-6">
-              {['home', 'categories', 'about', 'portfolio', 'configurator', 'promos'].map((section) => (
+              {['home', 'categories', 'about', 'portfolio', 'configurator', 'promos', 'contacts'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -168,12 +168,13 @@ const Index = () => {
                   {section === 'portfolio' && 'Портфолио'}
                   {section === 'configurator' && '3D Конфигуратор'}
                   {section === 'promos' && 'Акции'}
+                  {section === 'contacts' && 'Контакты'}
                 </button>
               ))}
             </div>
-            <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary">
+            <Button className="bg-accent hover:bg-accent/90 text-primary">
               <Icon name="Phone" size={16} className="mr-2" />
-              Контакты
+              Заказать звонок
             </Button>
           </div>
         </div>
@@ -642,13 +643,79 @@ const Index = () => {
         </div>
       </section>
 
-
+      <section id="contacts" className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-4xl font-bold text-primary mb-6">Свяжитесь с нами</h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Готовы обсудить ваш проект? Оставьте заявку, и наш менеджер свяжется с вами в течение часа.
+              </p>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <Icon name="MapPin" size={24} className="text-accent mt-1" />
+                  <div>
+                    <h4 className="font-semibold text-primary">Адрес</h4>
+                    <p className="text-muted-foreground">г. Москва, ул. Производственная, 15</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Phone" size={24} className="text-accent mt-1" />
+                  <div>
+                    <h4 className="font-semibold text-primary">Телефон</h4>
+                    <p className="text-muted-foreground">+7 (495) 123-45-67</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Mail" size={24} className="text-accent mt-1" />
+                  <div>
+                    <h4 className="font-semibold text-primary">Email</h4>
+                    <p className="text-muted-foreground">info@mebelart.ru</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Icon name="Clock" size={24} className="text-accent mt-1" />
+                  <div>
+                    <h4 className="font-semibold text-primary">Режим работы</h4>
+                    <p className="text-muted-foreground">Пн-Пт: 9:00 - 19:00<br />Сб-Вс: 10:00 - 16:00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <Card>
+              <CardContent className="p-8">
+                <form className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Ваше имя</label>
+                    <Input placeholder="Иван Иванов" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Телефон</label>
+                    <Input placeholder="+7 (___) ___-__-__" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Email</label>
+                    <Input type="email" placeholder="email@example.com" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Сообщение</label>
+                    <Textarea placeholder="Расскажите о вашем проекте..." rows={4} />
+                  </div>
+                  <Button className="w-full bg-primary hover:bg-primary/90" size="lg">
+                    Отправить заявку
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
 
       <footer className="bg-primary text-primary-foreground py-12 px-4">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">Ваша мебель</h3>
+              <h3 className="text-xl font-bold mb-4">МебельАрт</h3>
               <p className="text-sm opacity-80">Производство премиальной мебели с 1998 года</p>
             </div>
             <div>
@@ -666,7 +733,7 @@ const Index = () => {
                 <li>О нас</li>
                 <li>Портфолио</li>
                 <li>Акции</li>
-                <li className="cursor-pointer hover:opacity-70" onClick={() => window.location.href = '/contacts'}>Контакты</li>
+                <li>Контакты</li>
               </ul>
             </div>
             <div>
@@ -679,7 +746,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm opacity-80">
-            © 2024 Ваша мебель. Все права защищены.
+            © 2024 МебельАрт. Все права защищены.
           </div>
         </div>
       </footer>
