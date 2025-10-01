@@ -863,9 +863,7 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm opacity-80">
-            © 2024 МебельАрт. Все права защищены.
-          </div>
+          <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm opacity-80">© 2025 Ваша Мебель. Все права защищены.</div>
         </div>
       </footer>
     </div>
