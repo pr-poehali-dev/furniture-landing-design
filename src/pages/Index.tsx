@@ -193,7 +193,12 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl md:text-2xl font-bold text-primary">Ваша мебель</h1>
+            <h1 
+              onClick={() => window.location.href = '/'}
+              className="text-xl md:text-2xl font-bold text-primary cursor-pointer"
+            >
+              Ваша мебель
+            </h1>
             <div className="flex items-center gap-2 md:gap-6">
               <button
                 onClick={toggleTheme}
@@ -202,35 +207,6 @@ const Index = () => {
               >
                 <Icon name={isDarkMode ? 'Sun' : 'Moon'} size={20} />
               </button>
-              <div className="hidden md:flex gap-6">
-              {['home', 'categories', 'portfolio', 'configurator', 'promos'].map((section) => (
-                <button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className={`text-sm transition-colors hover:text-accent relative ${
-                    activeSection === section ? 'text-accent font-medium' : 'text-foreground'
-                  }`}
-                >
-                  {section === 'home' && 'Главная'}
-                  {section === 'categories' && 'Категории'}
-                  {section === 'portfolio' && 'Портфолио'}
-                  {section === 'configurator' && '3D Конфигуратор'}
-                  {section === 'promos' && <>
-                    Акции
-                    <span className="absolute -top-1 -right-1 flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-                    </span>
-                  </>}
-                </button>
-              ))}
-              <button
-                onClick={() => window.location.href = '/about'}
-                className="text-sm transition-colors hover:text-accent text-foreground"
-              >
-                О нас
-              </button>
-              </div>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
@@ -238,6 +214,21 @@ const Index = () => {
               >
                 <Icon name={isMobileMenuOpen ? 'X' : 'Menu'} size={24} />
               </button>
+              <div className="hidden md:flex gap-6">
+                <Button onClick={() => window.location.href = '/'} variant="ghost">
+                  Главная
+                </Button>
+                <Button onClick={() => window.location.href = '/about'} variant="ghost">
+                  О нас
+                </Button>
+                <Button onClick={() => window.location.href = '/promos'} variant="ghost" className="relative">
+                  Акции
+                  <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                  </span>
+                </Button>
+              </div>
               <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary text-xs md:text-sm px-3 md:px-4">
                 <Icon name="Phone" size={16} className="md:mr-2" />
                 <span className="hidden md:inline">Контакты</span>
@@ -249,36 +240,29 @@ const Index = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-background border-t border-border">
             <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
-              {['home', 'categories', 'portfolio', 'configurator', 'promos'].map((section) => (
-                <button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className={`text-left py-2 px-4 rounded-lg transition-colors relative ${
-                    activeSection === section 
-                      ? 'bg-accent/10 text-accent font-medium' 
-                      : 'text-foreground hover:bg-secondary'
-                  }`}
-                >
-                  {section === 'home' && 'Главная'}
-                  {section === 'categories' && 'Категории'}
-                  {section === 'portfolio' && 'Портфолио'}
-                  {section === 'configurator' && '3D Конфигуратор'}
-                  {section === 'promos' && (
-                    <div className="flex items-center justify-between">
-                      <span>Акции</span>
-                      <span className="flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-accent opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-                      </span>
-                    </div>
-                  )}
-                </button>
-              ))}
+              <button
+                onClick={() => { window.location.href = '/'; setIsMobileMenuOpen(false); }}
+                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
+              >
+                Главная
+              </button>
               <button
                 onClick={() => { window.location.href = '/about'; setIsMobileMenuOpen(false); }}
                 className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
               >
                 О нас
+              </button>
+              <button
+                onClick={() => { window.location.href = '/promos'; setIsMobileMenuOpen(false); }}
+                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary relative"
+              >
+                <div className="flex items-center justify-between">
+                  <span>Акции</span>
+                  <span className="flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-accent opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                  </span>
+                </div>
               </button>
             </div>
           </div>

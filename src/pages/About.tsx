@@ -171,8 +171,15 @@ const About = () => {
                 <Button onClick={() => window.location.href = '/'} variant="ghost">
                   Главная
                 </Button>
-                <Button onClick={() => window.location.href = '/promos'} variant="ghost">
+                <Button onClick={() => window.location.href = '/about'} variant="ghost">
+                  О нас
+                </Button>
+                <Button onClick={() => window.location.href = '/promos'} variant="ghost" className="relative">
                   Акции
+                  <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                  </span>
                 </Button>
               </div>
               <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary text-xs md:text-sm px-3 md:px-4">
@@ -193,10 +200,22 @@ const About = () => {
                 Главная
               </button>
               <button
-                onClick={() => { window.location.href = '/promos'; setIsMobileMenuOpen(false); }}
+                onClick={() => { window.location.href = '/about'; setIsMobileMenuOpen(false); }}
                 className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
               >
-                Акции
+                О нас
+              </button>
+              <button
+                onClick={() => { window.location.href = '/promos'; setIsMobileMenuOpen(false); }}
+                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary relative"
+              >
+                <div className="flex items-center justify-between">
+                  <span>Акции</span>
+                  <span className="flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-accent opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                  </span>
+                </div>
               </button>
             </div>
           </div>

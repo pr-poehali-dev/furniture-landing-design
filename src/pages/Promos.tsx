@@ -6,6 +6,7 @@ import Icon from '@/components/ui/icon';
 
 const Promos = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const theme = localStorage.getItem('theme');
@@ -89,10 +90,28 @@ const Promos = () => {
               >
                 <Icon name={isDarkMode ? 'Sun' : 'Moon'} size={20} />
               </button>
-              <Button onClick={() => window.location.href = '/'} variant="outline" className="text-xs md:text-sm">
-                <Icon name="Home" size={16} className="md:mr-2" />
-                <span className="hidden md:inline">На главную</span>
-              </Button>
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
+                aria-label="Меню"
+              >
+                <Icon name={isMobileMenuOpen ? 'X' : 'Menu'} size={24} />
+              </button>
+              <div className="hidden md:flex gap-6">
+                <Button onClick={() => window.location.href = '/'} variant="ghost">
+                  Главная
+                </Button>
+                <Button onClick={() => window.location.href = '/about'} variant="ghost">
+                  О нас
+                </Button>
+                <Button onClick={() => window.location.href = '/promos'} variant="ghost" className="relative">
+                  Акции
+                  <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                  </span>
+                </Button>
+              </div>
               <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary text-xs md:text-sm px-3 md:px-4">
                 <Icon name="Phone" size={16} className="md:mr-2" />
                 <span className="hidden md:inline">Контакты</span>
@@ -100,6 +119,37 @@ const Promos = () => {
             </div>
           </div>
         </div>
+
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-background border-t border-border">
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
+              <button
+                onClick={() => { window.location.href = '/'; setIsMobileMenuOpen(false); }}
+                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
+              >
+                Главная
+              </button>
+              <button
+                onClick={() => { window.location.href = '/about'; setIsMobileMenuOpen(false); }}
+                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
+              >
+                О нас
+              </button>
+              <button
+                onClick={() => { window.location.href = '/promos'; setIsMobileMenuOpen(false); }}
+                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary relative"
+              >
+                <div className="flex items-center justify-between">
+                  <span>Акции</span>
+                  <span className="flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-accent opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                  </span>
+                </div>
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
 
       <section className="pt-32 pb-20 px-4">
