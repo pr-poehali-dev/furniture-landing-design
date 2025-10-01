@@ -694,7 +694,7 @@ const Index = () => {
                 />
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                   <div className="w-16 h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Icon name="Play" size={24} className="text-primary ml-1" />
+                    <Icon name="Play" size={24} className="text-black ml-1" />
                   </div>
                 </div>
               </div>
