@@ -431,12 +431,12 @@ const Index = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute top-6 left-6">
-                  <Badge className="bg-white/90 text-primary backdrop-blur-sm border-0 px-4 py-2">
+                  <Badge className="bg-background/90 text-foreground backdrop-blur-sm border-0 px-4 py-2">
                     Georgeus Interior
                   </Badge>
                 </div>
-                <div className="absolute bottom-8 left-8 backdrop-blur-sm rounded-2xl px-8 py-4 bg-[#ffffff80]">
-                  <h3 className="text-4xl font-bold text-primary">
+                <div className="absolute bottom-8 left-8 backdrop-blur-sm rounded-2xl px-8 py-4 bg-background/80">
+                  <h3 className="text-4xl font-bold text-foreground">
                     Modern<br/>Minimalist
                   </h3>
                 </div>
@@ -464,7 +464,7 @@ const Index = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute top-6 left-6">
-                  <Badge className="bg-white/90 text-primary backdrop-blur-sm border-0 px-4 py-2">
+                  <Badge className="bg-background/90 text-foreground backdrop-blur-sm border-0 px-4 py-2">
                     Best Furniture
                   </Badge>
                 </div>
