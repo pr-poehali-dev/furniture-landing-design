@@ -683,7 +683,7 @@ const Index = () => {
       <section id="promos" className="py-20 px-4 bg-secondary/30 animate-on-scroll">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center text-primary mb-12">Актуальные акции</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-10">
             {promos.map((promo, index) => (
               <Card key={index} className="relative overflow-hidden hover:shadow-xl transition-shadow">
                 <CardContent className="p-8">
@@ -696,6 +696,15 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="flex justify-center">
+            <Button 
+              onClick={() => window.location.href = '/contacts'}
+              className="bg-accent hover:bg-accent/90 text-primary px-8 py-6 text-lg"
+            >
+              Узнать подробности всех акций
+              <Icon name="ArrowRight" size={20} className="ml-2" />
+            </Button>
           </div>
         </div>
       </section>
