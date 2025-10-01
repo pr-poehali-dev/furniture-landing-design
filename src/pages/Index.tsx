@@ -376,73 +376,56 @@ const Index = () => {
 
       <section id="portfolio" className="py-20 px-4 bg-background">
         <div className="container mx-auto">
-          <div className="flex items-center justify-between mb-16">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-6">
             <div>
-              <p className="text-sm text-muted-foreground mb-2 uppercase tracking-wider">МебельАрт</p>
-              <h2 className="text-5xl font-bold text-primary">НАШИ ПРОЕКТЫ</h2>
-              <p className="text-lg text-muted-foreground mt-2">Премиум интерьеры</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+                Наши проекты
+              </h2>
             </div>
+            <div className="md:max-w-md">
+              <p className="text-muted-foreground text-base">
+                Poliform представит свое видение современной архитектуры, трендов интерьерного дизайна 
+                и инновационной жизни на Salone del Mobile Milano 2024.
+              </p>
+            </div>
+            <Button 
+              variant="outline" 
+              className="rounded-full border-primary text-primary hover:bg-primary hover:text-white self-start md:self-auto"
+            >
+              View More
+              <Icon name="ArrowRight" size={16} className="ml-2" />
+            </Button>
           </div>
 
-          <div className="grid grid-cols-12 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[280px]">
             {portfolio.map((project, index) => {
-              const isFeatured = index === 0;
+              const isLarge = index === 1 || index === 4;
               return (
                 <div 
                   key={project.id} 
-                  className={`group relative ${isFeatured ? 'col-span-12 md:col-span-7' : 'col-span-12 md:col-span-5'} ${index === 2 ? 'md:col-start-8' : ''}`}
+                  className={`group relative ${isLarge ? 'md:row-span-2' : ''}`}
                 >
-                  <div className="relative overflow-hidden rounded-3xl h-full min-h-[400px]">
+                  <div className="relative overflow-hidden rounded-3xl h-full">
                     <img
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                    
-                    <div className="absolute top-6 left-6">
-                      <Badge className="bg-background/90 text-primary backdrop-blur-sm border-0 px-4 py-1">
-                        {project.category}
-                      </Badge>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
 
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-wide">
+                    <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                      <h3 className="text-2xl font-bold text-white">
                         {project.title}
                       </h3>
-                      <p className="text-white/90 text-lg mb-4">{project.subtitle}</p>
-                      <p className="text-white/70 text-sm mb-6 max-w-lg">
-                        {project.description}
-                      </p>
-                      <Button 
-                        variant="outline" 
-                        className="rounded-full bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white hover:text-primary transition-all"
-                      >
-                        Смотреть проект
-                        <Icon name="ArrowRight" size={16} className="ml-2" />
-                      </Button>
-                    </div>
-
-                    <div className="absolute bottom-6 right-6">
-                      <div className="w-12 h-12 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center hover:bg-white hover:text-primary transition-all cursor-pointer group">
-                        <Icon name="ArrowUpRight" size={20} className="text-white group-hover:text-primary" />
+                      <div className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer flex-shrink-0 ml-4">
+                        <Icon name="ArrowUpRight" size={18} className="text-primary" />
                       </div>
                     </div>
                   </div>
                 </div>
               );
             })}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button 
-              size="lg" 
-              className="rounded-full bg-primary hover:bg-primary/90 px-8"
-            >
-              Показать все проекты
-              <Icon name="ArrowRight" size={18} className="ml-2" />
-            </Button>
           </div>
         </div>
       </section>
