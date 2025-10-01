@@ -12,6 +12,7 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -182,6 +183,7 @@ const Index = () => {
 
   const scrollToSection = (id: string) => {
     setActiveSection(id);
+    setIsMobileMenuOpen(false);
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -224,6 +226,13 @@ const Index = () => {
                 </button>
               ))}
               </div>
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
+                aria-label="Меню"
+              >
+                <Icon name={isMobileMenuOpen ? 'X' : 'Menu'} size={24} />
+              </button>
               <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary text-xs md:text-sm px-3 md:px-4">
                 <Icon name="Phone" size={16} className="md:mr-2" />
                 <span className="hidden md:inline">Контакты</span>
@@ -231,6 +240,39 @@ const Index = () => {
             </div>
           </div>
         </div>
+
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-background border-t border-border">
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
+              {['home', 'categories', 'about', 'portfolio', 'configurator', 'promos'].map((section) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className={`text-left py-2 px-4 rounded-lg transition-colors relative ${
+                    activeSection === section 
+                      ? 'bg-accent/10 text-accent font-medium' 
+                      : 'text-foreground hover:bg-secondary'
+                  }`}
+                >
+                  {section === 'home' && 'Главная'}
+                  {section === 'categories' && 'Категории'}
+                  {section === 'about' && 'О нас'}
+                  {section === 'portfolio' && 'Портфолио'}
+                  {section === 'configurator' && '3D Конфигуратор'}
+                  {section === 'promos' && (
+                    <div className="flex items-center justify-between">
+                      <span>Акции</span>
+                      <span className="flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-accent opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                      </span>
+                    </div>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
 
       <section id="home" className="pt-32 pb-20 px-4 relative overflow-hidden animate-on-scroll">
