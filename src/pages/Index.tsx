@@ -191,8 +191,8 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-primary">Ваша мебель</h1>
-            <div className="flex items-center gap-6">
+            <h1 className="text-xl md:text-2xl font-bold text-primary">Ваша мебель</h1>
+            <div className="flex items-center gap-2 md:gap-6">
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-lg hover:bg-secondary transition-colors"
@@ -224,9 +224,9 @@ const Index = () => {
                 </button>
               ))}
               </div>
-              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary">
-                <Icon name="Phone" size={16} className="mr-2" />
-                Контакты
+              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary text-xs md:text-sm px-3 md:px-4">
+                <Icon name="Phone" size={16} className="md:mr-2" />
+                <span className="hidden md:inline">Контакты</span>
               </Button>
             </div>
           </div>
@@ -246,35 +246,35 @@ const Index = () => {
                 <CarouselItem key={index}>
                   <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="animate-fade-in-up">
-                      <h2 className="text-5xl md:text-6xl font-bold text-primary mb-6 leading-tight">
+                      <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-primary mb-4 md:mb-6 leading-tight">
                         {slide.title}
                       </h2>
-                      <p className="text-lg text-muted-foreground mb-8">
+                      <p className="text-sm md:text-lg text-muted-foreground mb-6 md:mb-8">
                         {slide.description}
                       </p>
-                      <div className="flex gap-4">
-                        <Button onClick={() => scrollToSection('configurator')} size="lg" className="bg-primary hover:bg-primary/90 hover:scale-105 transition-transform">
+                      <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                        <Button onClick={() => scrollToSection('configurator')} size="lg" className="bg-primary hover:bg-primary/90 hover:scale-105 transition-transform w-full sm:w-auto">
                           Попробовать конфигуратор
                         </Button>
-                        <Button onClick={() => scrollToSection('portfolio')} size="lg" variant="outline" className="hover:scale-105 transition-transform">
+                        <Button onClick={() => scrollToSection('portfolio')} size="lg" variant="outline" className="hover:scale-105 transition-transform w-full sm:w-auto">
                           Смотреть проекты
                         </Button>
                       </div>
                     </div>
-                    <div className="animate-fade-in relative">
+                    <div className="animate-fade-in relative mt-8 md:mt-0">
                       <div className="absolute -inset-4 bg-accent/20 rounded-lg blur-2xl animate-pulse-slow"></div>
                       <img
                         src={slide.image}
                         alt="Премиальная мебель"
-                        className="rounded-lg shadow-2xl w-full h-[500px] object-cover relative z-10"
+                        className="rounded-lg shadow-2xl w-full h-[300px] md:h-[500px] object-cover relative z-10"
                       />
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
-            <CarouselNext className="right-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
+            <CarouselPrevious className="hidden md:flex left-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
+            <CarouselNext className="hidden md:flex right-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
           </Carousel>
         </div>
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
@@ -285,8 +285,8 @@ const Index = () => {
       <section className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Почему выбирают нас</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Почему выбирают нас</h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
               Мы создаем не просто мебель, а пространства, в которых хочется жить
             </p>
           </div>
@@ -314,19 +314,19 @@ const Index = () => {
 
       <section id="categories" className="py-20 px-4 bg-secondary/30 animate-on-scroll">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center text-primary mb-12">Наши направления</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Наши направления</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {categories.map((category, index) => (
               <Card
                 key={index}
                 className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <CardContent className="p-6 text-center relative z-10">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-accent/20 rounded-full flex items-center justify-center group-hover:bg-accent/30 transition-all group-hover:animate-float">
-                    <Icon name={category.icon} size={32} className="text-accent group-hover:scale-110 transition-transform" />
+                <CardContent className="p-4 md:p-6 text-center relative z-10">
+                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 bg-accent/20 rounded-full flex items-center justify-center group-hover:bg-accent/30 transition-all group-hover:animate-float">
+                    <Icon name={category.icon} size={24} className="md:w-8 md:h-8 text-accent group-hover:scale-110 transition-transform" />
                   </div>
-                  <h3 className="font-semibold text-foreground">{category.name}</h3>
+                  <h3 className="font-semibold text-sm md:text-base text-foreground">{category.name}</h3>
                 </CardContent>
               </Card>
             ))}
@@ -337,12 +337,12 @@ const Index = () => {
       <section className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Как мы работаем</h2>
-            <p className="text-lg text-muted-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Как мы работаем</h2>
+            <p className="text-base md:text-lg text-muted-foreground">
               Четкий и прозрачный процесс создания вашей мебели
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {workSteps.map((step, index) => (
               <div key={index} className="relative group">
                 <div className="text-center">
@@ -365,7 +365,7 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-3">
-              <h2 className="text-6xl md:text-7xl font-bold text-primary leading-none mb-8">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary leading-none mb-8">
                 О НАС
               </h2>
               
@@ -508,8 +508,8 @@ const Index = () => {
       <section id="about-old" className="py-20 px-4 animate-on-scroll">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary mb-6">Наша история</h2>
-            <p className="text-lg text-muted-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Наша история</h2>
+            <p className="text-base md:text-lg text-muted-foreground">
               Все началось в 1998 году, когда основатель компании решил создать мебельное производство нового уровня. 
               Мы поставили перед собой амбициозную цель — изменить представление людей о качестве и дизайне мебели.
             </p>
@@ -526,10 +526,10 @@ const Index = () => {
               >
                 <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8'}`}>
                   <Card className="hover:shadow-lg transition-shadow">
-                    <CardContent className="p-6">
-                      <div className="text-3xl font-bold text-accent mb-2">{item.year}</div>
-                      <h3 className="text-xl font-bold text-primary mb-3">{item.title}</h3>
-                      <p className="text-muted-foreground">{item.description}</p>
+                    <CardContent className="p-4 md:p-6">
+                      <div className="text-2xl md:text-3xl font-bold text-accent mb-2">{item.year}</div>
+                      <h3 className="text-lg md:text-xl font-bold text-primary mb-3">{item.title}</h3>
+                      <p className="text-sm md:text-base text-muted-foreground">{item.description}</p>
                     </CardContent>
                   </Card>
                 </div>
@@ -547,12 +547,12 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-6">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
                 Наши проекты
               </h2>
             </div>
             <div className="md:max-w-md">
-              <p className="text-muted-foreground text-base">
+              <p className="text-muted-foreground text-sm md:text-base">
                 Poliform представит свое видение современной архитектуры, трендов интерьерного дизайна 
                 и инновационной жизни на Salone del Mobile Milano 2024.
               </p>
@@ -566,7 +566,7 @@ const Index = () => {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-6 auto-rows-[280px]">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[280px]">
             {portfolio.map((project, index) => {
               let gridClass = 'md:col-span-2';
               
@@ -682,16 +682,16 @@ const Index = () => {
 
       <section id="promos" className="py-20 px-4 bg-secondary/30 animate-on-scroll">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center text-primary mb-12">Актуальные акции</h2>
-          <div className="grid md:grid-cols-3 gap-8 mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Актуальные акции</h2>
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-10">
             {promos.map((promo, index) => (
               <Card key={index} className="relative overflow-hidden hover:shadow-xl transition-shadow">
-                <CardContent className="p-8">
+                <CardContent className="p-6 md:p-8">
                   <div className="absolute top-4 right-4">
-                    <Badge className="bg-accent text-primary text-lg px-4 py-2">{promo.discount}</Badge>
+                    <Badge className="bg-accent text-primary text-sm md:text-lg px-3 md:px-4 py-1 md:py-2">{promo.discount}</Badge>
                   </div>
-                  <h3 className="text-2xl font-bold text-primary mb-3 pr-20">{promo.title}</h3>
-                  <p className="text-muted-foreground mb-6">{promo.description}</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-primary mb-3 pr-16 md:pr-20">{promo.title}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground mb-6">{promo.description}</p>
                   <Button variant="outline" className="w-full">Подробнее</Button>
                 </CardContent>
               </Card>
@@ -700,7 +700,7 @@ const Index = () => {
           <div className="flex justify-center">
             <Button 
               onClick={() => window.location.href = '/contacts'}
-              className="bg-accent hover:bg-accent/90 text-primary px-8 py-6 text-lg"
+              className="bg-accent hover:bg-accent/90 text-primary px-6 md:px-8 py-4 md:py-6 text-base md:text-lg w-full sm:w-auto"
             >
               Узнать подробности всех акций
               <Icon name="ArrowRight" size={20} className="ml-2" />
@@ -713,8 +713,8 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-4xl font-bold text-primary mb-6">Свяжитесь с нами</h2>
-              <p className="text-lg text-muted-foreground mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Свяжитесь с нами</h2>
+              <p className="text-base md:text-lg text-muted-foreground mb-8">
                 Готовы обсудить ваш проект? Оставьте заявку, и наш менеджер свяжется с вами в течение часа.
               </p>
               <div className="space-y-4 mb-8">
