@@ -56,29 +56,58 @@ const Index = () => {
     { 
       id: 1, 
       image: '/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg', 
-      title: 'MODERN KITCHEN', 
-      subtitle: 'Roca Modern Kitchen',
+      title: 'Mondrian', 
       category: 'Кухни',
-      description: 'Современный дизайн кухонного пространства с использованием премиум материалов',
-      featured: true
+      size: 'normal'
     },
     { 
       id: 2, 
       image: '/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg', 
-      title: 'LUXURY BEDROOM', 
-      subtitle: 'Sofa Brittocharette',
+      title: 'Nirnia', 
       category: 'Спальни',
-      description: 'Элегантная спальная зона в минималистичном стиле',
-      featured: false
+      size: 'large'
     },
     { 
       id: 3, 
       image: '/img/3de30437-f746-455d-a0be-af860784e138.jpg', 
-      title: 'WARDROBE SYSTEM', 
-      subtitle: 'Custom Storage',
+      title: 'Artex', 
       category: 'Гардеробные',
-      description: 'Гардеробная система с индивидуальным дизайном',
-      featured: false
+      size: 'normal'
+    },
+    { 
+      id: 4, 
+      image: '/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg', 
+      title: 'Valencia', 
+      category: 'Гостиные',
+      size: 'normal'
+    },
+    { 
+      id: 5, 
+      image: '/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg', 
+      title: 'Brooklyn', 
+      category: 'Офисы',
+      size: 'large'
+    },
+    { 
+      id: 6, 
+      image: '/img/3de30437-f746-455d-a0be-af860784e138.jpg', 
+      title: 'Minimalist', 
+      category: 'Ванные',
+      size: 'normal'
+    },
+    { 
+      id: 7, 
+      image: '/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg', 
+      title: 'Scandinavia', 
+      category: 'Детские',
+      size: 'wide'
+    },
+    { 
+      id: 8, 
+      image: '/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg', 
+      title: 'Luxe', 
+      category: 'Прихожие',
+      size: 'normal'
     },
   ];
 
@@ -397,13 +426,20 @@ const Index = () => {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[280px]">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-6 auto-rows-[280px]">
             {portfolio.map((project, index) => {
-              const isLarge = index === 1 || index === 4;
+              let gridClass = 'md:col-span-2';
+              
+              if (project.size === 'large') {
+                gridClass = 'md:col-span-2 md:row-span-2';
+              } else if (project.size === 'wide') {
+                gridClass = 'md:col-span-4';
+              }
+              
               return (
                 <div 
                   key={project.id} 
-                  className={`group relative ${isLarge ? 'md:row-span-2' : ''}`}
+                  className={`group relative ${gridClass}`}
                 >
                   <div className="relative overflow-hidden rounded-3xl h-full">
                     <img
