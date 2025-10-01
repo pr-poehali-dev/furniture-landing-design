@@ -155,8 +155,9 @@ const Contacts = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-2">Адрес офиса</h3>
-                      <p className="text-muted-foreground">г. Москва, ул. Производственная, 15</p>
-                      <p className="text-sm text-muted-foreground mt-1">БЦ "Мебельный", 3 этаж, офис 305</p>
+                      <p className="text-muted-foreground">г. Уссурийск,
+Ул. Владивостокское шоссе 145А/1</p>
+                      <p className="text-sm text-muted-foreground mt-1">ТЦ "Ваша мебель"</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -168,9 +169,8 @@ const Contacts = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-2">Телефон</h3>
-                      <a href="tel:+74951234567" className="text-muted-foreground hover:text-accent transition-colors">
-                        +7 (495) 123-45-67
-                      </a>
+                      <a href="tel:+74951234567" className="text-muted-foreground hover:text-accent transition-colors">+7 (924)265-93-50
++7 (914)650-36-36</a>
                       <p className="text-sm text-muted-foreground mt-1">Бесплатный звонок по России</p>
                     </div>
                   </CardContent>
@@ -183,9 +183,7 @@ const Contacts = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-2">Email</h3>
-                      <a href="mailto:info@mebelart.ru" className="text-muted-foreground hover:text-accent transition-colors">
-                        info@mebelart.ru
-                      </a>
+                      <a href="mailto:info@mebelart.ru" className="text-muted-foreground hover:text-accent transition-colors">mebelgiz.victor@mail.ru</a>
                       <p className="text-sm text-muted-foreground mt-1">Ответим в течение 2 часов</p>
                     </div>
                   </CardContent>
@@ -198,8 +196,9 @@ const Contacts = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-2">Режим работы</h3>
-                      <p className="text-muted-foreground">Пн-Пт: 9:00 - 19:00</p>
-                      <p className="text-muted-foreground">Сб-Вс: 10:00 - 16:00</p>
+                      <p className="text-muted-foreground">Пн-Пт: 9:00 - 18:00
+</p>
+                      <p className="text-muted-foreground">Сб-Вс - выходные</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -326,9 +325,7 @@ const Contacts = () => {
               </CardContent>
             </Card>
             <div className="mt-4 text-center">
-              <p className="text-muted-foreground mb-2">
-                Бесплатная парковка для клиентов • Удобный подъезд • Рядом метро "Авиамоторная"
-              </p>
+              <p className="text-muted-foreground mb-2">Бесплатная парковка для клиентов • Удобный подъезд</p>
             </div>
           </div>
 
