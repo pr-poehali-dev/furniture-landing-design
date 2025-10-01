@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
@@ -41,6 +42,30 @@ const Index = () => {
     { title: 'Скидка 15% на кухни', description: 'При заказе кухни до конца месяца', discount: '-15%' },
     { title: 'Бесплатная доставка', description: 'На все заказы от 100 000 ₽', discount: 'FREE' },
     { title: '3D визуализация в подарок', description: 'Для всех новых клиентов', discount: 'GIFT' },
+  ];
+
+  const benefits = [
+    { icon: 'Award', title: '10+ лет опыта', description: 'Мы создали более 5000 проектов для довольных клиентов.' },
+    { icon: 'Gem', title: 'Премиум качество', description: 'Используем только лучшие материалы от проверенных поставщиков.' },
+    { icon: 'Clock', title: 'Быстрые сроки', description: 'От проектирования до монтажа - в среднем 30 дней.' },
+    { icon: 'DollarSign', title: 'Честные цены', description: 'Никаких скрытых платежей и дополнительных расходов.' },
+    { icon: 'Lightbulb', title: 'Нестандартные решения', description: 'Реализуем проекты любой сложности и конфигурации.' },
+    { icon: 'Package', title: 'Комплексный подход', description: 'От замеров и дизайн-проекта до монтажа "под ключ".' },
+  ];
+
+  const workSteps = [
+    { number: '01', title: 'Консультация и замер', description: 'Бесплатно выезжаем на объект, обсуждаем детали и пожелания, делаем точные замеры помещения.' },
+    { number: '02', title: 'Дизайн-проект', description: 'Создаем 3D-визуализацию с учетом ваших пожеланий, вносим корректировки до полного утверждения.' },
+    { number: '03', title: 'Производство', description: 'Изготавливаем мебель на собственном производстве с использованием современного оборудования.' },
+    { number: '04', title: 'Доставка и монтаж', description: 'Привозим и профессионально устанавливаем мебель в удобное для вас время.' },
+  ];
+
+  const faqItems = [
+    { question: 'Какой срок изготовления мебели?', answer: 'Средний срок изготовления составляет 25-30 дней с момента утверждения дизайн-проекта. Сроки могут варьироваться в зависимости от сложности проекта и загруженности производства.' },
+    { question: 'Можно ли заказать только дизайн-проект без изготовления мебели?', answer: 'Да, мы предоставляем услуги по созданию дизайн-проекта отдельно. Стоимость зависит от объема работ и сложности проекта.' },
+    { question: 'Какие материалы вы используете в производстве?', answer: 'Мы работаем с премиальными материалами европейских и российских производителей: ЛДСП, МДФ, массив дерева, натуральный шпон, акриловые фасады, столешницы из искусственного камня и натурального мрамора.' },
+    { question: 'Предоставляете ли вы гарантию на мебель?', answer: 'Да, мы предоставляем гарантию 24 месяца на все изделия. Гарантия распространяется на производственные дефекты и качество сборки.' },
+    { question: 'Можно ли заказать мебель нестандартного размера?', answer: 'Конечно! Мы специализируемся на производстве мебели по индивидуальным размерам. Это позволяет максимально эффективно использовать пространство вашего помещения.' },
   ];
 
   const scrollToSection = (id: string) => {
@@ -113,6 +138,36 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary mb-4">Почему выбирают нас</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Мы создаем не просто мебель, а пространства, в которых хочется жить
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="group hover:-translate-y-2 transition-all duration-300"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <Card className="h-full hover:shadow-2xl transition-shadow border-2 hover:border-accent/50">
+                  <CardContent className="p-8">
+                    <div className="w-16 h-16 mb-6 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-colors group-hover:animate-float">
+                      <Icon name={benefit.icon} size={32} className="text-accent" />
+                    </div>
+                    <h3 className="text-xl font-bold text-primary mb-3">{benefit.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="categories" className="py-20 px-4 bg-secondary/30">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center text-primary mb-12">Наши направления</h2>
@@ -130,6 +185,90 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary mb-4">Как мы работаем</h2>
+            <p className="text-lg text-muted-foreground">
+              Четкий и прозрачный процесс создания вашей мебели
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {workSteps.map((step, index) => (
+              <div key={index} className="relative group">
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent/10 mb-6 group-hover:bg-accent/20 transition-all group-hover:scale-110 duration-300">
+                    <span className="text-4xl font-bold text-accent">{step.number}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-primary mb-3">{step.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                </div>
+                {index < workSteps.length - 1 && (
+                  <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-accent/20 -ml-4 transform -translate-x-1/2"></div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-secondary/30">
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="order-2 md:order-1">
+              <img
+                src="/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg"
+                alt="Производство мебели"
+                className="rounded-lg shadow-2xl w-full h-[600px] object-cover"
+              />
+            </div>
+            <div className="order-1 md:order-2 space-y-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-primary leading-tight">
+                С 1998 года производим и устанавливаем мебель по индивидуальному проекту
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Если вы знаете как должна выглядеть мебель, мы точно знаем как ее сделать
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Наш 25-летний опыт в производстве премиум мебели помогает снизить риски, избежать ошибок и повысить качество. 
+                Мы сотрудничаем с лучшими поставщиками материалов, что обеспечивает превосходный результат и помогает оптимизировать ваш бюджет.
+              </p>
+              <div className="space-y-3">
+                <p className="font-semibold text-primary">Мы специализируемся на создании:</p>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <Icon name="Check" size={20} className="text-accent mt-1 flex-shrink-0" />
+                    <span>Эксклюзивной мебели и кухонь, подчеркивающих индивидуальность интерьера</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Icon name="Check" size={20} className="text-accent mt-1 flex-shrink-0" />
+                    <span>Решений для сложных планировок и нестандартных помещений</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Icon name="Check" size={20} className="text-accent mt-1 flex-shrink-0" />
+                    <span>Изделий с гарантированным качеством и длительным сроком службы</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="grid grid-cols-3 gap-6 pt-6">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-accent mb-2">25+</div>
+                  <div className="text-sm text-muted-foreground">лет работы</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-accent mb-2">5000+</div>
+                  <div className="text-sm text-muted-foreground">проектов</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-accent mb-2">90%</div>
+                  <div className="text-sm text-muted-foreground">довольных клиентов</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -218,6 +357,31 @@ const Index = () => {
               </div>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary mb-4">Часто задаваемые вопросы</h2>
+            <p className="text-lg text-muted-foreground">
+              Ответы на популярные вопросы наших клиентов
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqItems.map((item, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-lg px-6 bg-card hover:shadow-lg transition-shadow">
+                  <AccordionTrigger className="text-left font-semibold text-primary hover:text-accent">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </section>
 
