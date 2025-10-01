@@ -745,28 +745,31 @@ const Index = () => {
                   <Icon name="MapPin" size={24} className="text-accent mt-1" />
                   <div>
                     <h4 className="font-semibold text-primary">Адрес</h4>
-                    <p className="text-muted-foreground">г. Москва, ул. Производственная, 15</p>
+                    <p className="text-muted-foreground">г. Уссурийск,
+Ул. Владивостокское шоссе 145А/1</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Icon name="Phone" size={24} className="text-accent mt-1" />
                   <div>
                     <h4 className="font-semibold text-primary">Телефон</h4>
-                    <p className="text-muted-foreground">+7 (495) 123-45-67</p>
+                    <p className="text-muted-foreground">+7 (924)265-93-50
++7 (914)650-36-36</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Icon name="Mail" size={24} className="text-accent mt-1" />
                   <div>
                     <h4 className="font-semibold text-primary">Email</h4>
-                    <p className="text-muted-foreground">info@mebelart.ru</p>
+                    <p className="text-muted-foreground">mebelgiz.victor@mail.ru</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Icon name="Clock" size={24} className="text-accent mt-1" />
                   <div>
                     <h4 className="font-semibold text-primary">Режим работы</h4>
-                    <p className="text-muted-foreground">Пн-Пт: 9:00 - 19:00<br />Сб-Вс: 10:00 - 16:00</p>
+                    <p className="text-muted-foreground">Пн-Пт: 9:00 - 18:00
+Сб-Вс - выходные</p>
                   </div>
                 </div>
               </div>
