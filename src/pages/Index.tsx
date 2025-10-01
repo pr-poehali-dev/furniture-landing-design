@@ -203,7 +203,7 @@ const Index = () => {
                 <Icon name={isDarkMode ? 'Sun' : 'Moon'} size={20} />
               </button>
               <div className="hidden md:flex gap-6">
-              {['home', 'categories', 'about', 'portfolio', 'configurator', 'promos'].map((section) => (
+              {['home', 'categories', 'portfolio', 'configurator', 'promos'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -213,7 +213,6 @@ const Index = () => {
                 >
                   {section === 'home' && 'Главная'}
                   {section === 'categories' && 'Категории'}
-                  {section === 'about' && 'О нас'}
                   {section === 'portfolio' && 'Портфолио'}
                   {section === 'configurator' && '3D Конфигуратор'}
                   {section === 'promos' && <>
@@ -225,6 +224,12 @@ const Index = () => {
                   </>}
                 </button>
               ))}
+              <button
+                onClick={() => window.location.href = '/about'}
+                className="text-sm transition-colors hover:text-accent text-foreground"
+              >
+                О нас
+              </button>
               </div>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -244,7 +249,7 @@ const Index = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-background border-t border-border">
             <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
-              {['home', 'categories', 'about', 'portfolio', 'configurator', 'promos'].map((section) => (
+              {['home', 'categories', 'portfolio', 'configurator', 'promos'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -256,7 +261,6 @@ const Index = () => {
                 >
                   {section === 'home' && 'Главная'}
                   {section === 'categories' && 'Категории'}
-                  {section === 'about' && 'О нас'}
                   {section === 'portfolio' && 'Портфолио'}
                   {section === 'configurator' && '3D Конфигуратор'}
                   {section === 'promos' && (
@@ -270,6 +274,12 @@ const Index = () => {
                   )}
                 </button>
               ))}
+              <button
+                onClick={() => { window.location.href = '/about'; setIsMobileMenuOpen(false); }}
+                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
+              >
+                О нас
+              </button>
             </div>
           </div>
         )}
