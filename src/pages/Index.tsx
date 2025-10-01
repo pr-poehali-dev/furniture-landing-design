@@ -656,7 +656,7 @@ const Index = () => {
             Выбирайте материалы, цвета и размеры в режиме реального времени.
           </p>
           <Card className="max-w-4xl mx-auto">
-            <CardContent className="p-12">
+            <CardContent className="p-6 md:p-12">
               <div className="bg-secondary/50 rounded-lg h-96 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent animate-pulse-slow"></div>
                 <div className="text-center relative z-10">
@@ -676,7 +676,7 @@ const Index = () => {
       <section className="py-20 px-4 bg-secondary/20">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-start">
-            <div className="sticky top-24">
+            <div className="md:sticky md:top-24">
               <p className="text-sm text-muted-foreground mb-2 uppercase tracking-wider">FAQs</p>
               <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
                 Всё что нужно знать
