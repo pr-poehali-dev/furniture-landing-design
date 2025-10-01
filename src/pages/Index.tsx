@@ -472,27 +472,51 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 bg-secondary/20">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Часто задаваемые вопросы</h2>
-            <p className="text-lg text-muted-foreground">
-              Ответы на популярные вопросы наших клиентов
-            </p>
-          </div>
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqItems.map((item, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-lg px-6 bg-card hover:shadow-lg transition-shadow">
-                  <AccordionTrigger className="text-left font-semibold text-primary hover:text-accent">
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed">
-                    {item.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div className="sticky top-24">
+              <p className="text-sm text-muted-foreground mb-2 uppercase tracking-wider">FAQs</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
+                Всё что нужно знать
+              </h2>
+              <p className="text-muted-foreground mb-8 text-lg">
+                Всё что вам нужно знать о нашей продукции и услугах. Не нашли ответ? 
+                Напишите нашей дружелюбной команде.
+              </p>
+              
+              <div className="relative rounded-2xl overflow-hidden group cursor-pointer">
+                <img
+                  src="/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg"
+                  alt="Наши проекты"
+                  className="w-full h-64 object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Icon name="Play" size={24} className="text-primary ml-1" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqItems.map((item, index) => (
+                  <AccordionItem 
+                    key={index} 
+                    value={`item-${index}`} 
+                    className="border-b border-border pb-4 last:border-0"
+                  >
+                    <AccordionTrigger className="text-left font-semibold text-primary hover:text-accent text-lg py-4 hover:no-underline">
+                      {item.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground leading-relaxed pt-2 pb-4">
+                      {item.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
           </div>
         </div>
       </section>
