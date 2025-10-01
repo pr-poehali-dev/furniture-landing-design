@@ -485,7 +485,7 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-5xl md:text-6xl font-bold text-primary mb-2">500+</div>
-              <div className="text-muted-foreground">Products</div>
+              <div className="text-muted-foreground">Продуктов</div>
             </div>
             <div className="text-center">
               <div className="text-5xl md:text-6xl font-bold text-primary mb-2">20+</div>
