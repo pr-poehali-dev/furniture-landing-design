@@ -483,15 +483,9 @@ const Index = () => {
 
             <div className="md:col-span-5 flex flex-col gap-6">
               <div className="bg-secondary/50 rounded-3xl p-8 flex-1 flex flex-col justify-center">
-                <Badge className="bg-primary/10 text-primary border-0 px-4 py-2 w-fit mb-6">
-                  Aesthetic
-                </Badge>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Aesthetic Furniture where every piece tells a story of style
-                </p>
-                <h3 className="text-3xl md:text-4xl font-bold text-primary leading-tight">
-                  Into a gallery<br/>of elegance
-                </h3>
+                <Badge className="bg-primary/10 text-primary border-0 px-4 py-2 w-fit mb-6">Творчество</Badge>
+                <p className="text-sm text-muted-foreground mb-4">Мы создаем уникальные решения, которые отражают индивидуальность наших клиентов.</p>
+                <h3 className="text-3xl md:text-4xl font-bold text-primary leading-tight">Каждый проект для нас — это творческий вызов</h3>
               </div>
 
               <div className="relative rounded-3xl overflow-hidden h-[220px] group">
