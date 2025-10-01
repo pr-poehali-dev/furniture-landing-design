@@ -783,6 +783,32 @@ const Index = () => {
                   </div>
                 </div>
               </div>
+              <div className="flex gap-4 pt-4 border-t border-border">
+                <a 
+                  href="https://t.me/yourcompany" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-colors group"
+                >
+                  <Icon name="Send" size={20} className="text-accent group-hover:scale-110 transition-transform" />
+                </a>
+                <a 
+                  href="https://instagram.com/yourcompany" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-colors group"
+                >
+                  <Icon name="Instagram" size={20} className="text-accent group-hover:scale-110 transition-transform" />
+                </a>
+                <a 
+                  href="https://wa.me/74951234567" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-colors group"
+                >
+                  <Icon name="MessageCircle" size={20} className="text-accent group-hover:scale-110 transition-transform" />
+                </a>
+              </div>
             </div>
             <Card>
               <CardContent className="p-8">
