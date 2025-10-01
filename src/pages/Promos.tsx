@@ -104,6 +104,9 @@ const Promos = () => {
                 <Button onClick={() => window.location.href = '/about'} variant="ghost">
                   О нас
                 </Button>
+                <Button onClick={() => window.location.href = '/portfolio'} variant="ghost">
+                  Портфолио
+                </Button>
                 <Button onClick={() => window.location.href = '/promos'} variant="ghost" className="relative">
                   Акции
                   <span className="absolute -top-1 -right-1 flex h-2 w-2">
@@ -134,6 +137,12 @@ const Promos = () => {
                 className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
               >
                 О нас
+              </button>
+              <button
+                onClick={() => { window.location.href = '/portfolio'; setIsMobileMenuOpen(false); }}
+                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
+              >
+                Портфолио
               </button>
               <button
                 onClick={() => { window.location.href = '/promos'; setIsMobileMenuOpen(false); }}
