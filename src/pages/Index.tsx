@@ -1,14 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+
+  const heroSlides = [
+    {
+      title: 'Создаём мебель вашей мечты с 1998 года',
+      description: 'Премиальная мебель на заказ. Собственное производство, индивидуальный дизайн, 25 лет опыта и более 5000 довольных клиентов.',
+      image: '/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg'
+    },
+    {
+      title: 'Индивидуальный дизайн для каждого проекта',
+      description: 'Наши дизайнеры создают уникальные решения, которые идеально впишутся в ваш интерьер и отражают вашу индивидуальность.',
+      image: '/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg'
+    },
+    {
+      title: 'Производство полного цикла',
+      description: 'Современное оборудование, квалифицированные мастера и контроль качества на каждом этапе гарантируют безупречный результат.',
+      image: '/img/3de30437-f746-455d-a0be-af860784e138.jpg'
+    }
+  ];
 
   const categories = [
     { name: 'Кухни', icon: 'UtensilsCrossed' },
@@ -107,34 +127,52 @@ const Index = () => {
         </div>
       </nav>
 
-      <section id="home" className="pt-32 pb-20 px-4">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in-up">
-              <h2 className="text-5xl md:text-6xl font-bold text-primary mb-6 leading-tight">
-                Создаём мебель вашей мечты с 1998 года
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Премиальная мебель на заказ. Собственное производство, индивидуальный дизайн, 
-                25 лет опыта и более 5000 довольных клиентов.
-              </p>
-              <div className="flex gap-4">
-                <Button onClick={() => scrollToSection('configurator')} size="lg" className="bg-primary hover:bg-primary/90">
-                  Попробовать конфигуратор
-                </Button>
-                <Button onClick={() => scrollToSection('portfolio')} size="lg" variant="outline">
-                  Смотреть проекты
-                </Button>
-              </div>
-            </div>
-            <div className="animate-fade-in">
-              <img
-                src="/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg"
-                alt="Премиальная мебель"
-                className="rounded-lg shadow-2xl w-full h-[500px] object-cover"
-              />
-            </div>
-          </div>
+      <section id="home" className="pt-32 pb-20 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-secondary/10 animate-gradient-shift bg-[length:200%_200%]"></div>
+        <div className="container mx-auto relative z-10">
+          <Carousel
+            opts={{ loop: true }}
+            plugins={[Autoplay({ delay: 5000 })]}
+            className="w-full"
+          >
+            <CarouselContent>
+              {heroSlides.map((slide, index) => (
+                <CarouselItem key={index}>
+                  <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="animate-fade-in-up">
+                      <h2 className="text-5xl md:text-6xl font-bold text-primary mb-6 leading-tight">
+                        {slide.title}
+                      </h2>
+                      <p className="text-lg text-muted-foreground mb-8">
+                        {slide.description}
+                      </p>
+                      <div className="flex gap-4">
+                        <Button onClick={() => scrollToSection('configurator')} size="lg" className="bg-primary hover:bg-primary/90 hover:scale-105 transition-transform">
+                          Попробовать конфигуратор
+                        </Button>
+                        <Button onClick={() => scrollToSection('portfolio')} size="lg" variant="outline" className="hover:scale-105 transition-transform">
+                          Смотреть проекты
+                        </Button>
+                      </div>
+                    </div>
+                    <div className="animate-fade-in relative">
+                      <div className="absolute -inset-4 bg-accent/20 rounded-lg blur-2xl animate-pulse-slow"></div>
+                      <img
+                        src={slide.image}
+                        alt="Премиальная мебель"
+                        className="rounded-lg shadow-2xl w-full h-[500px] object-cover relative z-10"
+                      />
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
+            <CarouselNext className="right-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
+          </Carousel>
+        </div>
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+          <Icon name="ChevronDown" size={32} className="text-accent" />
         </div>
       </section>
 
@@ -155,8 +193,8 @@ const Index = () => {
               >
                 <Card className="h-full hover:shadow-2xl transition-shadow border-2 hover:border-accent/50">
                   <CardContent className="p-8">
-                    <div className="w-16 h-16 mb-6 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-colors group-hover:animate-float">
-                      <Icon name={benefit.icon} size={32} className="text-accent" />
+                    <div className="w-16 h-16 mb-6 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-all animate-float">
+                      <Icon name={benefit.icon} size={32} className="text-accent group-hover:rotate-12 transition-transform duration-300" />
                     </div>
                     <h3 className="text-xl font-bold text-primary mb-3">{benefit.title}</h3>
                     <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
@@ -175,11 +213,12 @@ const Index = () => {
             {categories.map((category, index) => (
               <Card
                 key={index}
-                className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
+                className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group relative overflow-hidden"
               >
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-accent/20 rounded-full flex items-center justify-center group-hover:bg-accent/30 transition-colors">
-                    <Icon name={category.icon} size={32} className="text-accent" />
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <CardContent className="p-6 text-center relative z-10">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-accent/20 rounded-full flex items-center justify-center group-hover:bg-accent/30 transition-all group-hover:animate-float">
+                    <Icon name={category.icon} size={32} className="text-accent group-hover:scale-110 transition-transform" />
                   </div>
                   <h3 className="font-semibold text-foreground">{category.name}</h3>
                 </CardContent>
@@ -318,6 +357,7 @@ const Index = () => {
             {portfolio.map((project) => (
               <Card key={project.id} className="overflow-hidden hover:shadow-2xl transition-all duration-300 group">
                 <div className="relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 z-10 animate-shimmer"></div>
                   <img
                     src={project.image}
                     alt={project.title}
@@ -345,9 +385,10 @@ const Index = () => {
           </p>
           <Card className="max-w-4xl mx-auto">
             <CardContent className="p-12">
-              <div className="bg-secondary/50 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center">
-                  <Icon name="Box" size={64} className="mx-auto mb-4 text-accent" />
+              <div className="bg-secondary/50 rounded-lg h-96 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent animate-pulse-slow"></div>
+                <div className="text-center relative z-10">
+                  <Icon name="Box" size={64} className="mx-auto mb-4 text-accent animate-float" />
                   <h3 className="text-xl font-bold text-primary mb-2">Интерактивный 3D конфигуратор</h3>
                   <p className="text-muted-foreground mb-6">Создавайте и визуализируйте вашу мебель в 3D</p>
                   <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary">
