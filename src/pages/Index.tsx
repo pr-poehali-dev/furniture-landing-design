@@ -11,7 +11,27 @@ import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    if (!isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  };
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -172,7 +192,15 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-bold text-primary">Ваша мебель</h1>
-            <div className="hidden md:flex gap-6">
+            <div className="flex items-center gap-6">
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg hover:bg-secondary transition-colors"
+                aria-label="Переключить тему"
+              >
+                <Icon name={isDarkMode ? 'Sun' : 'Moon'} size={20} />
+              </button>
+              <div className="hidden md:flex gap-6">
               {['home', 'categories', 'about', 'portfolio', 'configurator', 'promos'].map((section) => (
                 <button
                   key={section}
@@ -195,11 +223,12 @@ const Index = () => {
                   </>}
                 </button>
               ))}
+              </div>
+              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary">
+                <Icon name="Phone" size={16} className="mr-2" />
+                Контакты
+              </Button>
             </div>
-            <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary">
-              <Icon name="Phone" size={16} className="mr-2" />
-              Контакты
-            </Button>
           </div>
         </div>
       </nav>

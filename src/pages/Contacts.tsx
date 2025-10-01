@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -5,6 +6,27 @@ import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
 
 const Contacts = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    if (!isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -16,7 +38,15 @@ const Contacts = () => {
             >
               Ваша мебель
             </h1>
-            <div className="hidden md:flex gap-6">
+            <div className="flex items-center gap-6">
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg hover:bg-secondary transition-colors"
+                aria-label="Переключить тему"
+              >
+                <Icon name={isDarkMode ? 'Sun' : 'Moon'} size={20} />
+              </button>
+              <div className="hidden md:flex gap-6">
               <button
                 onClick={() => window.location.href = '/'}
                 className="text-sm transition-colors hover:text-accent text-foreground"
@@ -28,11 +58,12 @@ const Contacts = () => {
               >
                 Контакты
               </button>
+              </div>
+              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary">
+                <Icon name="Phone" size={16} className="mr-2" />
+                Контакты
+              </Button>
             </div>
-            <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary">
-              <Icon name="Phone" size={16} className="mr-2" />
-              Контакты
-            </Button>
           </div>
         </div>
       </nav>
