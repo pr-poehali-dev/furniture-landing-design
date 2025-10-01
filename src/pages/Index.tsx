@@ -308,57 +308,55 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-secondary/30">
+      <section id="about" className="py-20 px-4 bg-background">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="order-2 md:order-1">
-              <img
-                src="/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg"
-                alt="Производство мебели"
-                className="rounded-lg shadow-2xl w-full h-[600px] object-cover"
-              />
-            </div>
-            <div className="order-1 md:order-2 space-y-6">
-              <h2 className="text-4xl md:text-5xl font-bold text-primary leading-tight">
-                С 1998 года производим и устанавливаем мебель по индивидуальному проекту
+          <div className="grid md:grid-cols-12 gap-8 items-start">
+            <div className="md:col-span-3">
+              <h2 className="text-6xl md:text-7xl font-bold text-primary leading-none mb-8">
+                О НАС
               </h2>
-              <p className="text-xl text-muted-foreground">
-                Если вы знаете как должна выглядеть мебель, мы точно знаем как ее сделать
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Наш 25-летний опыт в производстве премиум мебели помогает снизить риски, избежать ошибок и повысить качество. 
-                Мы сотрудничаем с лучшими поставщиками материалов, что обеспечивает превосходный результат и помогает оптимизировать ваш бюджет.
-              </p>
-              <div className="space-y-3">
-                <p className="font-semibold text-primary">Мы специализируемся на создании:</p>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <Icon name="Check" size={20} className="text-accent mt-1 flex-shrink-0" />
-                    <span>Эксклюзивной мебели и кухонь, подчеркивающих индивидуальность интерьера</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Icon name="Check" size={20} className="text-accent mt-1 flex-shrink-0" />
-                    <span>Решений для сложных планировок и нестандартных помещений</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Icon name="Check" size={20} className="text-accent mt-1 flex-shrink-0" />
-                    <span>Изделий с гарантированным качеством и длительным сроком службы</span>
-                  </li>
-                </ul>
+              
+              <div className="space-y-6 mb-8">
+                <div>
+                  <h3 className="text-sm font-medium text-muted-foreground mb-2">
+                    Luxurious Interior and Industrial Design
+                  </h3>
+                </div>
+                
+                <div>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Modern Elegance: Designs featuring clean lines, neutral palettes, and high-quality materials.
+                  </p>
+                </div>
               </div>
-              <div className="grid grid-cols-3 gap-6 pt-6">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-accent mb-2">25+</div>
-                  <div className="text-sm text-muted-foreground">лет работы</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-accent mb-2">5000+</div>
-                  <div className="text-sm text-muted-foreground">проектов</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-accent mb-2">90%</div>
-                  <div className="text-sm text-muted-foreground">довольных клиентов</div>
-                </div>
+            </div>
+
+            <div className="md:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden h-[400px]">
+                <img
+                  src="/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg"
+                  alt="Интерьер гостиной"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="md:col-span-4 flex flex-col gap-6">
+              <div className="relative rounded-3xl overflow-hidden h-[180px]">
+                <img
+                  src="/img/3de30437-f746-455d-a0be-af860784e138.jpg"
+                  alt="Рабочее пространство"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              <div className="bg-secondary/30 rounded-3xl p-8">
+                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                  Our Philosophy
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  At Britto Charette, we believe in creating luxurious, personalized environments that reflect our clients' tastes and lifestyles.
+                </p>
               </div>
             </div>
           </div>
