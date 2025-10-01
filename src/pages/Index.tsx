@@ -741,7 +741,7 @@ const Index = () => {
           </div>
           <div className="flex justify-center">
             <Button 
-              onClick={() => window.location.href = '/contacts'}
+              onClick={() => window.location.href = '/promos'}
               className="bg-accent hover:bg-accent/90 text-primary px-6 md:px-8 py-4 md:py-6 text-base md:text-lg w-full sm:w-auto"
             >
               Узнать подробности всех акций
