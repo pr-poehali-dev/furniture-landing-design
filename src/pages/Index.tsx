@@ -435,7 +435,7 @@ const Index = () => {
                     Georgeus Interior
                   </Badge>
                 </div>
-                <div className="absolute bottom-8 left-8 bg-white/95 backdrop-blur-sm rounded-2xl px-8 py-4">
+                <div className="absolute bottom-8 left-8 backdrop-blur-sm rounded-2xl px-8 py-4 bg-[#372b2580]">
                   <h3 className="text-4xl font-bold text-primary">
                     Modern<br/>Minimalist
                   </h3>
