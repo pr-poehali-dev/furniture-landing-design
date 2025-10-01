@@ -450,9 +450,7 @@ const Index = () => {
                 <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
                   Наша философия
                 </h3>
-                <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
-                  Мы создаем роскошные, персонализированные интерьеры, которые отражают вкусы и образ жизни наших клиентов.
-                </p>
+                <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">Если вы знаете как должна выглядеть мебель, мы точно знаем как ее сделать</p>
                 <Button onClick={() => window.location.href = '/contacts'} className="bg-primary hover:bg-primary/90 text-primary-foreground w-full">
                   Перейти к контактам
                   <Icon name="ArrowRight" size={16} className="ml-2" />
