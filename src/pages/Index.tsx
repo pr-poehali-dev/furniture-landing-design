@@ -152,13 +152,15 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-primary">МебельАрт</h1>
+            <div className="flex items-center gap-3">
+              <img src="https://cdn.poehali.dev/files/fa55d385-40c7-4b12-8dcf-a2b4b3cbd0e5.jpg" alt="Ваша мебель" className="h-10 w-auto" />
+            </div>
             <div className="hidden md:flex gap-6">
-              {['home', 'categories', 'about', 'portfolio', 'configurator', 'promos', 'contacts'].map((section) => (
+              {['home', 'categories', 'about', 'portfolio', 'configurator', 'promos'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`text-sm transition-colors hover:text-accent ${
+                  className={`text-sm transition-colors hover:text-accent relative ${
                     activeSection === section ? 'text-accent font-medium' : 'text-foreground'
                   }`}
                 >
@@ -167,14 +169,19 @@ const Index = () => {
                   {section === 'about' && 'О нас'}
                   {section === 'portfolio' && 'Портфолио'}
                   {section === 'configurator' && '3D Конфигуратор'}
-                  {section === 'promos' && 'Акции'}
-                  {section === 'contacts' && 'Контакты'}
+                  {section === 'promos' && <>
+                    Акции
+                    <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                    </span>
+                  </>}
                 </button>
               ))}
             </div>
-            <Button className="bg-accent hover:bg-accent/90 text-primary">
+            <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary">
               <Icon name="Phone" size={16} className="mr-2" />
-              Заказать звонок
+              Контакты
             </Button>
           </div>
         </div>
@@ -352,11 +359,15 @@ const Index = () => {
               
               <div className="bg-secondary/30 rounded-3xl p-8">
                 <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
-                  Our Philosophy
+                  Наша философия
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  At Britto Charette, we believe in creating luxurious, personalized environments that reflect our clients' tastes and lifestyles.
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Мы создаем роскошные, персонализированные интерьеры, которые отражают вкусы и образ жизни наших клиентов.
                 </p>
+                <Button onClick={() => window.location.href = '/contacts'} className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                  Перейти к контактам
+                  <Icon name="ArrowRight" size={16} className="ml-2" />
+                </Button>
               </div>
             </div>
           </div>

@@ -10,12 +10,12 @@ const Contacts = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 
+            <div 
               onClick={() => window.location.href = '/'} 
-              className="text-2xl font-bold text-primary cursor-pointer hover:opacity-80 transition-opacity"
+              className="cursor-pointer hover:opacity-80 transition-opacity"
             >
-              Ваша мебель
-            </h1>
+              <img src="https://cdn.poehali.dev/files/fa55d385-40c7-4b12-8dcf-a2b4b3cbd0e5.jpg" alt="Ваша мебель" className="h-10 w-auto" />
+            </div>
             <div className="hidden md:flex gap-6">
               <button
                 onClick={() => window.location.href = '/'}
