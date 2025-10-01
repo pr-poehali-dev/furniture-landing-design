@@ -472,14 +472,11 @@ const Index = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute top-6 left-6">
-                  <Badge className="bg-background/90 text-foreground backdrop-blur-sm border-0 px-4 py-2">
-                    Georgeus Interior
-                  </Badge>
+                  <Badge className="bg-background/90 text-foreground backdrop-blur-sm border-0 px-4 py-2">Соловьева Мария</Badge>
                 </div>
                 <div className="absolute bottom-8 left-8 backdrop-blur-sm rounded-2xl px-8 py-4 bg-background/80">
-                  <h3 className="text-4xl font-bold text-foreground">
-                    Modern<br/>Minimalist
-                  </h3>
+                  <h3 className="text-4xl font-bold text-foreground">Минималистичный
+Модерн</h3>
                 </div>
               </div>
             </div>
