@@ -158,7 +158,7 @@ const Index = () => {
   ];
 
   const benefits = [
-    { icon: 'Award', title: '10+ лет опыта', description: 'Мы создали более 5000 проектов для довольных клиентов.' },
+    { icon: 'Award', title: '25+ лет опыта', description: 'Мы создали более 5000 проектов для довольных клиентов.' },
     { icon: 'Gem', title: 'Премиум качество', description: 'Используем только лучшие материалы от проверенных поставщиков.' },
     { icon: 'Clock', title: 'Быстрые сроки', description: 'От проектирования до монтажа - в среднем 30 дней.' },
     { icon: 'DollarSign', title: 'Честные цены', description: 'Никаких скрытых платежей и дополнительных расходов.' },
@@ -189,7 +189,12 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute top-1/3 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: '4s' }}></div>
+      </div>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
@@ -318,8 +323,8 @@ const Index = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex left-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
-            <CarouselNext className="hidden md:flex right-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
+            <CarouselPrevious className="hidden md:flex left-2 md:left-4 bg-background/80 backdrop-blur-sm hover:bg-background z-20" />
+            <CarouselNext className="hidden md:flex right-2 md:right-4 bg-background/80 backdrop-blur-sm hover:bg-background z-20" />
           </Carousel>
         </div>
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
@@ -364,6 +369,23 @@ const Index = () => {
             {categories.map((category, index) => (
               <Card
                 key={index}
+                onClick={() => {
+                  const categoryMap: Record<string, string> = {
+                    'Кухни': 'Кухни',
+                    'Спальни': 'Спальни',
+                    'Гостиные': 'Гостиные',
+                    'Гардеробные': 'Гардеробные',
+                    'Ванные комнаты': 'Ванные комнаты',
+                    'Детские': 'Детские',
+                    'Прихожие': 'Прихожие',
+                    'Офисы': 'Офисы',
+                    'Мягкие панели': 'Мягкие панели',
+                    'Декор': 'Декор',
+                    'Торговые оборудования': 'Торговые оборудования'
+                  };
+                  const targetCategory = categoryMap[category.name];
+                  window.location.href = `/portfolio?category=${encodeURIComponent(targetCategory)}`;
+                }}
                 className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -451,8 +473,8 @@ const Index = () => {
                   Наша философия
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">Если вы знаете как должна выглядеть мебель, мы точно знаем как ее сделать</p>
-                <Button onClick={() => window.location.href = '/contacts'} className="bg-primary hover:bg-primary/90 text-primary-foreground w-full">
-                  Перейти к контактам
+                <Button onClick={() => window.location.href = '/about'} className="bg-primary hover:bg-primary/90 text-primary-foreground w-full">
+                  Подробнее
                   <Icon name="ArrowRight" size={16} className="ml-2" />
                 </Button>
               </div>
