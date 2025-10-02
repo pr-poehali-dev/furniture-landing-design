@@ -14,6 +14,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     Returns: HTTP response
     '''
     method: str = event.get('httpMethod', 'GET')
+    print(f"Request method: {method}")
     
     if method == 'OPTIONS':
         return {
@@ -49,16 +50,18 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'body': json.dumps({'error': 'Имя и телефон обязательны'})
             }
         
-        smtp_email = os.environ.get('GMAIL_USER')
-        smtp_password = os.environ.get('GMAIL_APP_PASSWORD')
+        smtp_email = os.environ.get('EMAIL_SENDER')
+        smtp_password = os.environ.get('EMAIL_PASSWORD')
         recipient_email = 'mihail-dutchak@mail.ru'
+        
+        print(f"Checking credentials - Email: {smtp_email[:10] if smtp_email else 'None'}, Password exists: {bool(smtp_password)}")
         
         if not smtp_email or not smtp_password:
             return {
                 'statusCode': 500,
                 'headers': {'Access-Control-Allow-Origin': '*'},
                 'body': json.dumps({
-                    'error': 'Email не настроен. Добавьте секреты GMAIL_USER и GMAIL_APP_PASSWORD'
+                    'error': 'Email не настроен. Добавьте секреты EMAIL_SENDER и EMAIL_PASSWORD'
                 })
             }
         
