@@ -769,7 +769,7 @@ const Portfolio = () => {
               <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
                 <Icon name="Award" size={32} className="text-accent" />
               </div>
-              <h3 className="text-4xl font-bold text-primary mb-2">50+</h3>
+              <h3 className="text-4xl font-bold text-primary mb-2">1000+</h3>
               <p className="text-muted-foreground">Реализованных проектов</p>
             </Card>
 
@@ -777,7 +777,7 @@ const Portfolio = () => {
               <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
                 <Icon name="Users" size={32} className="text-accent" />
               </div>
-              <h3 className="text-4xl font-bold text-primary mb-2">100%</h3>
+              <h3 className="text-4xl font-bold text-primary mb-2">90%</h3>
               <p className="text-muted-foreground">Довольных клиентов</p>
             </Card>
 
@@ -785,7 +785,7 @@ const Portfolio = () => {
               <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
                 <Icon name="Star" size={32} className="text-accent" />
               </div>
-              <h3 className="text-4xl font-bold text-primary mb-2">15+</h3>
+              <h3 className="text-4xl font-bold text-primary mb-2">25+</h3>
               <p className="text-muted-foreground">Лет опыта</p>
             </Card>
           </div>
