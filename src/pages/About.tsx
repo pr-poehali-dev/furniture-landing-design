@@ -300,21 +300,15 @@ const About = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">
-                {counts.products}+
-              </div>
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">5000+</div>
               <div className="text-muted-foreground">Продуктов в каталоге</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">
-                {counts.projects}+
-              </div>
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">1000+</div>
               <div className="text-muted-foreground">Реализованных проектов</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">
-                {counts.customers}+
-              </div>
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">800+</div>
               <div className="text-muted-foreground">Довольных клиентов</div>
             </div>
             <div className="text-center">
