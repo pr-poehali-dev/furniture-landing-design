@@ -22,6 +22,8 @@ const Index = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [selectedPromo, setSelectedPromo] = useState<any>(null);
+  const [selectedCategory, setSelectedCategory] = useState('Все');
+  const autoplayPluginRef = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }));
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -736,7 +738,7 @@ const Index = () => {
 
       <section id="portfolio" className="py-20 px-4 bg-background animate-on-scroll">
         <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-6">
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
                 Наши проекты
@@ -752,8 +754,83 @@ const Index = () => {
             >Посмотреть еще</Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[280px]">
-            {portfolio.map((project, index) => {
+          <div className="mb-12">
+            <div className="hidden md:flex gap-3 flex-wrap">
+              <Button
+                variant={selectedCategory === 'Все' ? 'default' : 'outline'}
+                className={`rounded-full ${
+                  selectedCategory === 'Все'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground'
+                }`}
+                onClick={() => setSelectedCategory('Все')}
+              >
+                Все
+              </Button>
+              {categories.map((cat) => (
+                <Button
+                  key={cat.name}
+                  variant={selectedCategory === cat.name ? 'default' : 'outline'}
+                  className={`rounded-full ${
+                    selectedCategory === cat.name
+                      ? 'bg-primary text-primary-foreground'
+                      : 'border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground'
+                  }`}
+                  onClick={() => setSelectedCategory(cat.name)}
+                >
+                  <Icon name={cat.icon} size={16} className="mr-2" />
+                  {cat.name}
+                </Button>
+              ))}
+            </div>
+
+            <div className="md:hidden">
+              <Carousel
+                opts={{
+                  align: 'start',
+                  loop: false,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="-ml-2">
+                  <CarouselItem className="pl-2 basis-auto">
+                    <Button
+                      variant={selectedCategory === 'Все' ? 'default' : 'outline'}
+                      className={`rounded-full ${
+                        selectedCategory === 'Все'
+                          ? 'bg-primary text-primary-foreground'
+                          : 'border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground'
+                      }`}
+                      onClick={() => setSelectedCategory('Все')}
+                    >
+                      Все
+                    </Button>
+                  </CarouselItem>
+                  {categories.map((cat) => (
+                    <CarouselItem key={cat.name} className="pl-2 basis-auto">
+                      <Button
+                        variant={selectedCategory === cat.name ? 'default' : 'outline'}
+                        className={`rounded-full whitespace-nowrap ${
+                          selectedCategory === cat.name
+                            ? 'bg-primary text-primary-foreground'
+                            : 'border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground'
+                        }`}
+                        onClick={() => setSelectedCategory(cat.name)}
+                      >
+                        <Icon name={cat.icon} size={16} className="mr-2" />
+                        {cat.name}
+                      </Button>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </div>
+          </div>
+
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[280px]">
+            {portfolio
+              .filter(project => selectedCategory === 'Все' || project.category === selectedCategory)
+              .map((project, index) => {
               let gridClass = 'md:col-span-2';
               
               if (project.size === 'large') {
@@ -789,6 +866,58 @@ const Index = () => {
                 </div>
               );
             })}
+          </div>
+
+          <div className="md:hidden">
+            <Carousel
+              opts={{
+                align: 'start',
+                loop: true,
+              }}
+              plugins={[autoplayPluginRef.current]}
+              className="w-full"
+              onMouseEnter={() => autoplayPluginRef.current.stop()}
+              onMouseLeave={() => autoplayPluginRef.current.play()}
+            >
+              <CarouselContent className="-ml-4">
+                {portfolio
+                  .filter(project => selectedCategory === 'Все' || project.category === selectedCategory)
+                  .map((project) => (
+                    <CarouselItem key={project.id} className="pl-4 basis-4/5">
+                      <div 
+                        className="group relative cursor-pointer"
+                        onClick={() => setSelectedImage(project.image)}
+                      >
+                        <div className="relative overflow-hidden rounded-3xl h-[300px]">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
+                          
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+                          <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                            <div>
+                              <Badge className="bg-primary/90 text-primary-foreground mb-2">{project.category}</Badge>
+                              <h3 className="text-2xl font-bold text-white">
+                                {project.title}
+                              </h3>
+                            </div>
+                            <div className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer flex-shrink-0 ml-4">
+                              <Icon name="ArrowUpRight" size={18} className="text-primary" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+              </CarouselContent>
+              <div className="flex justify-center gap-2 mt-6">
+                <CarouselPrevious className="static translate-y-0" />
+                <CarouselNext className="static translate-y-0" />
+              </div>
+            </Carousel>
           </div>
 
           <div className="md:hidden flex justify-center mt-8">
