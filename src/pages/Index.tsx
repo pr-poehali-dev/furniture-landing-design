@@ -330,52 +330,46 @@ const Index = () => {
             </div>
           </div>
         </div>
+      </nav>
 
-        {isMobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 top-[73px] bg-background z-40 flex flex-col">
-            <div className="flex-1 overflow-y-auto px-4 py-8">
-              <div className="flex flex-col gap-4">
-                <button
-                  onClick={() => { window.location.href = '/'; setIsMobileMenuOpen(false); }}
-                  className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
-                >
-                  Главная
-                </button>
-                <button
-                  onClick={() => { window.location.href = '/about'; setIsMobileMenuOpen(false); }}
-                  className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
-                >
-                  О нас
-                </button>
-                <button
-                  onClick={() => { window.location.href = '/portfolio'; setIsMobileMenuOpen(false); }}
-                  className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
-                >
-                  Портфолио
-                </button>
-                <button
-                  onClick={() => { window.location.href = '/promos'; setIsMobileMenuOpen(false); }}
-                  className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium relative"
-                >
-                  <div className="flex items-center justify-between">
-                    <span>Акции</span>
-                    <span className="flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-accent opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-                    </span>
-                  </div>
-                </button>
-                <button
-                  onClick={() => { window.location.href = '/contacts'; setIsMobileMenuOpen(false); }}
-                  className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
-                >
-                  Контакты
-                </button>
-              </div>
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 bg-background z-40 pt-20">
+          <div className="h-full overflow-y-auto px-6 py-8">
+            <div className="flex flex-col gap-4">
+              <button
+                onClick={() => { window.location.href = '/'; setIsMobileMenuOpen(false); }}
+                className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
+              >
+                Главная
+              </button>
+              <button
+                onClick={() => { window.location.href = '/about'; setIsMobileMenuOpen(false); }}
+                className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
+              >
+                О нас
+              </button>
+              <button
+                onClick={() => { window.location.href = '/portfolio'; setIsMobileMenuOpen(false); }}
+                className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
+              >
+                Портфолио
+              </button>
+              <button
+                onClick={() => { window.location.href = '/promos'; setIsMobileMenuOpen(false); }}
+                className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
+              >
+                Акции
+              </button>
+              <button
+                onClick={() => { window.location.href = '/contacts'; setIsMobileMenuOpen(false); }}
+                className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
+              >
+                Контакты
+              </button>
             </div>
           </div>
-        )}
-      </nav>
+        </div>
+      )}
 
       <section id="home" className="pt-32 pb-20 px-4 relative overflow-hidden animate-on-scroll">
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-secondary/10 animate-gradient-shift bg-[length:200%_200%]"></div>
