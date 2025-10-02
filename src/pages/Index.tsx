@@ -109,17 +109,17 @@ const Index = () => {
     {
       title: 'Создаём мебель вашей мечты с 1998 года',
       description: 'Премиальная мебель на заказ. Собственное производство, индивидуальный дизайн, 25 лет опыта и более 5000 довольных клиентов.',
-      image: '/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg'
+      image: 'https://cdn.poehali.dev/files/be69be9f-e201-4a8b-bda2-bb15a7bb89e4.jpg'
     },
     {
       title: 'Индивидуальный дизайн для каждого проекта',
       description: 'Наши дизайнеры создают уникальные решения, которые идеально впишутся в ваш интерьер и отражают вашу индивидуальность.',
-      image: '/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg'
+      image: 'https://cdn.poehali.dev/files/462a02c3-9488-4919-b26f-b974b91f69da.jpg'
     },
     {
       title: 'Производство полного цикла',
       description: 'Современное оборудование, квалифицированные мастера и контроль качества на каждом этапе гарантируют безупречный результат.',
-      image: '/img/3de30437-f746-455d-a0be-af860784e138.jpg'
+      image: 'https://cdn.poehali.dev/files/19be2a9b-7c8a-4485-aa00-3fd1c57cac04.jpg'
     }
   ];
 
@@ -578,8 +578,8 @@ const Index = () => {
             <div className="md:col-span-5">
               <div className="relative rounded-3xl overflow-hidden h-[400px]">
                 <img
-                  src="/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg"
-                  alt="Интерьер гостиной"
+                  src="https://cdn.poehali.dev/files/19be2a9b-7c8a-4485-aa00-3fd1c57cac04.jpg"
+                  alt="Интерьер офиса"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -588,8 +588,8 @@ const Index = () => {
             <div className="md:col-span-4 flex flex-col gap-6">
               <div className="relative rounded-3xl overflow-hidden h-[180px]">
                 <img
-                  src="/img/3de30437-f746-455d-a0be-af860784e138.jpg"
-                  alt="Рабочее пространство"
+                  src="https://cdn.poehali.dev/files/92d19c4e-5285-411d-90e6-27efdb0a527e.jpg"
+                  alt="Офисное пространство"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -978,8 +978,8 @@ const Index = () => {
                   <Icon name="MapPin" size={24} className="text-accent mt-1" />
                   <div>
                     <h4 className="font-semibold text-primary">Адрес</h4>
-                    <p className="text-muted-foreground">г. Уссурийск,
-Ул. Владивостокское шоссе 145А/1</p>
+                    <p className="text-muted-foreground">г. Уссурийск, Приморский край</p>
+                    <p className="text-muted-foreground">Владивостокское шоссе, 145А/2</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -1008,26 +1008,29 @@ const Index = () => {
               </div>
               <div className="flex gap-4 pt-4 border-t border-border">
                 <a 
-                  href="https://t.me/yourcompany" 
+                  href="https://instagram.com/vashakuhnya25" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-colors group"
-                >
-                  <Icon name="Send" size={20} className="text-accent group-hover:scale-110 transition-transform" />
-                </a>
-                <a 
-                  href="https://instagram.com/yourcompany" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-colors group"
+                  aria-label="Instagram"
                 >
                   <Icon name="Instagram" size={20} className="text-accent group-hover:scale-110 transition-transform" />
                 </a>
                 <a 
-                  href="https://wa.me/74951234567" 
+                  href="https://t.me/vashakuhnya25" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-colors group"
+                  aria-label="Telegram"
+                >
+                  <Icon name="Send" size={20} className="text-accent group-hover:scale-110 transition-transform" />
+                </a>
+                <a 
+                  href="https://wa.me/79242659350" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-colors group"
+                  aria-label="WhatsApp"
                 >
                   <Icon name="MessageCircle" size={20} className="text-accent group-hover:scale-110 transition-transform" />
                 </a>
