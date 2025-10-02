@@ -148,58 +148,58 @@ const Index = () => {
   const portfolio = [
     { 
       id: 1, 
-      image: '/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg', 
-      title: 'Mondrian', 
-      category: 'Кухни',
+      image: 'https://cdn.poehali.dev/files/da4c2b67-44ee-47f6-b593-27fd16121612.jpg', 
+      title: 'Современный Минимализм', 
+      category: 'Ванные комнаты',
       size: 'normal'
     },
     { 
       id: 2, 
-      image: '/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg', 
-      title: 'Nirnia', 
-      category: 'Спальни',
+      image: 'https://cdn.poehali.dev/files/a93e6f7f-50de-4e20-864d-75b24001de88.jpg', 
+      title: 'Роскошь и Элегантность', 
+      category: 'Ванные комнаты',
       size: 'large'
     },
     { 
       id: 3, 
-      image: '/img/3de30437-f746-455d-a0be-af860784e138.jpg', 
-      title: 'Artex', 
-      category: 'Гардеробные',
+      image: 'https://cdn.poehali.dev/files/f3d020a6-706e-4963-8676-d688131e6737.jpg', 
+      title: 'Скандинавский Уют', 
+      category: 'Гостиные',
       size: 'normal'
     },
     { 
       id: 4, 
-      image: '/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg', 
-      title: 'Valencia', 
+      image: 'https://cdn.poehali.dev/files/4b9b411d-9a7d-4299-b35e-e2f8547c94f0.jpg', 
+      title: 'Благородная Классика', 
       category: 'Гостиные',
       size: 'normal'
     },
     { 
       id: 5, 
-      image: '/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg', 
-      title: 'Brooklyn', 
-      category: 'Офисы',
+      image: 'https://cdn.poehali.dev/files/0ce8953b-989b-4290-9dd0-08dca83478c0.jpg', 
+      title: 'Воздушный Модерн', 
+      category: 'Гостиные',
       size: 'large'
     },
     { 
       id: 6, 
-      image: '/img/3de30437-f746-455d-a0be-af860784e138.jpg', 
-      title: 'Minimalist', 
-      category: 'Ванные',
+      image: 'https://cdn.poehali.dev/files/be69be9f-e201-4a8b-bda2-bb15a7bb89e4.jpg', 
+      title: 'Темная Элегантность', 
+      category: 'Кухни',
       size: 'normal'
     },
     { 
       id: 7, 
-      image: '/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg', 
-      title: 'Scandinavia', 
-      category: 'Детские',
+      image: 'https://cdn.poehali.dev/files/462a02c3-9488-4919-b26f-b974b91f69da.jpg', 
+      title: 'Светлая Классика', 
+      category: 'Кухни',
       size: 'wide'
     },
     { 
       id: 8, 
-      image: '/img/d4e62784-5b17-46a5-a7a3-c23d6d202d73.jpg', 
-      title: 'Luxe', 
-      category: 'Прихожие',
+      image: 'https://cdn.poehali.dev/files/19be2a9b-7c8a-4485-aa00-3fd1c57cac04.jpg', 
+      title: 'Рабочая Атмосфера', 
+      category: 'Офисы',
       size: 'normal'
     },
   ];
