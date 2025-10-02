@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Icon from '@/components/ui/icon';
 import ImageModal from '@/components/ImageModal';
 import Footer from '@/components/Footer';
@@ -257,17 +258,11 @@ const Portfolio = () => {
               ))}
             </div>
 
-            <div className="md:hidden px-4">
-              <Carousel 
-                opts={{
-                  align: "center",
-                  loop: true,
-                }}
-                className="w-full"
-              >
-                <CarouselContent className="-ml-2">
+            <div className="md:hidden">
+              <Carousel className="w-full max-w-xs mx-auto">
+                <CarouselContent>
                   {categories.map((category) => (
-                    <CarouselItem key={category} className="basis-auto pl-2">
+                    <CarouselItem key={category} className="basis-auto">
                       <Button
                         onClick={() => setActiveCategory(category)}
                         variant={activeCategory === category ? 'default' : 'outline'}
@@ -282,13 +277,13 @@ const Portfolio = () => {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="left-0" />
-                <CarouselNext className="right-0" />
+                <CarouselPrevious />
+                <CarouselNext />
               </Carousel>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {filteredProjects.map((project, index) => (
               <Card 
                 key={project.id}
@@ -339,6 +334,59 @@ const Portfolio = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          <div className="md:hidden mb-16">
+            <Carousel className="w-full">
+              <CarouselContent>
+                {filteredProjects.map((project) => (
+                  <CarouselItem key={project.id}>
+                    <Card 
+                      className="group overflow-hidden cursor-pointer"
+                      onClick={() => setSelectedImage(project.image)}
+                    >
+                      <CardContent className="p-0">
+                        <div className="relative h-96 overflow-hidden">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                          
+                          <div className="absolute top-4 right-4">
+                            <Badge className="bg-accent text-primary">
+                              {project.category}
+                            </Badge>
+                          </div>
+
+                          <div className="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-lg">
+                              {project.title}
+                            </h3>
+                            <p className="text-white text-sm mb-3 drop-shadow-md">
+                              {project.description}
+                            </p>
+                            <div className="flex gap-4 text-white text-sm drop-shadow-md">
+                              <div className="flex items-center gap-1">
+                                <Icon name="Maximize2" size={16} />
+                                <span>{project.area}</span>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <Icon name="Calendar" size={16} />
+                                <span>{project.year}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
           </div>
 
           {filteredProjects.length === 0 && (
