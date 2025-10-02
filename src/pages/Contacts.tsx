@@ -30,11 +30,29 @@ const Contacts = () => {
     document.documentElement.classList.toggle('dark', newTheme);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
-    setFormData({ name: '', phone: '', email: '', message: '' });
+    
+    try {
+      const response = await fetch('https://functions.poehali.dev/a84dc3cf-5089-4c96-9deb-6ebb7933eb9f', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+        setFormData({ name: '', phone: '', email: '', message: '' });
+      } else {
+        alert(data.error || 'Ошибка отправки. Попробуйте позже.');
+      }
+    } catch (error) {
+      alert('Ошибка отправки заявки. Проверьте подключение к интернету.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

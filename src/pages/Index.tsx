@@ -22,6 +22,12 @@ const Index = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [selectedPromo, setSelectedPromo] = useState<any>(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    message: ''
+  });
   const autoplayPlugin = useRef(
     Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
@@ -275,6 +281,38 @@ const Index = () => {
     setIsMobileMenuOpen(false);
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      const response = await fetch('https://functions.poehali.dev/a84dc3cf-5089-4c96-9deb-6ebb7933eb9f', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+        setFormData({ name: '', phone: '', email: '', message: '' });
+      } else {
+        alert(data.error || 'Ошибка отправки. Попробуйте позже.');
+      }
+    } catch (error) {
+      alert('Ошибка отправки заявки. Проверьте подключение к интернету.');
+    }
   };
 
   return (
@@ -1038,24 +1076,48 @@ const Index = () => {
             </div>
             <Card>
               <CardContent className="p-8">
-                <form className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium mb-2">Ваше имя</label>
-                    <Input placeholder="Иван Иванов" />
+                    <Input 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Иван Иванов"
+                      required
+                    />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Телефон</label>
-                    <Input placeholder="+7 (___) ___-__-__" />
+                    <Input 
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+7 (___) ___-__-__"
+                      required
+                    />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Email</label>
-                    <Input type="email" placeholder="email@example.com" />
+                    <Input 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      type="email" 
+                      placeholder="email@example.com"
+                    />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Сообщение</label>
-                    <Textarea placeholder="Расскажите о вашем проекте..." rows={4} />
+                    <Textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Расскажите о вашем проекте..." 
+                      rows={4}
+                    />
                   </div>
-                  <Button className="w-full bg-primary hover:bg-primary/90" size="lg">
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90" size="lg">
                     Отправить заявку
                   </Button>
                 </form>

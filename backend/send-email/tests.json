@@ -1,0 +1,41 @@
+{
+  "tests": [
+    {
+      "name": "Test form submission with all fields",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Петров",
+        "phone": "+79991234567",
+        "email": "test@example.com",
+        "message": "Хочу заказать кухню"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test form submission without optional fields",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Мария Иванова",
+        "phone": "+79997654321"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test OPTIONS for CORS",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}
