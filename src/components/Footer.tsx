@@ -113,26 +113,29 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Мы в соцсетях</h4>
             <div className="flex gap-4">
               <a 
-                href="https://t.me/yourcompany" 
+                href="https://instagram.com/vashakuhnya25" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors group"
-              >
-                <Icon name="Send" size={20} className="group-hover:scale-110 transition-transform" />
-              </a>
-              <a 
-                href="https://instagram.com/yourcompany" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors group"
+                aria-label="Instagram"
               >
                 <Icon name="Instagram" size={20} className="group-hover:scale-110 transition-transform" />
               </a>
               <a 
-                href="https://wa.me/74951234567" 
+                href="https://t.me/vashakuhnya25" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors group"
+                aria-label="Telegram"
+              >
+                <Icon name="Send" size={20} className="group-hover:scale-110 transition-transform" />
+              </a>
+              <a 
+                href="https://wa.me/79242659350" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors group"
+                aria-label="WhatsApp"
               >
                 <Icon name="MessageCircle" size={20} className="group-hover:scale-110 transition-transform" />
               </a>
