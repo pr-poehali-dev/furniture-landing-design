@@ -163,13 +163,33 @@ const Portfolio = () => {
     },
     {
       id: 9,
-      title: 'Гардеробная комната Luxury',
+      title: 'Гардеробная Black Glass',
       category: 'Гардеробные',
-      image: '/img/09b906d6-ffb2-4aea-9754-08c7c580141e.jpg',
-      size: 'medium',
-      description: 'Организованное пространство с элегантной подсветкой',
-      area: '12 м²',
+      image: 'https://cdn.poehali.dev/files/b685c05b-96e8-4420-9f60-68fd769c8290.jpg',
+      size: 'large',
+      description: 'Элегантная гардеробная с чёрными стеклянными дверями и подсветкой',
+      area: '14 м²',
       year: '2024'
+    },
+    {
+      id: 38,
+      title: 'Гардеробная Dark Wood',
+      category: 'Гардеробные',
+      image: 'https://cdn.poehali.dev/files/883a7614-5558-4566-983b-34d40794bcc7.jpg',
+      size: 'medium',
+      description: 'Угловая гардеробная в тёмных тонах с LED-подсветкой и открытыми полками',
+      area: '10 м²',
+      year: '2022'
+    },
+    {
+      id: 39,
+      title: 'Гардеробная Arch Style',
+      category: 'Гардеробные',
+      image: 'https://cdn.poehali.dev/files/18064183-08df-4fbc-b1f3-10298e549389.jpg',
+      size: 'medium',
+      description: 'Встроенный шкаф с арочными рифлёными дверями и дизайнерской люстрой',
+      area: '8 м²',
+      year: '2023'
     },
     {
       id: 10,
