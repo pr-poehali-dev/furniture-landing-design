@@ -190,6 +190,26 @@ const Portfolio = () => {
       description: 'Стеновая панель с асимметричными сегментами в стиле Мондриан',
       area: '4.2 м × 2.6 м',
       year: '2022'
+    },
+    {
+      id: 15,
+      title: 'Офис Open Space Pro',
+      category: 'Офисы',
+      image: 'https://cdn.poehali.dev/files/9ea2ab8f-9c5f-4dcb-b43c-0728c0a1ad50.jpg',
+      size: 'large',
+      description: 'Современный офис открытого типа на 6 рабочих мест с системами хранения',
+      area: '42 м²',
+      year: '2023'
+    },
+    {
+      id: 16,
+      title: 'Офис Green Workspace',
+      category: 'Офисы',
+      image: 'https://cdn.poehali.dev/files/c596a396-c393-42be-9c4a-fb6853724cec.jpg',
+      size: 'large',
+      description: 'Эко-офис с живыми растениями и эргономичной мебелью',
+      area: '38 м²',
+      year: '2025'
     }
   ];
 
