@@ -153,13 +153,33 @@ const Portfolio = () => {
     },
     {
       id: 11,
-      title: 'Детская комната Dream',
+      title: 'Детская Happy Life',
       category: 'Детские',
-      image: '/img/bfd9691f-0b88-49bf-be29-aef9d6f84be2.jpg',
+      image: 'https://cdn.poehali.dev/files/5dbacd97-b003-41b7-97b5-a0645dc756ed.jpg',
+      size: 'large',
+      description: 'Светлая детская с рабочей зоной в бежевых и розовых тонах',
+      area: '18 м²',
+      year: '2023'
+    },
+    {
+      id: 29,
+      title: 'Детская Pink Dream',
+      category: 'Детские',
+      image: 'https://cdn.poehali.dev/files/fea9db55-fe1b-4c56-a8ec-fdb6a3af1f8d.jpg',
       size: 'medium',
-      description: 'Яркая и функциональная детская',
-      area: '14 м²',
-      year: '2024'
+      description: 'Нежная детская для девочки в розово-белых тонах с оригинальной люстрой',
+      area: '15 м²',
+      year: '2022'
+    },
+    {
+      id: 30,
+      title: 'Детская Safari Adventure',
+      category: 'Детские',
+      image: 'https://cdn.poehali.dev/files/62176ace-6acf-447a-acae-95a7286f5b70.jpg',
+      size: 'large',
+      description: 'Детская для двоих детей с тематикой сафари и картой мира',
+      area: '20 м²',
+      year: '2025'
     },
     {
       id: 12,
