@@ -53,16 +53,66 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: 'Современная кухня Loft',
+      title: 'Кухня Marble Elegance',
       category: 'Кухни',
-      image: '/img/e7f98167-3e5e-48cf-9b59-e766334d81ae.jpg',
+      image: 'https://cdn.poehali.dev/files/2db0540c-b40d-445c-8a34-92a10313b292.jpg',
       size: 'large',
-      description: 'Минималистичный дизайн с мраморными столешницами',
-      area: '18 м²',
-      year: '2024'
+      description: 'Роскошная кухня с мраморными столешницами и островом',
+      area: '24 м²',
+      year: '2023'
     },
     {
       id: 2,
+      title: 'Кухня Black Edition',
+      category: 'Кухни',
+      image: 'https://cdn.poehali.dev/files/bfb24092-4fe4-47f5-a2ee-2f8940ce03ab.jpg',
+      size: 'large',
+      description: 'Современная кухня в тёмных тонах с барной стойкой',
+      area: '28 м²',
+      year: '2024'
+    },
+    {
+      id: 3,
+      title: 'Кухня Nordic Minimalism',
+      category: 'Кухни',
+      image: 'https://cdn.poehali.dev/files/23f67fc6-6790-423e-9cc1-eb0605550ccb.jpg',
+      size: 'medium',
+      description: 'Светлая кухня со встроенной техникой и мраморным фартуком',
+      area: '16 м²',
+      year: '2022'
+    },
+    {
+      id: 4,
+      title: 'Кухня Urban Loft',
+      category: 'Кухни',
+      image: 'https://cdn.poehali.dev/files/2ed1d324-a14d-417f-8a64-5994b82a9e18.jpg',
+      size: 'large',
+      description: 'Просторная кухня-студия с витринами и мраморной отделкой',
+      area: '32 м²',
+      year: '2025'
+    },
+    {
+      id: 5,
+      title: 'Кухня Provence Dream',
+      category: 'Кухни',
+      image: 'https://cdn.poehali.dev/files/9e2cf113-1e4d-424e-bb94-6c6d16cb1b7a.jpg',
+      size: 'medium',
+      description: 'Уютная белая кухня в классическом стиле с люстрой',
+      area: '12 м²',
+      year: '2021'
+    },
+    {
+      id: 6,
+      title: 'Кухня Dark Luxury',
+      category: 'Кухни',
+      image: 'https://cdn.poehali.dev/files/cce662e4-a13b-4220-9880-37624ca0c0d5.jpg',
+      size: 'large',
+      description: 'Элитная тёмная кухня с винным шкафом и островом',
+      area: '35 м²',
+      year: '2024'
+    },
+    {
+      id: 7,
       title: 'Спальня в скандинавском стиле',
       category: 'Спальни',
       image: '/img/33ff49b9-c9c6-4178-a6e5-087353aa3f2f.jpg',
@@ -72,7 +122,7 @@ const Portfolio = () => {
       year: '2024'
     },
     {
-      id: 3,
+      id: 8,
       title: 'Просторная гостиная Modern',
       category: 'Гостиные',
       image: '/img/5c5b6d16-8d9b-45c4-9df9-71ac8f25815e.jpg',
@@ -82,7 +132,7 @@ const Portfolio = () => {
       year: '2024'
     },
     {
-      id: 4,
+      id: 9,
       title: 'Гардеробная комната Luxury',
       category: 'Гардеробные',
       image: '/img/09b906d6-ffb2-4aea-9754-08c7c580141e.jpg',
@@ -92,7 +142,7 @@ const Portfolio = () => {
       year: '2024'
     },
     {
-      id: 5,
+      id: 10,
       title: 'Ванная комната Spa',
       category: 'Ванные комнаты',
       image: '/img/0deb2766-c83e-41fd-960b-4168c878e524.jpg',
@@ -102,7 +152,7 @@ const Portfolio = () => {
       year: '2024'
     },
     {
-      id: 6,
+      id: 11,
       title: 'Детская комната Dream',
       category: 'Детские',
       image: '/img/bfd9691f-0b88-49bf-be29-aef9d6f84be2.jpg',
@@ -112,17 +162,7 @@ const Portfolio = () => {
       year: '2024'
     },
     {
-      id: 7,
-      title: 'Кухня Классика',
-      category: 'Кухни',
-      image: '/img/a835547d-f06f-493f-9a23-53393a686878.jpg',
-      size: 'medium',
-      description: 'Элегантная кухня в классическом стиле',
-      area: '20 м²',
-      year: '2023'
-    },
-    {
-      id: 8,
+      id: 12,
       title: 'Уютная спальня',
       category: 'Спальни',
       image: '/img/f034a86e-df9d-4fc8-a0a8-29409a860b2c.jpg',
