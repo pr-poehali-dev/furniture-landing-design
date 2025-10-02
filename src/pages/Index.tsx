@@ -23,7 +23,9 @@ const Index = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [selectedPromo, setSelectedPromo] = useState<any>(null);
   const [selectedCategory, setSelectedCategory] = useState('Все');
-  const autoplayPluginRef = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }));
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -827,7 +829,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="hidden md:grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[280px]">
+          <div className="hidden md:grid md:grid-cols-6 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[280px]">
             {portfolio
               .filter(project => selectedCategory === 'Все' || project.category === selectedCategory)
               .map((project, index) => {
@@ -874,10 +876,8 @@ const Index = () => {
                 align: 'start',
                 loop: true,
               }}
-              plugins={[autoplayPluginRef.current]}
+              plugins={[autoplayPlugin.current]}
               className="w-full"
-              onMouseEnter={() => autoplayPluginRef.current.stop()}
-              onMouseLeave={() => autoplayPluginRef.current.play()}
             >
               <CarouselContent className="-ml-4">
                 {portfolio
