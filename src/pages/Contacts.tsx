@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
 import Footer from '@/components/Footer';
+import { useToast } from '@/hooks/use-toast';
 
 const Contacts = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -16,6 +17,8 @@ const Contacts = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   useEffect(() => {
     const theme = localStorage.getItem('theme');
@@ -32,6 +35,7 @@ const Contacts = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     try {
       const response = await fetch('https://functions.poehali.dev/a84dc3cf-5089-4c96-9deb-6ebb7933eb9f', {
@@ -45,13 +49,26 @@ const Contacts = () => {
       const data = await response.json();
 
       if (response.ok) {
-        alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+        toast({
+          title: '✅ Заявка отправлена!',
+          description: 'Спасибо! Мы свяжемся с вами в ближайшее время.',
+        });
         setFormData({ name: '', phone: '', email: '', message: '' });
       } else {
-        alert(data.error || 'Ошибка отправки. Попробуйте позже.');
+        toast({
+          title: '❌ Ошибка отправки',
+          description: data.error || 'Попробуйте позже или позвоните нам напрямую.',
+          variant: 'destructive',
+        });
       }
     } catch (error) {
-      alert('Ошибка отправки заявки. Проверьте подключение к интернету.');
+      toast({
+        title: '❌ Ошибка подключения',
+        description: 'Проверьте интернет или позвоните нам: +7 (999) 123-45-67',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -330,9 +347,19 @@ const Contacts = () => {
                       type="submit"
                       className="w-full bg-accent hover:bg-accent/90 text-primary h-12" 
                       size="lg"
+                      disabled={isSubmitting}
                     >
-                      Отправить заявку
-                      <Icon name="Send" size={20} className="ml-2" />
+                      {isSubmitting ? (
+                        <>
+                          <Icon name="Loader2" size={20} className="mr-2 animate-spin" />
+                          Отправка...
+                        </>
+                      ) : (
+                        <>
+                          Отправить заявку
+                          <Icon name="Send" size={20} className="ml-2" />
+                        </>
+                      )}
                     </Button>
                     <p className="text-xs text-muted-foreground text-center">
                       Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
