@@ -49,15 +49,17 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'body': json.dumps({'error': 'Имя и телефон обязательны'})
             }
         
-        smtp_email = os.environ.get('SMTP_EMAIL')
-        smtp_password = os.environ.get('SMTP_PASSWORD')
+        smtp_email = os.environ.get('GMAIL_USER')
+        smtp_password = os.environ.get('GMAIL_APP_PASSWORD')
         recipient_email = 'mihail-dutchak@mail.ru'
         
         if not smtp_email or not smtp_password:
             return {
                 'statusCode': 500,
                 'headers': {'Access-Control-Allow-Origin': '*'},
-                'body': json.dumps({'error': 'Email не настроен'})
+                'body': json.dumps({
+                    'error': 'Email не настроен. Добавьте секреты GMAIL_USER и GMAIL_APP_PASSWORD'
+                })
             }
         
         msg = MIMEMultipart('alternative')
