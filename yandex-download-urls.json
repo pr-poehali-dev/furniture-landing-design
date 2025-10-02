@@ -1,0 +1,366 @@
+{
+  "source": "https://disk.yandex.ru/d/vWmmIN00mV7SoQ",
+  "folder_name": "На ТВ проекты",
+  "total_files": 42,
+  "generated_at": "2025-10-02",
+  "note": "These URLs are temporary and expire after some time. The 'sizes' array contains ORIGINAL quality downloads.",
+  
+  "folders": {
+    "Ванные комнаты": {
+      "english_name": "Bathrooms",
+      "prefix": "bathroom",
+      "count": 4,
+      "files": [
+        {
+          "name": "1.jpg",
+          "size": 258626,
+          "download_url": "https://downloader.disk.yandex.ru/disk/edcc7262f06aedab62f2e85a7f0b90911fbde2417ca8a6ea2468f23cef05745b/68dee97d/ql58dIBT9epgos7ZcNM27u7pqGY0n12Seh0SiZsu9uDeZGrJYd6bfNF_I7Dwn9uKgD7XYIaE2pQHexNgJ4dslg%3D%3D?uid=0&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=258626&hid=e159241cb20bbbf026c7873d8b5922c7&media_type=image&tknv=v3&etag=58566f93b2a9f625b356034c46d2e167",
+          "target_filename": "bathroom-1.jpg"
+        },
+        {
+          "name": "2.jpg",
+          "size": 240597,
+          "download_url": "https://downloader.disk.yandex.ru/disk/e3d0c3dcdc5a0a2f6cb02cc87b29c2aa4a1e3fc9f55e4e1b3e6abab4d6b0e6d8/68dee97d/ql58dIBT9epgos7ZcNM27rBxlRojcsB9JZZhcvOXzd4NRiYRDhY4BYE4rnYCGX8KyCw0iAE8DyUC6MfD6mInzw%3D%3D?uid=0&filename=2.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=240597&hid=fbb77505a664bf1dc8c5de3996d458ab&media_type=image&tknv=v3&etag=fd1a3cd5c94a8a44f5f77f95cfc7b86e",
+          "target_filename": "bathroom-2.jpg",
+          "note": "URL needs to be fetched via download API"
+        },
+        {
+          "name": "3.jpg",
+          "size": 149348,
+          "download_url": "https://downloader.disk.yandex.ru/disk/NEEDS_FETCH_VIA_API",
+          "target_filename": "bathroom-3.jpg",
+          "api_path": "/Ванные комнаты/3.jpg"
+        },
+        {
+          "name": "4.jpg",
+          "size": 344313,
+          "download_url": "https://downloader.disk.yandex.ru/disk/NEEDS_FETCH_VIA_API",
+          "target_filename": "bathroom-4.jpg",
+          "api_path": "/Ванные комнаты/4.jpg"
+        }
+      ]
+    },
+    
+    "Гардеробные": {
+      "english_name": "Wardrobes",
+      "prefix": "wardrobe",
+      "count": 3,
+      "files": [
+        {
+          "name": "1.jpg",
+          "size": 1295989,
+          "download_url": "https://downloader.disk.yandex.ru/disk/0bf3d835cba72a34092e638450607547f94f13b0c4ddf5e4765bd04078981961/68dee982/4rWpp9QClvOQgQTVW4xx3wKsAGLFsC8dtkK8saoRusKnl8eTHAd2-LZb-HIid8IcA2hN_0yNCIZE-QOrexLawA%3D%3D?uid=0&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=1295989&hid=605211346acd48ecebd7f4219d5c06a4&media_type=image&tknv=v3&etag=8cb38d5abd445cd14b6a19f6b7c5c2ff",
+          "target_filename": "wardrobe-1.jpg"
+        },
+        {
+          "name": "2.jpg",
+          "size": 914728,
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "wardrobe-2.jpg",
+          "api_path": "/Гардеробные/2.jpg"
+        },
+        {
+          "name": "3.jpg",
+          "size": 924348,
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "wardrobe-3.jpg",
+          "api_path": "/Гардеробные/3.jpg"
+        }
+      ]
+    },
+    
+    "Гостиная": {
+      "english_name": "Living Rooms",
+      "prefix": "living-room",
+      "count": 4,
+      "files": [
+        {
+          "name": "1.jpg",
+          "size": 181642,
+          "download_url": "https://downloader.disk.yandex.ru/disk/aad7f9f780e673b5471e4779c9c1e72869307fdf98e211022394b09822e8adc1/68dee987/ql58dIBT9epgos7ZcNM27pRdlZuqJZGPPeVEzVhJQhhK53GR-oVbSG8nUMh28kcdf3YE4spxNj1XLe9yDAntrg%3D%3D?uid=0&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=181642&hid=85479f5662061595e181d6d5856bb291&media_type=image&tknv=v3&etag=2e302266353d014d4bd1bbebf1c6f34a",
+          "target_filename": "living-room-1.jpg"
+        },
+        {
+          "name": "2.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "living-room-2.jpg",
+          "api_path": "/Гостиная/2.jpg"
+        },
+        {
+          "name": "3.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "living-room-3.jpg",
+          "api_path": "/Гостиная/3.jpg"
+        },
+        {
+          "name": "4.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "living-room-4.jpg",
+          "api_path": "/Гостиная/4.jpg"
+        }
+      ]
+    },
+    
+    "Декор": {
+      "english_name": "Decor",
+      "prefix": "decor",
+      "count": 4,
+      "files": [
+        {
+          "name": "1.jpg",
+          "size": 144496,
+          "download_url": "https://downloader.disk.yandex.ru/disk/5a94932577cc0f4dd1c7a36cae49b13a0cf2c677e77da6056567460dcd3acad8/68dee98b/ql58dIBT9epgos7ZcNM27vtl81MELWJHhvLxiPRQHAQsQi_fgUanIjv9UKu7hrzv45sA4TqBGEzQf2RdAL_Hug%3D%3D?uid=0&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=144496&hid=b28ee22cb2929302776c6cf731b126b6&media_type=image&tknv=v3&etag=121cd0d8c6b2919e0f7d08e5880e1045",
+          "target_filename": "decor-1.jpg"
+        },
+        {
+          "name": "2.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "decor-2.jpg",
+          "api_path": "/Декор/2.jpg"
+        },
+        {
+          "name": "3.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "decor-3.jpg",
+          "api_path": "/Декор/3.jpg"
+        },
+        {
+          "name": "4.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "decor-4.jpg",
+          "api_path": "/Декор/4.jpg"
+        }
+      ]
+    },
+    
+    "Детские": {
+      "english_name": "Children's Rooms",
+      "prefix": "children-room",
+      "count": 3,
+      "files": [
+        {
+          "name": "1.jpg",
+          "size": 110190,
+          "download_url": "https://downloader.disk.yandex.ru/disk/50e7212c9895ce2166d27b25cabf13a19c844d79b22e44767c1e5f5e53d16dfd/68dee997/ql58dIBT9epgos7ZcNM27o5j0IbLRoeQVWyvsrXWwC1OZXIm828Y_fsioVCgdjssZ7i4VxIuCrDWToZ_8eirsw%3D%3D?uid=0&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=110190&hid=ddedea8a57ee4620205203d83b58433f&media_type=image&tknv=v3&etag=fb17cc97a95853896aea85bb02baf50c",
+          "target_filename": "children-room-1.jpg"
+        },
+        {
+          "name": "2.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "children-room-2.jpg",
+          "api_path": "/Детские/2.jpg"
+        },
+        {
+          "name": "3.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "children-room-3.jpg",
+          "api_path": "/Детские/3.jpg"
+        }
+      ]
+    },
+    
+    "Кухня": {
+      "english_name": "Kitchens",
+      "prefix": "kitchen",
+      "count": 6,
+      "files": [
+        {
+          "name": "1.jpg",
+          "size": 97567,
+          "download_url": "https://downloader.disk.yandex.ru/disk/013eb0fc4584242b07c2e9732db9a2c45787fb939eaf222fa1791eb0f95cb4c1/68dee99b/ql58dIBT9epgos7ZcNM27pjLuaEWx4s-fdizYTUM6QO2WH_4GG0avAr_lQDSuOOFXNJVP5OEL2f8YfeCLMcSXg%3D%3D?uid=0&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=97567&hid=fd6b97764b71b9c848269b2d9054323c&media_type=image&tknv=v3&etag=43c7720978b30446c5a8766430ced14d",
+          "target_filename": "kitchen-1.jpg"
+        },
+        {
+          "name": "2.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "kitchen-2.jpg",
+          "api_path": "/Кухня/2.jpg"
+        },
+        {
+          "name": "3.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "kitchen-3.jpg",
+          "api_path": "/Кухня/3.jpg"
+        },
+        {
+          "name": "4.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "kitchen-4.jpg",
+          "api_path": "/Кухня/4.jpg"
+        },
+        {
+          "name": "5.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "kitchen-5.jpg",
+          "api_path": "/Кухня/5.jpg"
+        },
+        {
+          "name": "6.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "kitchen-6.jpg",
+          "api_path": "/Кухня/6.jpg"
+        }
+      ]
+    },
+    
+    "Мягкие панели": {
+      "english_name": "Soft Panels",
+      "prefix": "soft-panel",
+      "count": 2,
+      "files": [
+        {
+          "name": "1.jpg",
+          "size": 692191,
+          "download_url": "https://downloader.disk.yandex.ru/disk/c154d4ed290248835dc42e703b710741f5f33d847fb289eb1813c89bf2a0fdb5/68dee99f/ql58dIBT9epgos7ZcNM27j6-pfutaUnGpN5mTEY4RodbV2yPRu_0gxsRPO1e6S8u4QrIY0n_xdqJ64PTAR1yDw%3D%3D?uid=0&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=692191&hid=68ac026689dfd55ab9f0aad72acf9524&media_type=image&tknv=v3&etag=6c3974f606ae5e6d56c0188add37f992",
+          "target_filename": "soft-panel-1.jpg"
+        },
+        {
+          "name": "2.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "soft-panel-2.jpg",
+          "api_path": "/Мягкие панели/2.jpg"
+        }
+      ]
+    },
+    
+    "Офис": {
+      "english_name": "Office",
+      "prefix": "office",
+      "count": 2,
+      "files": [
+        {
+          "name": "1.jpg",
+          "size": 95852,
+          "download_url": "https://downloader.disk.yandex.ru/disk/36cbf09d1787a57ba4337b3542eb00b68e5fe61003ac9652a3fda2881a1e6d1e/68dee9a3/ql58dIBT9epgos7ZcNM27kpzyFnUDBfU68rN3O54_BaS7Tsm_6Z9IxrlTQw84F1mY8pdMSlMBGce2MlIUR7nSg%3D%3D?uid=0&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=95852&hid=59bff90c17c2eedd9d0c0bba36cd5c32&media_type=image&tknv=v3&etag=b09e6346a1c0d60e5803202714d38ee0",
+          "target_filename": "office-1.jpg"
+        },
+        {
+          "name": "2.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "office-2.jpg",
+          "api_path": "/Офис/2.jpg"
+        }
+      ]
+    },
+    
+    "Прихожая": {
+      "english_name": "Hallway",
+      "prefix": "hallway",
+      "count": 5,
+      "files": [
+        {
+          "name": "1.jpg",
+          "size": 167940,
+          "download_url": "https://downloader.disk.yandex.ru/disk/b02c2635a252759e7070a310b973afd6dde4293595ed918d2224583bc9452d76/68dee9a8/ql58dIBT9epgos7ZcNM27no2StYZZcoX3kxc6zB3rhjOjXb_Li5tVybO6iUdu-Iw7I-cxXoGcKf6RZrTXGS-pA%3D%3D?uid=0&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=167940&hid=c05d9fd6728a081f00c7697e80544cf6&media_type=image&tknv=v3&etag=eabafd7e4ba6fe50314726fb7a7fceac",
+          "target_filename": "hallway-1.jpg"
+        },
+        {
+          "name": "2.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "hallway-2.jpg",
+          "api_path": "/Прихожая/2.jpg"
+        },
+        {
+          "name": "3.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "hallway-3.jpg",
+          "api_path": "/Прихожая/3.jpg"
+        },
+        {
+          "name": "4.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "hallway-4.jpg",
+          "api_path": "/Прихожая/4.jpg"
+        },
+        {
+          "name": "5.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "hallway-5.jpg",
+          "api_path": "/Прихожая/5.jpg"
+        }
+      ]
+    },
+    
+    "Спальня": {
+      "english_name": "Bedroom",
+      "prefix": "bedroom",
+      "count": 6,
+      "files": [
+        {
+          "name": "1.jpg",
+          "size": 244304,
+          "download_url": "https://downloader.disk.yandex.ru/disk/270d7a20389a232b91da876c192b00c7f6b1bb9d0af07dbf9916c56d1d2b6816/68dee9ac/ql58dIBT9epgos7ZcNM27i1X5CZAZbs5mR9yk9PIgfpVtf5jykvaRaufrxexfCgRu514MTzF0Ieoc1-uWs9EnQ%3D%3D?uid=0&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=244304&hid=b16446483360c5b21bd88aa6f2941737&media_type=image&tknv=v3&etag=9cfa39d96e64fef4379410e4f41fa724",
+          "target_filename": "bedroom-1.jpg"
+        },
+        {
+          "name": "2.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "bedroom-2.jpg",
+          "api_path": "/Спальня/2.jpg"
+        },
+        {
+          "name": "3.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "bedroom-3.jpg",
+          "api_path": "/Спальня/3.jpg"
+        },
+        {
+          "name": "4.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "bedroom-4.jpg",
+          "api_path": "/Спальня/4.jpg"
+        },
+        {
+          "name": "5.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "bedroom-5.jpg",
+          "api_path": "/Спальня/5.jpg"
+        },
+        {
+          "name": "6.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "bedroom-6.jpg",
+          "api_path": "/Спальня/6.jpg"
+        }
+      ]
+    },
+    
+    "Торговое оборудование": {
+      "english_name": "Trade Equipment",
+      "prefix": "trade-equipment",
+      "count": 3,
+      "files": [
+        {
+          "name": "1.jpg",
+          "size": 413010,
+          "download_url": "https://downloader.disk.yandex.ru/disk/7f2369fed8e6edbbfda753f7ac78f9aa92b1ad9d121ca65be098696bfbbeabbf/68dee9b0/ql58dIBT9epgos7ZcNM27jpHVe7m34du44s2FTdtvoFp32NuJwYnVhil9rob3FJnZvx9EpOVfGMbbjXB46eVtg%3D%3D?uid=0&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=413010&hid=247cf23c5fbb980716afeedcc2a2a019&media_type=image&tknv=v3&etag=a02c84a0b8c578d052637d1d3771e788",
+          "target_filename": "trade-equipment-1.jpg"
+        },
+        {
+          "name": "2.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "trade-equipment-2.jpg",
+          "api_path": "/Торговое оборудование/2.jpg"
+        },
+        {
+          "name": "3.jpg",
+          "download_url": "NEEDS_FETCH_VIA_API",
+          "target_filename": "trade-equipment-3.jpg",
+          "api_path": "/Торговое оборудование/3.jpg"
+        }
+      ]
+    }
+  },
+  
+  "api_info": {
+    "list_endpoint": "https://cloud-api.yandex.net/v1/disk/public/resources",
+    "download_endpoint": "https://cloud-api.yandex.net/v1/disk/public/resources/download",
+    "public_key_parameter": "public_key=https://disk.yandex.ru/d/vWmmIN00mV7SoQ",
+    "notes": [
+      "Files marked with 'NEEDS_FETCH_VIA_API' require individual API calls to get temporary download URLs",
+      "Download URLs from 'sizes' array (name='ORIGINAL') are temporary and expire",
+      "To get download URL for a specific file: GET download_endpoint?public_key=...&path=/folder/file.jpg",
+      "The response will contain an 'href' field with the actual download URL"
+    ]
+  }
+}
