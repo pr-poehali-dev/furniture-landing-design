@@ -113,12 +113,12 @@ const Portfolio = () => {
     },
     {
       id: 7,
-      title: 'Спальня в скандинавском стиле',
+      title: 'Спальня Romantic Dream',
       category: 'Спальни',
-      image: '/img/33ff49b9-c9c6-4178-a6e5-087353aa3f2f.jpg',
-      size: 'medium',
-      description: 'Уютное пространство с деревянной мебелью',
-      area: '16 м²',
+      image: 'https://cdn.poehali.dev/files/bed443af-713a-41e8-b3dc-9ac8b4a38904.jpg',
+      size: 'large',
+      description: 'Романтичная спальня с балдахином и золотыми акцентами',
+      area: '22 м²',
       year: '2024'
     },
     {
@@ -163,12 +163,12 @@ const Portfolio = () => {
     },
     {
       id: 12,
-      title: 'Уютная спальня',
+      title: 'Спальня Crystal Elegance',
       category: 'Спальни',
-      image: '/img/f034a86e-df9d-4fc8-a0a8-29409a860b2c.jpg',
-      size: 'medium',
-      description: 'Теплая спальня с деревянными акцентами',
-      area: '15 м²',
+      image: 'https://cdn.poehali.dev/files/70059ae9-70bf-4517-9835-465fa63c8883.jpg',
+      size: 'large',
+      description: 'Светлая спальня с дизайнерской люстрой и золотыми деталями',
+      area: '25 м²',
       year: '2023'
     },
     {
@@ -260,6 +260,46 @@ const Portfolio = () => {
       description: 'Современная прихожая с золотыми ручками и рифлёными фасадами',
       area: '7 м²',
       year: '2022'
+    },
+    {
+      id: 22,
+      title: 'Спальня Diamond Luxury',
+      category: 'Спальни',
+      image: 'https://cdn.poehali.dev/files/e2d74a9c-6817-46c6-82e0-68e17de500d8.jpg',
+      size: 'large',
+      description: 'Роскошная спальня с мягким изголовьем и хрустальными люстрами',
+      area: '28 м²',
+      year: '2022'
+    },
+    {
+      id: 23,
+      title: 'Спальня Pink Glamour',
+      category: 'Спальни',
+      image: 'https://cdn.poehali.dev/files/d0584150-76f4-4120-ac42-07a3e9985a1d.jpg',
+      size: 'medium',
+      description: 'Элегантная спальня с туалетным столиком и мягкими панелями',
+      area: '18 м²',
+      year: '2021'
+    },
+    {
+      id: 24,
+      title: 'Спальня Beige Harmony',
+      category: 'Спальни',
+      image: 'https://cdn.poehali.dev/files/6bfe60fe-3fb4-4e31-89e7-37f52687ef60.jpg',
+      size: 'large',
+      description: 'Спальня в бежевых тонах с дизайнерским освещением и рифлёными стенами',
+      area: '24 м²',
+      year: '2025'
+    },
+    {
+      id: 25,
+      title: 'Спальня White Prestige',
+      category: 'Спальни',
+      image: 'https://cdn.poehali.dev/files/3e0ad6c1-c9aa-4c1e-86e9-68026f670de2.jpg',
+      size: 'large',
+      description: 'Светлая спальня с большим шкафом и золотыми люстрами',
+      area: '26 м²',
+      year: '2023'
     }
   ];
 
