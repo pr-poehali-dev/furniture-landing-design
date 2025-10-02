@@ -350,6 +350,46 @@ const Portfolio = () => {
       description: 'Роскошная стойка ресепшн с мраморной отделкой и золотым декором',
       area: '12 м²',
       year: '2025'
+    },
+    {
+      id: 31,
+      title: 'Декор Стеновые Рейки Premium',
+      category: 'Декор',
+      image: 'https://cdn.poehali.dev/files/7e014ce1-a889-4a77-9324-e776f0c52462.jpg',
+      size: 'large',
+      description: 'Шкаф-купе с комбинированными фасадами из реек и зеркал в бежево-серых тонах',
+      area: '4.5 м × 2.7 м',
+      year: '2023'
+    },
+    {
+      id: 32,
+      title: 'Декор Арка Геометрия',
+      category: 'Декор',
+      image: 'https://cdn.poehali.dev/files/222895a4-f3d3-4fd7-a950-80b2eea8b51d.jpg',
+      size: 'medium',
+      description: 'Дизайнерская арка с геометрическим декором и деревянными панелями',
+      area: '3.2 м × 2.8 м',
+      year: '2024'
+    },
+    {
+      id: 33,
+      title: 'Декор Кухня Рейки Wood',
+      category: 'Декор',
+      image: 'https://cdn.poehali.dev/files/0e8a388c-b9b3-4a1e-95dc-b82816136d52.jpg',
+      size: 'large',
+      description: 'Декоративные деревянные рейки на кухне с витриной и подсветкой',
+      area: '5.8 м × 2.6 м',
+      year: '2022'
+    },
+    {
+      id: 34,
+      title: 'Декор Прихожая Elegance',
+      category: 'Декор',
+      image: 'https://cdn.poehali.dev/files/1a08bbc8-5856-466e-9d1d-6fd461f85d46.jpg',
+      size: 'large',
+      description: 'Элегантная прихожая с мягкой панелью, зеркалами и встроенной мебелью',
+      area: '2.8 м × 2.7 м',
+      year: '2021'
     }
   ];
 
