@@ -169,8 +169,8 @@ const Contacts = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-2">Адрес офиса</h3>
-                      <p className="text-muted-foreground">г. Уссурийск,
-Ул. Владивостокское шоссе 145А/1</p>
+                      <p className="text-muted-foreground">г. Уссурийск, Приморский край</p>
+                      <p className="text-muted-foreground">Владивостокское шоссе, 145А/2</p>
                       <p className="text-sm text-muted-foreground mt-1">ТЦ "Ваша мебель"</p>
                     </div>
                   </CardContent>
@@ -331,7 +331,7 @@ const Contacts = () => {
               <CardContent className="p-0">
                 <div className="relative w-full h-96 md:h-[500px] bg-secondary/20">
                   <iframe
-                    src="https://yandex.ru/map-widget/v1/?ll=131.949350%2C43.803580&mode=search&oid=46949715063&ol=biz&z=16"
+                    src="https://yandex.ru/map-widget/v1/?ll=131.9486%2C43.8040&z=17&l=map&pt=131.9486,43.8040,pm2rdm"
                     width="100%"
                     height="100%"
                     frameBorder="0"
