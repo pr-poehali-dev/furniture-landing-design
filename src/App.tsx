@@ -20,6 +20,29 @@ const App = () => {
     if (favicon) {
       favicon.href = "https://cdn.poehali.dev/files/200d59c0-004c-41bc-940c-aa7be2c4b4ad.png";
     }
+    
+    // Обновляем мета-теги для SEO
+    const metaDescription = document.querySelector("meta[name='description']");
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Ваша Мебель — качественная мебель для вашего дома. Широкий ассортимент мебели: кухни, спальни, гостиные, столы, стулья и другие изделия.");
+    }
+    
+    const metaKeywords = document.querySelector("meta[name='keywords']") || document.createElement("meta");
+    metaKeywords.setAttribute("name", "keywords");
+    metaKeywords.setAttribute("content", "мебель, купить мебель, качественная мебель, мебель для дома, кухни, спальни, гостиные");
+    if (!metaKeywords.parentElement) {
+      document.head.appendChild(metaKeywords);
+    }
+    
+    // Обновляем Open Graph теги
+    const ogTitle = document.querySelector("meta[property='og:title']");
+    if (ogTitle) ogTitle.setAttribute("content", "Ваша Мебель");
+    
+    const ogDescription = document.querySelector("meta[property='og:description']");
+    if (ogDescription) ogDescription.setAttribute("content", "Качественная мебель для вашего дома");
+    
+    const ogImage = document.querySelector("meta[property='og:image']");
+    if (ogImage) ogImage.setAttribute("content", "https://cdn.poehali.dev/files/200d59c0-004c-41bc-940c-aa7be2c4b4ad.png");
   }, []);
 
   return (
