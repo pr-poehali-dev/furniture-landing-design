@@ -434,7 +434,8 @@ const Index = () => {
               Мы создаем не просто мебель, а пространства, в которых хочется жить
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
@@ -452,6 +453,34 @@ const Index = () => {
                 </Card>
               </div>
             ))}
+          </div>
+
+          <div className="md:hidden px-4">
+            <Carousel
+              opts={{
+                align: "center",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {benefits.map((benefit, index) => (
+                  <CarouselItem key={index} className="basis-[85%]">
+                    <Card className="h-full border-2">
+                      <CardContent className="p-6">
+                        <div className="w-16 h-16 mb-4 bg-accent/10 rounded-full flex items-center justify-center">
+                          <Icon name={benefit.icon} size={32} className="text-accent" />
+                        </div>
+                        <h3 className="text-xl font-bold text-primary mb-3">{benefit.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-0" />
+              <CarouselNext className="right-0" />
+            </Carousel>
           </div>
         </div>
       </section>
