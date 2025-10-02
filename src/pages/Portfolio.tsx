@@ -193,13 +193,43 @@ const Portfolio = () => {
     },
     {
       id: 10,
-      title: 'Ванная комната Spa',
+      title: 'Ванная Marble Serenity',
       category: 'Ванные комнаты',
-      image: '/img/0deb2766-c83e-41fd-960b-4168c878e524.jpg',
-      size: 'medium',
-      description: 'Роскошная ванная с мраморной отделкой',
-      area: '10 м²',
+      image: 'https://cdn.poehali.dev/files/58407dfc-7a19-4f01-862c-42de446955ec.jpg',
+      size: 'large',
+      description: 'Элегантная ванная с мраморной отделкой, круглым зеркалом и рифлёными фасадами',
+      area: '12 м²',
       year: '2024'
+    },
+    {
+      id: 40,
+      title: 'Ванная Gold Luxury',
+      category: 'Ванные комнаты',
+      image: 'https://cdn.poehali.dev/files/04ee4383-6afc-4f4e-81ca-1322eb939804.jpg',
+      size: 'large',
+      description: 'Роскошная ванная с золотыми акцентами, мрамором и дизайнерскими люстрами',
+      area: '15 м²',
+      year: '2025'
+    },
+    {
+      id: 41,
+      title: 'Ванная Crystal Wave',
+      category: 'Ванные комнаты',
+      image: 'https://cdn.poehali.dev/files/c15edce3-15f4-44bc-a942-41156486a264.jpg',
+      size: 'medium',
+      description: 'Современная ванная с хрустальной люстрой-волной и мраморными панелями',
+      area: '9 м²',
+      year: '2023'
+    },
+    {
+      id: 42,
+      title: 'Ванная Modern Stone',
+      category: 'Ванные комнаты',
+      image: 'https://cdn.poehali.dev/files/84a314d3-c8c9-4623-aa79-01f84a87c1ff.jpg',
+      size: 'medium',
+      description: 'Компактная ванная с душевой кабиной и каменной отделкой в серых тонах',
+      area: '7 м²',
+      year: '2022'
     },
     {
       id: 11,
