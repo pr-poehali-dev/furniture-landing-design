@@ -128,31 +128,33 @@ const Promos = () => {
             </div>
           </div>
         </div>
+      </nav>
 
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-background border-t border-border">
-            <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 bg-background z-40 pt-20">
+          <div className="h-full overflow-y-auto px-6 py-8">
+            <div className="flex flex-col gap-4">
               <button
                 onClick={() => { window.location.href = '/'; setIsMobileMenuOpen(false); }}
-                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
+                className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
               >
                 Главная
               </button>
               <button
                 onClick={() => { window.location.href = '/about'; setIsMobileMenuOpen(false); }}
-                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
+                className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
               >
                 О нас
               </button>
               <button
                 onClick={() => { window.location.href = '/portfolio'; setIsMobileMenuOpen(false); }}
-                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
+                className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
               >
                 Портфолио
               </button>
               <button
                 onClick={() => { window.location.href = '/promos'; setIsMobileMenuOpen(false); }}
-                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary relative"
+                className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium relative"
               >
                 <div className="flex items-center justify-between">
                   <span>Акции</span>
@@ -162,10 +164,16 @@ const Promos = () => {
                   </span>
                 </div>
               </button>
+              <button
+                onClick={() => { window.location.href = '/contacts'; setIsMobileMenuOpen(false); }}
+                className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
+              >
+                Контакты
+              </button>
             </div>
           </div>
-        )}
-      </nav>
+        </div>
+      )}
 
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto">
