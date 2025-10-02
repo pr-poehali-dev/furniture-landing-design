@@ -123,13 +123,43 @@ const Portfolio = () => {
     },
     {
       id: 8,
-      title: 'Просторная гостиная Modern',
+      title: 'Гостиная Minimalist Zen',
       category: 'Гостиные',
-      image: '/img/5c5b6d16-8d9b-45c4-9df9-71ac8f25815e.jpg',
+      image: 'https://cdn.poehali.dev/files/33f0c773-67a4-4af1-af41-0804c8d554e2.jpg',
       size: 'large',
-      description: 'Светлое пространство с панорамными окнами',
-      area: '32 м²',
+      description: 'Просторная гостиная в бежевых тонах с перегородкой и мраморным полом',
+      area: '45 м²',
       year: '2024'
+    },
+    {
+      id: 35,
+      title: 'Гостиная Natural Wood',
+      category: 'Гостиные',
+      image: 'https://cdn.poehali.dev/files/88b83564-e7f1-46a0-aa95-7fa0ad45a318.jpg',
+      size: 'medium',
+      description: 'ТВ-зона с декоративными рейками и подвесной консолью в бежево-коричневых тонах',
+      area: '28 м²',
+      year: '2023'
+    },
+    {
+      id: 36,
+      title: 'Гостиная Modern Dining',
+      category: 'Гостиные',
+      image: 'https://cdn.poehali.dev/files/8839045d-dec3-4abe-8554-b0d66bdf993f.jpg',
+      size: 'large',
+      description: 'Столовая зона с дизайнерскими люстрами и деревянными панелями',
+      area: '35 м²',
+      year: '2022'
+    },
+    {
+      id: 37,
+      title: 'Гостиная White Luxury',
+      category: 'Гостиные',
+      image: 'https://cdn.poehali.dev/files/4c0d94f5-700e-4f4c-95b3-8b9f879167ad.jpg',
+      size: 'large',
+      description: 'Двухуровневая гостиная с круглыми люстрами и лестницей в светлых тонах',
+      area: '52 м²',
+      year: '2025'
     },
     {
       id: 9,
