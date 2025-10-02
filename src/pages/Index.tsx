@@ -356,9 +356,15 @@ const Index = () => {
               </button>
               <button
                 onClick={() => { window.location.href = '/promos'; setIsMobileMenuOpen(false); }}
-                className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
+                className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium relative"
               >
-                Акции
+                <div className="flex items-center justify-between">
+                  <span>Акции</span>
+                  <span className="flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-accent opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                  </span>
+                </div>
               </button>
               <button
                 onClick={() => { window.location.href = '/contacts'; setIsMobileMenuOpen(false); }}
