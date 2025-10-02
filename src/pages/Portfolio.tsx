@@ -247,7 +247,7 @@ const Portfolio = () => {
             </p>
           </div>
 
-          <div className="mb-12">
+          <div className="mb-12 relative">
             <Carousel
               opts={{
                 align: 'start',
@@ -287,6 +287,8 @@ const Portfolio = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
+              <CarouselPrevious className="hidden md:flex -left-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
+              <CarouselNext className="hidden md:flex -right-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
             </Carousel>
           </div>
 
