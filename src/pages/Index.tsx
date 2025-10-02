@@ -615,10 +615,10 @@ const Index = () => {
             <div className="md:col-span-7">
               <div 
                 className="relative rounded-3xl overflow-hidden h-[500px] group cursor-pointer"
-                onClick={() => setSelectedImage('/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg')}
+                onClick={() => setSelectedImage('https://cdn.poehali.dev/files/9d940410-74ea-40b5-90cb-af267dd74ca8.jpg')}
               >
                 <img
-                  src="/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg"
+                  src="https://cdn.poehali.dev/files/9d940410-74ea-40b5-90cb-af267dd74ca8.jpg"
                   alt="Modern Minimalist"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
@@ -647,10 +647,10 @@ const Index = () => {
 
               <div 
                 className="relative rounded-3xl overflow-hidden h-[220px] group cursor-pointer"
-                onClick={() => setSelectedImage('/img/3de30437-f746-455d-a0be-af860784e138.jpg')}
+                onClick={() => setSelectedImage('https://cdn.poehali.dev/files/c7cafc1f-fdf6-46c2-9af0-75d512c6aeb9.jpg')}
               >
                 <img
-                  src="/img/3de30437-f746-455d-a0be-af860784e138.jpg"
+                  src="https://cdn.poehali.dev/files/c7cafc1f-fdf6-46c2-9af0-75d512c6aeb9.jpg"
                   alt="Best Furniture"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
