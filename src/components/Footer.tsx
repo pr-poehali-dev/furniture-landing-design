@@ -11,7 +11,7 @@ const Footer = () => {
           </div>
           <div>
             <h4 className="font-semibold mb-4">Категории</h4>
-            <ul className="space-y-2 text-sm opacity-80">
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm opacity-80">
               <li 
                 onClick={() => window.location.href = '/portfolio?category=Кухни'} 
                 className="cursor-pointer hover:opacity-100 transition-opacity"
