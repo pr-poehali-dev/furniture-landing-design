@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -33,18 +33,17 @@ const Portfolio = () => {
   };
 
   const categories = [
-    'Все',
-    'Кухни',
-    'Спальни',
-    'Гостиные',
-    'Гардеробные',
-    'Ванные комнаты',
-    'Детские',
-    'Прихожие',
-    'Офисы',
-    'Мягкие панели',
-    'Декор',
-    'Торговые оборудования'
+    { name: 'Кухни', icon: 'UtensilsCrossed' },
+    { name: 'Спальни', icon: 'BedDouble' },
+    { name: 'Гостиные', icon: 'Sofa' },
+    { name: 'Гардеробные', icon: 'Shirt' },
+    { name: 'Ванные комнаты', icon: 'Bath' },
+    { name: 'Детские', icon: 'Baby' },
+    { name: 'Прихожие', icon: 'DoorOpen' },
+    { name: 'Офисы', icon: 'Briefcase' },
+    { name: 'Мягкие панели', icon: 'Box' },
+    { name: 'Декор', icon: 'Palette' },
+    { name: 'Торговые оборудования', icon: 'Store' },
   ];
 
   const projects = [
@@ -249,46 +248,46 @@ const Portfolio = () => {
           </div>
 
           <div className="mb-12">
-            <div className="hidden md:flex flex-wrap gap-3 justify-center">
-              {categories.map((category) => (
-                <Button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  variant={activeCategory === category ? 'default' : 'outline'}
-                  className={
-                    activeCategory === category 
-                      ? 'bg-accent text-primary hover:bg-accent/90' 
-                      : 'hover:bg-secondary'
-                  }
-                >
-                  {category}
-                </Button>
-              ))}
-            </div>
-
-            <div className="md:hidden">
-              <Carousel className="w-full max-w-xs mx-auto">
-                <CarouselContent>
-                  {categories.map((category) => (
-                    <CarouselItem key={category} className="basis-auto">
-                      <Button
-                        onClick={() => setActiveCategory(category)}
-                        variant={activeCategory === category ? 'default' : 'outline'}
-                        className={
-                          activeCategory === category 
-                            ? 'bg-accent text-primary hover:bg-accent/90 whitespace-nowrap' 
-                            : 'hover:bg-secondary whitespace-nowrap'
-                        }
-                      >
-                        {category}
-                      </Button>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
-            </div>
+            <Carousel
+              opts={{
+                align: 'start',
+                loop: false,
+                dragFree: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-3">
+                <CarouselItem className="pl-2 md:pl-3 basis-auto">
+                  <Button
+                    variant={activeCategory === 'Все' ? 'default' : 'outline'}
+                    className={`rounded-full ${
+                      activeCategory === 'Все'
+                        ? 'bg-primary text-primary-foreground'
+                        : 'border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground'
+                    }`}
+                    onClick={() => setActiveCategory('Все')}
+                  >
+                    Все
+                  </Button>
+                </CarouselItem>
+                {categories.map((cat) => (
+                  <CarouselItem key={cat.name} className="pl-2 md:pl-3 basis-auto">
+                    <Button
+                      variant={activeCategory === cat.name ? 'default' : 'outline'}
+                      className={`rounded-full whitespace-nowrap ${
+                        activeCategory === cat.name
+                          ? 'bg-primary text-primary-foreground'
+                          : 'border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground'
+                      }`}
+                      onClick={() => setActiveCategory(cat.name)}
+                    >
+                      <Icon name={cat.icon} size={16} className="mr-2" />
+                      {cat.name}
+                    </Button>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
 
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
