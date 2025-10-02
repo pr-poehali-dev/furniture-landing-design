@@ -256,10 +256,11 @@ const Portfolio = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <Card 
                 key={project.id}
-                className="group overflow-hidden hover:shadow-2xl transition-all cursor-pointer"
+                className="group overflow-hidden hover:shadow-2xl transition-all cursor-pointer animate-fade-in-scale"
+                style={{ animationDelay: `${index * 50}ms` }}
               >
                 <CardContent className="p-0">
                   <div className="relative h-80 overflow-hidden">

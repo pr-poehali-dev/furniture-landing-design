@@ -14,6 +14,9 @@ const Index = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const [counts, setCounts] = useState({ products: 0, projects: 0, customers: 0 });
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -51,6 +54,48 @@ const Index = () => {
 
     return () => observerRef.current?.disconnect();
   }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          animateCounters();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
+  const animateCounters = () => {
+    const duration = 2000;
+    const targets = { products: 5000, projects: 1000, customers: 800 };
+    const steps = 60;
+    const stepDuration = duration / steps;
+
+    let currentStep = 0;
+    const interval = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      
+      setCounts({
+        products: Math.floor(targets.products * progress),
+        projects: Math.floor(targets.projects * progress),
+        customers: Math.floor(targets.customers * progress)
+      });
+
+      if (currentStep >= steps) {
+        clearInterval(interval);
+        setCounts(targets);
+      }
+    }, stepDuration);
+  };
 
   const heroSlides = [
     {
@@ -487,12 +532,18 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-12 gap-6 mb-16">
             <div className="md:col-span-7">
-              <div className="relative rounded-3xl overflow-hidden h-[500px] group">
+              <div className="relative rounded-3xl overflow-hidden h-[500px] group cursor-pointer">
                 <img
                   src="/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg"
                   alt="Modern Minimalist"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-16 h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
+                    <Icon name="ZoomIn" size={28} className="text-primary" />
+                  </div>
+                </div>
                 <div className="absolute top-6 left-6">
                   <Badge className="bg-background/90 text-foreground backdrop-blur-sm border-0 px-4 py-2">Соловьева Мария</Badge>
                 </div>
@@ -510,12 +561,17 @@ const Index = () => {
                 <h3 className="text-3xl md:text-4xl font-bold text-primary leading-tight">Каждый проект для нас — это творческий вызов</h3>
               </div>
 
-              <div className="relative rounded-3xl overflow-hidden h-[220px] group">
+              <div className="relative rounded-3xl overflow-hidden h-[220px] group cursor-pointer">
                 <img
                   src="/img/3de30437-f746-455d-a0be-af860784e138.jpg"
                   alt="Best Furniture"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
+                    <Icon name="ZoomIn" size={24} className="text-primary" />
+                  </div>
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute top-6 left-6">
                   <Badge className="bg-background/90 text-foreground backdrop-blur-sm border-0 px-4 py-2">Лучшая мебель</Badge>
@@ -533,17 +589,17 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">5000+</div>
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">{counts.products.toLocaleString()}+</div>
               <div className="text-muted-foreground">Продуктов</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">1000+</div>
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">{counts.projects.toLocaleString()}+</div>
               <div className="text-muted-foreground">Проектов</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">800+</div>
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">{counts.customers.toLocaleString()}+</div>
               <div className="text-muted-foreground">Довольных клиентов</div>
             </div>
             <div className="text-center">
