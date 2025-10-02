@@ -758,9 +758,7 @@ const Index = () => {
 
 
           <div className="hidden md:grid md:grid-cols-6 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[280px]">
-            {portfolio
-              .filter(project => selectedCategory === 'Все' || project.category === selectedCategory)
-              .map((project, index) => {
+            {portfolio.map((project, index) => {
               let gridClass = 'md:col-span-2';
               
               if (project.size === 'large') {
@@ -808,9 +806,7 @@ const Index = () => {
               className="w-full"
             >
               <CarouselContent className="-ml-4">
-                {portfolio
-                  .filter(project => selectedCategory === 'Все' || project.category === selectedCategory)
-                  .map((project) => (
+                {portfolio.map((project) => (
                     <CarouselItem key={project.id} className="pl-4 basis-4/5">
                       <div 
                         className="group relative cursor-pointer"
