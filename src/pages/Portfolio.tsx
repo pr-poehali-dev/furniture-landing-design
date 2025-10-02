@@ -210,6 +210,56 @@ const Portfolio = () => {
       description: 'Эко-офис с живыми растениями и эргономичной мебелью',
       area: '38 м²',
       year: '2025'
+    },
+    {
+      id: 17,
+      title: 'Прихожая Golden Mirror',
+      category: 'Прихожие',
+      image: 'https://cdn.poehali.dev/files/de1e7050-1113-4cf1-8f1f-f0c4769c55ca.jpg',
+      size: 'medium',
+      description: 'Светлая прихожая с золотыми акцентами и мраморной стеной',
+      area: '8 м²',
+      year: '2024'
+    },
+    {
+      id: 18,
+      title: 'Прихожая Luxury Light',
+      category: 'Прихожие',
+      image: 'https://cdn.poehali.dev/files/abd48658-bbe7-431a-ac69-a144cac4efdc.jpg',
+      size: 'medium',
+      description: 'Роскошная прихожая с дизайнерским освещением и рейками',
+      area: '10 м²',
+      year: '2023'
+    },
+    {
+      id: 19,
+      title: 'Прихожая Minimalist Pure',
+      category: 'Прихожие',
+      image: 'https://cdn.poehali.dev/files/742ed9a4-ce67-4355-b159-b019dc9d96fe.jpg',
+      size: 'medium',
+      description: 'Минималистичная прихожая в белых тонах с подсветкой',
+      area: '6 м²',
+      year: '2025'
+    },
+    {
+      id: 20,
+      title: 'Прихожая Provence Style',
+      category: 'Прихожие',
+      image: 'https://cdn.poehali.dev/files/9daf65ef-81d3-4358-9144-adcd6539084f.jpg',
+      size: 'large',
+      description: 'Уютная прихожая с витринами и обувницей в стиле прованс',
+      area: '12 м²',
+      year: '2021'
+    },
+    {
+      id: 21,
+      title: 'Прихожая Modern Gold',
+      category: 'Прихожие',
+      image: 'https://cdn.poehali.dev/files/ea05c406-70d3-462a-9707-8d01679b89b2.jpg',
+      size: 'medium',
+      description: 'Современная прихожая с золотыми ручками и рифлёными фасадами',
+      area: '7 м²',
+      year: '2022'
     }
   ];
 
