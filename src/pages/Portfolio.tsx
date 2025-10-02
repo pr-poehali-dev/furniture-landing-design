@@ -240,7 +240,7 @@ const Portfolio = () => {
           </div>
 
           <div className="mb-12">
-            <div className="flex flex-wrap gap-3 justify-center">
+            <div className="hidden md:flex flex-wrap gap-3 justify-center">
               {categories.map((category) => (
                 <Button
                   key={category}
@@ -255,6 +255,36 @@ const Portfolio = () => {
                   {category}
                 </Button>
               ))}
+            </div>
+
+            <div className="md:hidden px-4">
+              <Carousel 
+                opts={{
+                  align: "center",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="-ml-2">
+                  {categories.map((category) => (
+                    <CarouselItem key={category} className="basis-auto pl-2">
+                      <Button
+                        onClick={() => setActiveCategory(category)}
+                        variant={activeCategory === category ? 'default' : 'outline'}
+                        className={
+                          activeCategory === category 
+                            ? 'bg-accent text-primary hover:bg-accent/90 whitespace-nowrap' 
+                            : 'hover:bg-secondary whitespace-nowrap'
+                        }
+                      >
+                        {category}
+                      </Button>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-0" />
+                <CarouselNext className="right-0" />
+              </Carousel>
             </div>
           </div>
 
