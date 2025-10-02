@@ -1,4 +1,4 @@
-
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,7 +13,16 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  useEffect(() => {
+    document.title = "Ваша Мебель";
+    const favicon = document.querySelector("link[rel*='icon']") as HTMLLinkElement;
+    if (favicon) {
+      favicon.href = "https://cdn.poehali.dev/files/200d59c0-004c-41bc-940c-aa7be2c4b4ad.png";
+    }
+  }, []);
+
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -31,6 +40,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;
