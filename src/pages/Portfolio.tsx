@@ -3,11 +3,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
+import ImageModal from '@/components/ImageModal';
 
 const Portfolio = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState('Все');
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     const theme = localStorage.getItem('theme');
@@ -261,6 +263,7 @@ const Portfolio = () => {
                 key={project.id}
                 className="group overflow-hidden hover:shadow-2xl transition-all cursor-pointer animate-fade-in-scale"
                 style={{ animationDelay: `${index * 50}ms` }}
+                onClick={() => setSelectedImage(project.image)}
               >
                 <CardContent className="p-0">
                   <div className="relative h-80 overflow-hidden">
@@ -269,7 +272,7 @@ const Portfolio = () => {
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                     
                     <div className="absolute top-4 right-4">
                       <Badge className="bg-accent text-primary">
@@ -283,14 +286,14 @@ const Portfolio = () => {
                       </div>
                     </div>
 
-                    <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                      <h3 className="text-2xl font-bold text-white mb-2">
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-lg">
                         {project.title}
                       </h3>
-                      <p className="text-white/90 text-sm mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="text-white text-sm mb-3 drop-shadow-md">
                         {project.description}
                       </p>
-                      <div className="flex gap-4 text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="flex gap-4 text-white text-sm drop-shadow-md">
                         <div className="flex items-center gap-1">
                           <Icon name="Maximize2" size={16} />
                           <span>{project.area}</span>
@@ -387,6 +390,12 @@ const Portfolio = () => {
           </p>
         </div>
       </footer>
+
+      <ImageModal 
+        imageUrl={selectedImage || ''} 
+        isOpen={!!selectedImage} 
+        onClose={() => setSelectedImage(null)} 
+      />
     </div>
   );
 };

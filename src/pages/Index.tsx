@@ -8,6 +8,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import Icon from '@/components/ui/icon';
+import ImageModal from '@/components/ImageModal';
+import PromoModal from '@/components/PromoModal';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -17,6 +19,8 @@ const Index = () => {
   const [counts, setCounts] = useState({ products: 0, projects: 0, customers: 0 });
   const statsRef = useRef<HTMLDivElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedPromo, setSelectedPromo] = useState<any>(null);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -197,9 +201,45 @@ const Index = () => {
   ];
 
   const promos = [
-    { title: 'Скидка 15% на кухни', description: 'При заказе кухни до конца месяца', discount: '-15%' },
-    { title: 'Бесплатная доставка', description: 'На все заказы от 100 000 ₽', discount: 'FREE' },
-    { title: '3D визуализация в подарок', description: 'Для всех новых клиентов', discount: 'GIFT' },
+    { 
+      title: 'Скидка 15% на кухни', 
+      description: 'При заказе кухни до конца месяца', 
+      discount: '-15%',
+      fullDescription: 'Закажите кухню вашей мечты прямо сейчас и получите скидку 15% на весь заказ! Акция распространяется на кухни любой сложности и конфигурации.',
+      conditions: [
+        'Скидка применяется к итоговой стоимости заказа',
+        'Действует при заказе до конца текущего месяца',
+        'Можно совместить с акцией на бесплатную доставку',
+        'Дизайн-проект и замер включены в стоимость'
+      ],
+      validUntil: '31 октября 2025'
+    },
+    { 
+      title: 'Бесплатная доставка', 
+      description: 'На все заказы от 100 000 ₽', 
+      discount: 'FREE',
+      fullDescription: 'При заказе мебели на сумму от 100 000 рублей мы доставим и установим её абсолютно бесплатно! Никаких скрытых платежей.',
+      conditions: [
+        'Минимальная сумма заказа — 100 000 ₽',
+        'Бесплатная доставка по городу и в радиусе 50 км',
+        'Профессиональная сборка и установка включены',
+        'Вывоз упаковки после монтажа'
+      ],
+      validUntil: '31 декабря 2025'
+    },
+    { 
+      title: '3D визуализация в подарок', 
+      description: 'Для всех новых клиентов', 
+      discount: 'GIFT',
+      fullDescription: 'Каждый новый клиент получает профессиональную 3D визуализацию проекта совершенно бесплатно! Вы увидите, как будет выглядеть ваша мебель ещё до начала производства.',
+      conditions: [
+        'Акция действует для новых клиентов',
+        'До 3 вариантов дизайна на выбор',
+        'Реалистичная визуализация с текстурами и освещением',
+        'Неограниченное количество правок'
+      ],
+      validUntil: 'Постоянная акция'
+    },
   ];
 
   const benefits = [
@@ -532,7 +572,10 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-12 gap-6 mb-16">
             <div className="md:col-span-7">
-              <div className="relative rounded-3xl overflow-hidden h-[500px] group cursor-pointer">
+              <div 
+                className="relative rounded-3xl overflow-hidden h-[500px] group cursor-pointer"
+                onClick={() => setSelectedImage('/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg')}
+              >
                 <img
                   src="/img/be5b50aa-c16a-400d-91ac-9272ad165d15.jpg"
                   alt="Modern Minimalist"
@@ -561,7 +604,10 @@ const Index = () => {
                 <h3 className="text-3xl md:text-4xl font-bold text-primary leading-tight">Каждый проект для нас — это творческий вызов</h3>
               </div>
 
-              <div className="relative rounded-3xl overflow-hidden h-[220px] group cursor-pointer">
+              <div 
+                className="relative rounded-3xl overflow-hidden h-[220px] group cursor-pointer"
+                onClick={() => setSelectedImage('/img/3de30437-f746-455d-a0be-af860784e138.jpg')}
+              >
                 <img
                   src="/img/3de30437-f746-455d-a0be-af860784e138.jpg"
                   alt="Best Furniture"
@@ -680,7 +726,8 @@ const Index = () => {
               return (
                 <div 
                   key={project.id} 
-                  className={`group relative ${gridClass}`}
+                  className={`group relative ${gridClass} cursor-pointer`}
+                  onClick={() => setSelectedImage(project.image)}
                 >
                   <div className="relative overflow-hidden rounded-3xl h-full">
                     <img
@@ -793,7 +840,13 @@ const Index = () => {
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold text-primary mb-3 pr-16 md:pr-20">{promo.title}</h3>
                   <p className="text-sm md:text-base text-muted-foreground mb-6">{promo.description}</p>
-                  <Button variant="outline" className="w-full">Подробнее</Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => setSelectedPromo(promo)}
+                  >
+                    Подробнее
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -944,6 +997,18 @@ const Index = () => {
           <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm opacity-80">© 2025 Ваша Мебель. Все права защищены.</div>
         </div>
       </footer>
+
+      <ImageModal 
+        imageUrl={selectedImage || ''} 
+        isOpen={!!selectedImage} 
+        onClose={() => setSelectedImage(null)} 
+      />
+
+      <PromoModal 
+        promo={selectedPromo} 
+        isOpen={!!selectedPromo} 
+        onClose={() => setSelectedPromo(null)} 
+      />
     </div>
   );
 };
