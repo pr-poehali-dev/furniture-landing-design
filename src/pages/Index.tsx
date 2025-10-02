@@ -757,76 +757,46 @@ const Index = () => {
           </div>
 
           <div className="mb-12">
-            <div className="hidden md:flex gap-3 flex-wrap">
-              <Button
-                variant={selectedCategory === 'Все' ? 'default' : 'outline'}
-                className={`rounded-full ${
-                  selectedCategory === 'Все'
-                    ? 'bg-primary text-primary-foreground'
-                    : 'border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground'
-                }`}
-                onClick={() => setSelectedCategory('Все')}
-              >
-                Все
-              </Button>
-              {categories.map((cat) => (
-                <Button
-                  key={cat.name}
-                  variant={selectedCategory === cat.name ? 'default' : 'outline'}
-                  className={`rounded-full ${
-                    selectedCategory === cat.name
-                      ? 'bg-primary text-primary-foreground'
-                      : 'border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground'
-                  }`}
-                  onClick={() => setSelectedCategory(cat.name)}
-                >
-                  <Icon name={cat.icon} size={16} className="mr-2" />
-                  {cat.name}
-                </Button>
-              ))}
-            </div>
-
-            <div className="md:hidden">
-              <Carousel
-                opts={{
-                  align: 'start',
-                  loop: false,
-                }}
-                className="w-full"
-              >
-                <CarouselContent className="-ml-2">
-                  <CarouselItem className="pl-2 basis-auto">
+            <Carousel
+              opts={{
+                align: 'start',
+                loop: false,
+                dragFree: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-3">
+                <CarouselItem className="pl-2 md:pl-3 basis-auto">
+                  <Button
+                    variant={selectedCategory === 'Все' ? 'default' : 'outline'}
+                    className={`rounded-full ${
+                      selectedCategory === 'Все'
+                        ? 'bg-primary text-primary-foreground'
+                        : 'border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground'
+                    }`}
+                    onClick={() => setSelectedCategory('Все')}
+                  >
+                    Все
+                  </Button>
+                </CarouselItem>
+                {categories.map((cat) => (
+                  <CarouselItem key={cat.name} className="pl-2 md:pl-3 basis-auto">
                     <Button
-                      variant={selectedCategory === 'Все' ? 'default' : 'outline'}
-                      className={`rounded-full ${
-                        selectedCategory === 'Все'
+                      variant={selectedCategory === cat.name ? 'default' : 'outline'}
+                      className={`rounded-full whitespace-nowrap ${
+                        selectedCategory === cat.name
                           ? 'bg-primary text-primary-foreground'
                           : 'border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground'
                       }`}
-                      onClick={() => setSelectedCategory('Все')}
+                      onClick={() => setSelectedCategory(cat.name)}
                     >
-                      Все
+                      <Icon name={cat.icon} size={16} className="mr-2" />
+                      {cat.name}
                     </Button>
                   </CarouselItem>
-                  {categories.map((cat) => (
-                    <CarouselItem key={cat.name} className="pl-2 basis-auto">
-                      <Button
-                        variant={selectedCategory === cat.name ? 'default' : 'outline'}
-                        className={`rounded-full whitespace-nowrap ${
-                          selectedCategory === cat.name
-                            ? 'bg-primary text-primary-foreground'
-                            : 'border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground'
-                        }`}
-                        onClick={() => setSelectedCategory(cat.name)}
-                      >
-                        <Icon name={cat.icon} size={16} className="mr-2" />
-                        {cat.name}
-                      </Button>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-              </Carousel>
-            </div>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
 
           <div className="hidden md:grid md:grid-cols-6 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[280px]">
