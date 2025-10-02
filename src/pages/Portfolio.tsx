@@ -258,11 +258,17 @@ const Portfolio = () => {
               ))}
             </div>
 
-            <div className="md:hidden">
-              <Carousel className="w-full max-w-xs mx-auto">
-                <CarouselContent>
+            <div className="md:hidden px-4">
+              <Carousel 
+                opts={{
+                  align: "center",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="-ml-2">
                   {categories.map((category) => (
-                    <CarouselItem key={category} className="basis-auto">
+                    <CarouselItem key={category} className="basis-auto pl-2">
                       <Button
                         onClick={() => setActiveCategory(category)}
                         variant={activeCategory === category ? 'default' : 'outline'}
@@ -277,8 +283,8 @@ const Portfolio = () => {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+                <CarouselPrevious className="left-0" />
+                <CarouselNext className="right-0" />
               </Carousel>
             </div>
           </div>
@@ -336,17 +342,23 @@ const Portfolio = () => {
             ))}
           </div>
 
-          <div className="md:hidden mb-16">
-            <Carousel className="w-full">
-              <CarouselContent>
+          <div className="md:hidden mb-16 px-4">
+            <Carousel 
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2">
                 {filteredProjects.map((project) => (
-                  <CarouselItem key={project.id}>
+                  <CarouselItem key={project.id} className="pl-2 basis-1/2">
                     <Card 
-                      className="group overflow-hidden cursor-pointer"
+                      className="group overflow-hidden cursor-pointer h-full"
                       onClick={() => setSelectedImage(project.image)}
                     >
                       <CardContent className="p-0">
-                        <div className="relative h-96 overflow-hidden">
+                        <div className="relative h-64 overflow-hidden">
                           <img
                             src={project.image}
                             alt={project.title}
@@ -354,27 +366,23 @@ const Portfolio = () => {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                           
-                          <div className="absolute top-4 right-4">
-                            <Badge className="bg-accent text-primary">
+                          <div className="absolute top-2 right-2">
+                            <Badge className="bg-accent text-primary text-xs px-2 py-1">
                               {project.category}
                             </Badge>
                           </div>
 
-                          <div className="absolute bottom-0 left-0 right-0 p-6">
-                            <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-lg">
+                          <div className="absolute bottom-0 left-0 right-0 p-3">
+                            <h3 className="text-sm font-bold text-white mb-1 drop-shadow-lg line-clamp-1">
                               {project.title}
                             </h3>
-                            <p className="text-white text-sm mb-3 drop-shadow-md">
+                            <p className="text-white text-xs drop-shadow-md line-clamp-2 mb-2">
                               {project.description}
                             </p>
-                            <div className="flex gap-4 text-white text-sm drop-shadow-md">
+                            <div className="flex gap-2 text-white text-xs drop-shadow-md">
                               <div className="flex items-center gap-1">
-                                <Icon name="Maximize2" size={16} />
+                                <Icon name="Maximize2" size={12} />
                                 <span>{project.area}</span>
-                              </div>
-                              <div className="flex items-center gap-1">
-                                <Icon name="Calendar" size={16} />
-                                <span>{project.year}</span>
                               </div>
                             </div>
                           </div>
@@ -384,8 +392,8 @@ const Portfolio = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
+              <CarouselPrevious className="left-0" />
+              <CarouselNext className="right-0" />
             </Carousel>
           </div>
 
