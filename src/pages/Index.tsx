@@ -332,38 +332,46 @@ const Index = () => {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-background border-t border-border">
-            <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
-              <button
-                onClick={() => { window.location.href = '/'; setIsMobileMenuOpen(false); }}
-                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
-              >
-                Главная
-              </button>
-              <button
-                onClick={() => { window.location.href = '/about'; setIsMobileMenuOpen(false); }}
-                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
-              >
-                О нас
-              </button>
-              <button
-                onClick={() => { window.location.href = '/portfolio'; setIsMobileMenuOpen(false); }}
-                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary"
-              >
-                Портфолио
-              </button>
-              <button
-                onClick={() => { window.location.href = '/promos'; setIsMobileMenuOpen(false); }}
-                className="text-left py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-secondary relative"
-              >
-                <div className="flex items-center justify-between">
-                  <span>Акции</span>
-                  <span className="flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-accent opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-                  </span>
-                </div>
-              </button>
+          <div className="md:hidden fixed inset-0 top-[73px] bg-background z-40 flex flex-col">
+            <div className="flex-1 overflow-y-auto px-4 py-8">
+              <div className="flex flex-col gap-4">
+                <button
+                  onClick={() => { window.location.href = '/'; setIsMobileMenuOpen(false); }}
+                  className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
+                >
+                  Главная
+                </button>
+                <button
+                  onClick={() => { window.location.href = '/about'; setIsMobileMenuOpen(false); }}
+                  className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
+                >
+                  О нас
+                </button>
+                <button
+                  onClick={() => { window.location.href = '/portfolio'; setIsMobileMenuOpen(false); }}
+                  className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
+                >
+                  Портфолио
+                </button>
+                <button
+                  onClick={() => { window.location.href = '/promos'; setIsMobileMenuOpen(false); }}
+                  className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium relative"
+                >
+                  <div className="flex items-center justify-between">
+                    <span>Акции</span>
+                    <span className="flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-accent opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                    </span>
+                  </div>
+                </button>
+                <button
+                  onClick={() => { window.location.href = '/contacts'; setIsMobileMenuOpen(false); }}
+                  className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
+                >
+                  Контакты
+                </button>
+              </div>
             </div>
           </div>
         )}
