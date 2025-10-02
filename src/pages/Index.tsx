@@ -10,6 +10,7 @@ import Autoplay from 'embla-carousel-autoplay';
 import Icon from '@/components/ui/icon';
 import ImageModal from '@/components/ImageModal';
 import PromoModal from '@/components/PromoModal';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -960,43 +961,7 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="bg-primary text-primary-foreground py-12 px-4">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Ваша мебель</h3>
-              <p className="text-sm opacity-80">Производство премиальной мебели с 1998 года</p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Категории</h4>
-              <ul className="space-y-2 text-sm opacity-80">
-                <li>Кухни</li>
-                <li>Спальни</li>
-                <li>Гостиные</li>
-                <li>Офисы</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Компания</h4>
-              <ul className="space-y-2 text-sm opacity-80">
-                <li>О нас</li>
-                <li>Портфолио</li>
-                <li>Акции</li>
-                <li>Контакты</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Мы в соцсетях</h4>
-              <div className="flex gap-3">
-                <Icon name="Instagram" size={20} className="cursor-pointer hover:opacity-70 transition-opacity" />
-                <Icon name="Facebook" size={20} className="cursor-pointer hover:opacity-70 transition-opacity" />
-                <Icon name="Youtube" size={20} className="cursor-pointer hover:opacity-70 transition-opacity" />
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm opacity-80">© 2025 Ваша Мебель. Все права защищены.</div>
-        </div>
-      </footer>
+      <Footer />
 
       <ImageModal 
         imageUrl={selectedImage || ''} 

@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
+import Footer from '@/components/Footer';
 
 const Contacts = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -383,13 +384,7 @@ const Contacts = () => {
         </div>
       </section>
 
-      <footer className="bg-secondary/20 py-8 px-4 border-t border-border">
-        <div className="container mx-auto text-center">
-          <p className="text-muted-foreground">
-            © 2025 Ваша мебель. Все права защищены.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 import ImageModal from '@/components/ImageModal';
+import Footer from '@/components/Footer';
 
 const Portfolio = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -383,13 +384,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <footer className="bg-secondary/20 py-8 px-4 border-t border-border">
-        <div className="container mx-auto text-center">
-          <p className="text-muted-foreground">
-            © 2025 Ваша мебель. Все права защищены.
-          </p>
-        </div>
-      </footer>
+      <Footer />
 
       <ImageModal 
         imageUrl={selectedImage || ''} 
