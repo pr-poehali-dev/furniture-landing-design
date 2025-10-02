@@ -170,6 +170,26 @@ const Portfolio = () => {
       description: 'Теплая спальня с деревянными акцентами',
       area: '15 м²',
       year: '2023'
+    },
+    {
+      id: 13,
+      title: 'Панель Diamond Comfort',
+      category: 'Мягкие панели',
+      image: 'https://cdn.poehali.dev/files/f8557b36-11d5-4c2e-8be8-03b5f03bc8b9.jpg',
+      size: 'large',
+      description: 'Изголовье с геометрическим рисунком в серых тонах',
+      area: '3.6 м × 2.8 м',
+      year: '2024'
+    },
+    {
+      id: 14,
+      title: 'Панель Mondrian Style',
+      category: 'Мягкие панели',
+      image: 'https://cdn.poehali.dev/files/277cf011-a3b1-4d83-ae74-0cf6fae38355.jpg',
+      size: 'large',
+      description: 'Стеновая панель с асимметричными сегментами в стиле Мондриан',
+      area: '4.2 м × 2.6 м',
+      year: '2022'
     }
   ];
 
