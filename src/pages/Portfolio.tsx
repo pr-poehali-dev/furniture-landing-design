@@ -300,6 +300,36 @@ const Portfolio = () => {
       description: 'Светлая спальня с большим шкафом и золотыми люстрами',
       area: '26 м²',
       year: '2023'
+    },
+    {
+      id: 26,
+      title: 'Островок Muslim Perfume',
+      category: 'Торговые оборудования',
+      image: 'https://cdn.poehali.dev/files/8004b31f-50fd-4ea2-b448-a8c258cf158b.jpg',
+      size: 'large',
+      description: 'Премиум островок для парфюмерии с золотыми акцентами и подсветкой',
+      area: '15 м²',
+      year: '2024'
+    },
+    {
+      id: 27,
+      title: 'Стойка Luxury Perfume',
+      category: 'Торговые оборудования',
+      image: 'https://cdn.poehali.dev/files/e5cb57b3-df8c-4762-a9ea-2f302486ae05.jpg',
+      size: 'medium',
+      description: 'Элегантная стойка для парфюмерии в чёрно-бордовых тонах',
+      area: '8 м²',
+      year: '2022'
+    },
+    {
+      id: 28,
+      title: 'Ресепшн Fame Istanbul',
+      category: 'Торговые оборудования',
+      image: 'https://cdn.poehali.dev/files/2b1a6354-fe19-4c8c-b320-418c46f5f290.jpg',
+      size: 'large',
+      description: 'Роскошная стойка ресепшн с мраморной отделкой и золотым декором',
+      area: '12 м²',
+      year: '2025'
     }
   ];
 
