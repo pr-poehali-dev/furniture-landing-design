@@ -222,26 +222,29 @@ const Contacts = () => {
                 <h3 className="font-semibold text-primary mb-4">Мы в социальных сетях</h3>
                 <div className="flex gap-4">
                   <a 
-                    href="https://t.me/yourcompany" 
+                    href="https://instagram.com/vashakuhnya25" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="w-14 h-14 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-all group"
-                  >
-                    <Icon name="Send" size={24} className="text-accent group-hover:scale-110 transition-transform" />
-                  </a>
-                  <a 
-                    href="https://instagram.com/yourcompany" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-all group"
+                    aria-label="Instagram"
                   >
                     <Icon name="Instagram" size={24} className="text-accent group-hover:scale-110 transition-transform" />
                   </a>
                   <a 
-                    href="https://wa.me/74951234567" 
+                    href="https://t.me/vashakuhnya25" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="w-14 h-14 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-all group"
+                    aria-label="Telegram"
+                  >
+                    <Icon name="Send" size={24} className="text-accent group-hover:scale-110 transition-transform" />
+                  </a>
+                  <a 
+                    href="https://wa.me/79242659350" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-14 h-14 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-all group"
+                    aria-label="WhatsApp"
                   >
                     <Icon name="MessageCircle" size={24} className="text-accent group-hover:scale-110 transition-transform" />
                   </a>
@@ -328,7 +331,7 @@ const Contacts = () => {
               <CardContent className="p-0">
                 <div className="relative w-full h-96 md:h-[500px] bg-secondary/20">
                   <iframe
-                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A64e1b1c8c5e5e5e5e5e5e5e5e5e5e5e5&amp;source=constructor"
+                    src="https://yandex.ru/map-widget/v1/?ll=131.949350%2C43.803580&mode=search&oid=46949715063&ol=biz&z=16"
                     width="100%"
                     height="100%"
                     frameBorder="0"
