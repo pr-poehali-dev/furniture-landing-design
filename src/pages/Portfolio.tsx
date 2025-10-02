@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 import Icon from '@/components/ui/icon';
 import ImageModal from '@/components/ImageModal';
 import Footer from '@/components/Footer';
@@ -12,6 +13,9 @@ const Portfolio = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState('Все');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
 
   useEffect(() => {
     const theme = localStorage.getItem('theme');
@@ -287,8 +291,8 @@ const Portfolio = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden md:flex -left-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
-              <CarouselNext className="hidden md:flex -right-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
+              <CarouselPrevious className="-left-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
+              <CarouselNext className="-right-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
             </Carousel>
           </div>
 
@@ -346,7 +350,14 @@ const Portfolio = () => {
           </div>
 
           <div className="md:hidden mb-16">
-            <Carousel className="w-full">
+            <Carousel 
+              className="w-full"
+              opts={{
+                align: 'start',
+                loop: true,
+              }}
+              plugins={[autoplayPlugin.current]}
+            >
               <CarouselContent>
                 {filteredProjects.map((project) => (
                   <CarouselItem key={project.id}>
