@@ -628,8 +628,8 @@ const Index = () => {
                 <div className="absolute top-6 left-6">
                   <Badge className="bg-background/90 text-foreground backdrop-blur-sm border-0 px-4 py-2">Соловьева Мария</Badge>
                 </div>
-                <div className="absolute bottom-8 left-8 backdrop-blur-sm rounded-2xl px-8 py-4 bg-background/80">
-                  <h3 className="text-4xl font-bold text-foreground">Минималистичный
+                <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 backdrop-blur-sm rounded-2xl px-4 md:px-8 py-3 md:py-4 bg-background/80">
+                  <h3 className="text-2xl md:text-4xl font-bold text-foreground">Минималистичный
 Модерн</h3>
                 </div>
               </div>
@@ -747,7 +747,8 @@ const Index = () => {
             </div>
             <Button 
               variant="outline" 
-              className="rounded-full border-primary text-primary hover:bg-primary hover:text-white self-start md:self-auto"
+              className="hidden md:flex rounded-full border-primary text-primary hover:bg-primary hover:text-white self-start md:self-auto"
+              onClick={() => window.location.href = '/portfolio'}
             >Посмотреть еще</Button>
           </div>
 
@@ -788,6 +789,16 @@ const Index = () => {
                 </div>
               );
             })}
+          </div>
+
+          <div className="md:hidden flex justify-center mt-8">
+            <Button 
+              variant="outline" 
+              className="rounded-full border-primary text-primary hover:bg-primary hover:text-white w-full"
+              onClick={() => window.location.href = '/portfolio'}
+            >
+              Посмотреть еще
+            </Button>
           </div>
         </div>
       </section>
