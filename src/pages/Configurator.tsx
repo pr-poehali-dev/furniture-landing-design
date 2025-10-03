@@ -67,10 +67,16 @@ const Configurator = () => {
   const colors = [
     { value: 'white', label: 'Белый', english: 'white' },
     { value: 'black', label: 'Черный', english: 'black' },
-    { value: 'brown', label: 'Коричневый', english: 'brown' },
-    { value: 'beige', label: 'Бежевый', english: 'beige' },
     { value: 'gray', label: 'Серый', english: 'gray' },
-    { value: 'blue', label: 'Синий', english: 'blue' }
+    { value: 'beige', label: 'Бежевый', english: 'beige' },
+    { value: 'brown', label: 'Коричневый', english: 'brown' },
+    { value: 'blue', label: 'Синий', english: 'blue' },
+    { value: 'green', label: 'Зелёный', english: 'green' },
+    { value: 'red', label: 'Красный', english: 'red' },
+    { value: 'pink', label: 'Розовый', english: 'pink' },
+    { value: 'purple', label: 'Фиолетовый', english: 'purple' },
+    { value: 'yellow', label: 'Жёлтый', english: 'yellow' },
+    { value: 'orange', label: 'Оранжевый', english: 'orange' }
   ];
 
   const styles = [
@@ -363,8 +369,8 @@ const Configurator = () => {
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            <Card>
+          <div className="grid lg:grid-cols-2 gap-8 lg:items-start">
+            <Card className="h-fit">
               <CardContent className="p-6">
                 <h2 className="text-xl md:text-2xl font-bold text-primary mb-4 flex items-center gap-2">
                   <Icon name="Settings" size={20} className="text-accent" />
@@ -524,7 +530,7 @@ const Configurator = () => {
                     </>
                   )}
 
-                  <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                  <div className="flex gap-3 pt-2">
                     <Button 
                       onClick={generateImage}
                       disabled={isGenerating}
@@ -539,7 +545,7 @@ const Configurator = () => {
                       ) : (
                         <>
                           <Icon name="Wand2" size={20} className="mr-2" />
-                          {mode === 'furniture' ? 'Создать мебель' : 'Создать интерьер'}
+                          {mode === 'furniture' ? 'Создать' : 'Создать'}
                         </>
                       )}
                     </Button>
@@ -547,20 +553,18 @@ const Configurator = () => {
                       onClick={resetConfig}
                       variant="outline"
                       size="lg"
-                      className="sm:w-auto"
                     >
-                      <Icon name="RotateCcw" size={20} className="sm:mr-0" />
-                      <span className="sm:hidden ml-2">Сбросить</span>
+                      <Icon name="RotateCcw" size={20} />
                     </Button>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-secondary/20">
-              <CardContent className="p-6 md:p-8">
-                <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-                  <Icon name="Image" size={24} className="text-accent" />
+            <Card className="bg-secondary/20 h-fit">
+              <CardContent className="p-6">
+                <h2 className="text-xl md:text-2xl font-bold text-primary mb-4 flex items-center gap-2">
+                  <Icon name="Image" size={20} className="text-accent" />
                   Предпросмотр
                 </h2>
 
