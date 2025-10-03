@@ -1,14 +1,29 @@
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /portfolio
+Allow: /configurator
+Allow: /promos
+Allow: /contacts
+
+Sitemap: https://furniture-landing-design.poehali.dev/sitemap.xml
+
+# Яндекс
+User-agent: Yandex
+Allow: /
+
+# Google
 User-agent: Googlebot
 Allow: /
 
+# Bing
 User-agent: Bingbot
 Allow: /
 
+# Twitter
 User-agent: Twitterbot
 Allow: /
 
+# Facebook
 User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
 Allow: /
