@@ -109,7 +109,6 @@ const Configurator = () => {
       }
 
       setIsGenerating(true);
-      setGeneratedImage(null);
 
       const furnitureType = furnitureTypes.find(t => t.value === config.type)?.english || 'furniture';
       const materialText = materials.find(m => m.value === config.material)?.english || 'modern material';
@@ -181,8 +180,6 @@ const Configurator = () => {
       } else {
         prompt = `Beautiful ${styleText} ${roomType} interior design, ${colorText} color scheme, luxury furniture, professional interior photography, wide angle, natural lighting, high quality, detailed, cozy atmosphere, realistic`;
       }
-
-      setGeneratedImage(null);
 
       try {
         const seed = Math.floor(Math.random() * 1000000);
