@@ -410,7 +410,7 @@ const Index = () => {
                   </span>
                 </Button>
               </div>
-              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary text-xs md:text-sm px-3 md:px-4">
+              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80 text-xs md:text-sm px-3 md:px-4">
                 <Icon name="Phone" size={16} className="md:mr-2" />
                 <span className="hidden md:inline">Контакты</span>
               </Button>
@@ -967,7 +967,7 @@ const Index = () => {
                   <Icon name="Box" size={64} className="mx-auto mb-4 text-accent animate-float" />
                   <h3 className="text-xl font-bold text-primary mb-2">Интерактивный 3D конфигуратор</h3>
                   <p className="text-muted-foreground mb-6">Создавайте и визуализируйте вашу мебель в 3D</p>
-                  <Button onClick={() => window.location.href = '/configurator'} size="lg" className="bg-accent hover:bg-accent/90 text-primary">
+                  <Button onClick={() => window.location.href = '/configurator'} size="lg" className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80">
                     Запустить конфигуратор
                   </Button>
                 </div>
@@ -1052,7 +1052,7 @@ const Index = () => {
           <div className="flex justify-center">
             <Button 
               onClick={() => window.location.href = '/promos'}
-              className="bg-accent hover:bg-accent/90 text-primary px-6 md:px-8 py-4 md:py-6 text-base md:text-lg w-full sm:w-auto"
+              className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80 px-6 md:px-8 py-4 md:py-6 text-base md:text-lg w-full sm:w-auto"
             >Узнать больше</Button>
           </div>
         </div>

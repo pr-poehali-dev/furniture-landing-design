@@ -140,7 +140,7 @@ const Promos = () => {
                   </span>
                 </Button>
               </div>
-              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary text-xs md:text-sm px-3 md:px-4">
+              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80 text-xs md:text-sm px-3 md:px-4">
                 <Icon name="Phone" size={16} className="md:mr-2" />
                 <span className="hidden md:inline">Контакты</span>
               </Button>
@@ -272,7 +272,7 @@ const Promos = () => {
                       <div className="flex flex-col sm:flex-row gap-3">
                         <Button 
                           onClick={() => window.location.href = '/contacts'}
-                          className="bg-accent hover:bg-accent/90 text-primary flex-1"
+                          className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80 flex-1"
                           size="lg"
                         >
                           Оформить заказ
@@ -311,7 +311,7 @@ const Promos = () => {
                     placeholder="Ваш email"
                     className="flex-1 px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
                   />
-                  <Button className="bg-accent hover:bg-accent/90 text-primary">
+                  <Button className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80">
                     Подписаться
                   </Button>
                 </div>

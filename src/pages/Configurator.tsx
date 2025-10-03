@@ -273,7 +273,7 @@ const Configurator = () => {
                   </span>
                 </Button>
               </div>
-              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary text-xs md:text-sm px-3 md:px-4">
+              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80 text-xs md:text-sm px-3 md:px-4">
                 <Icon name="Phone" size={16} className="md:mr-2" />
                 <span className="hidden md:inline">Контакты</span>
               </Button>
@@ -350,7 +350,7 @@ const Configurator = () => {
                   setGeneratedImage(null);
                 }}
                 variant={mode === 'furniture' ? 'default' : 'outline'}
-                className={mode === 'furniture' ? 'bg-accent hover:bg-accent/90 text-primary' : ''}
+                className={mode === 'furniture' ? 'bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80' : ''}
                 size="lg"
               >
                 <Icon name="Armchair" size={20} className="mr-2" />
@@ -362,7 +362,7 @@ const Configurator = () => {
                   setGeneratedImage(null);
                 }}
                 variant={mode === 'interior' ? 'default' : 'outline'}
-                className={mode === 'interior' ? 'bg-accent hover:bg-accent/90 text-primary' : ''}
+                className={mode === 'interior' ? 'bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80' : ''}
                 size="lg"
               >
                 <Icon name="Home" size={20} className="mr-2" />
@@ -536,7 +536,7 @@ const Configurator = () => {
                     <Button 
                       onClick={generateImage}
                       disabled={isGenerating}
-                      className="bg-accent hover:bg-accent/90 text-primary flex-1"
+                      className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80 flex-1"
                       size="lg"
                     >
                       {isGenerating ? (
@@ -635,7 +635,7 @@ const Configurator = () => {
                       <div className="flex flex-col sm:flex-row gap-3">
                         <Button 
                           onClick={() => window.location.href = '/contacts'}
-                          className="bg-accent hover:bg-accent/90 text-primary flex-1"
+                          className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80 flex-1"
                         >
                           <Icon name="Calculator" size={18} className="mr-2" />
                           Рассчитать стоимость

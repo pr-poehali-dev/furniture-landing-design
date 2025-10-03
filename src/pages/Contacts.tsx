@@ -131,7 +131,7 @@ const Contacts = () => {
                   </span>
                 </Button>
               </div>
-              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary text-xs md:text-sm px-3 md:px-4">
+              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80 text-xs md:text-sm px-3 md:px-4">
                 <Icon name="Phone" size={16} className="md:mr-2" />
                 <span className="hidden md:inline">Контакты</span>
               </Button>
@@ -354,7 +354,7 @@ const Contacts = () => {
                     </div>
                     <Button 
                       type="submit"
-                      className="w-full bg-accent hover:bg-accent/90 text-primary h-12" 
+                      className="w-full bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80 h-12" 
                       size="lg"
                       disabled={isSubmitting}
                     >

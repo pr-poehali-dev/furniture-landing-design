@@ -194,7 +194,7 @@ const About = () => {
                   </span>
                 </Button>
               </div>
-              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary text-xs md:text-sm px-3 md:px-4">
+              <Button onClick={() => window.location.href = '/contacts'} className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80 text-xs md:text-sm px-3 md:px-4">
                 <Icon name="Phone" size={16} className="md:mr-2" />
                 <span className="hidden md:inline">Контакты</span>
               </Button>
@@ -441,7 +441,7 @@ const About = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={() => window.location.href = '/contacts'}
-              className="bg-accent hover:bg-accent/90 text-primary"
+              className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80"
               size="lg"
             >
               Связаться с нами
