@@ -38,7 +38,7 @@ const About = () => {
 
   const animateCounters = () => {
     const duration = 2000;
-    const targets = { products: 500, projects: 20, customers: 50, years: 15 };
+    const targets = { products: 5000, projects: 1000, customers: 800, years: 25 };
     const steps = 60;
     const stepDuration = duration / steps;
 
@@ -300,20 +300,20 @@ const About = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">5000+</div>
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">{counts.products}+</div>
               <div className="text-muted-foreground">Продуктов в каталоге</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">1000+</div>
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">{counts.projects}+</div>
               <div className="text-muted-foreground">Реализованных проектов</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">800+</div>
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">{counts.customers}+</div>
               <div className="text-muted-foreground">Довольных клиентов</div>
             </div>
             <div className="text-center">
               <div className="text-5xl md:text-6xl font-bold text-primary mb-2">
-                {counts.years}
+                {counts.years}+
               </div>
               <div className="text-muted-foreground">Лет на рынке</div>
             </div>
