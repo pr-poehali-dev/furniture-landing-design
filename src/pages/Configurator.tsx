@@ -610,27 +610,48 @@ const Configurator = () => {
                         className="w-full h-full object-contain"
                       />
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="space-y-3">
                       <Button 
-                        onClick={() => window.location.href = '/contacts'}
-                        className="bg-accent hover:bg-accent/90 text-primary flex-1"
-                      >
-                        <Icon name="Calculator" size={18} className="mr-2" />
-                        Рассчитать стоимость
-                      </Button>
-                      <Button 
+                        onClick={generateImage}
+                        disabled={isGenerating}
                         variant="outline"
-                        className="flex-1"
-                        onClick={() => {
-                          const link = document.createElement('a');
-                          link.href = generatedImage;
-                          link.download = mode === 'furniture' ? 'furniture-model.jpg' : 'interior-design.jpg';
-                          link.click();
-                        }}
+                        className="w-full border-accent text-accent hover:bg-accent hover:text-primary"
+                        size="lg"
                       >
-                        <Icon name="Download" size={18} className="mr-2" />
-                        Скачать
+                        {isGenerating ? (
+                          <>
+                            <Icon name="Loader2" size={18} className="mr-2 animate-spin" />
+                            Генерация...
+                          </>
+                        ) : (
+                          <>
+                            <Icon name="RefreshCw" size={18} className="mr-2" />
+                            Перегенерировать
+                          </>
+                        )}
                       </Button>
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <Button 
+                          onClick={() => window.location.href = '/contacts'}
+                          className="bg-accent hover:bg-accent/90 text-primary flex-1"
+                        >
+                          <Icon name="Calculator" size={18} className="mr-2" />
+                          Рассчитать стоимость
+                        </Button>
+                        <Button 
+                          variant="outline"
+                          className="flex-1"
+                          onClick={() => {
+                            const link = document.createElement('a');
+                            link.href = generatedImage;
+                            link.download = mode === 'furniture' ? 'furniture-model.jpg' : 'interior-design.jpg';
+                            link.click();
+                          }}
+                        >
+                          <Icon name="Download" size={18} className="mr-2" />
+                          Скачать
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 ) : (
