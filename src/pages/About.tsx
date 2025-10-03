@@ -183,6 +183,9 @@ const About = () => {
                 <Button onClick={() => window.location.href = '/portfolio'} variant="ghost">
                   Портфолио
                 </Button>
+                <Button onClick={() => window.location.href = '/configurator'} variant="ghost">
+                  3D Конфигуратор
+                </Button>
                 <Button onClick={() => window.location.href = '/promos'} variant="ghost" className="relative">
                   Акции
                   <span className="absolute -top-1 -right-1 flex h-2 w-2">
@@ -221,6 +224,12 @@ const About = () => {
                 className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
               >
                 Портфолио
+              </button>
+              <button
+                onClick={() => { window.location.href = '/configurator'; setIsMobileMenuOpen(false); }}
+                className="text-left py-4 px-6 rounded-lg transition-colors text-foreground hover:bg-secondary text-lg font-medium"
+              >
+                3D Конфигуратор
               </button>
               <button
                 onClick={() => { window.location.href = '/promos'; setIsMobileMenuOpen(false); }}
