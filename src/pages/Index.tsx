@@ -490,9 +490,15 @@ const Index = () => {
                         {slide.description}
                       </p>
                       <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                        <Button onClick={() => scrollToSection('configurator')} size="lg" className="bg-primary hover:bg-primary/90 hover:scale-105 transition-transform w-full sm:w-auto">
-                          Попробовать конфигуратор
-                        </Button>
+                        {index === 2 ? (
+                          <Button onClick={() => window.location.href = '/about'} size="lg" className="bg-primary hover:bg-primary/90 hover:scale-105 transition-transform w-full sm:w-auto">
+                            Подробнее о нас
+                          </Button>
+                        ) : (
+                          <Button onClick={() => window.location.href = '/configurator'} size="lg" className="bg-primary hover:bg-primary/90 hover:scale-105 transition-transform w-full sm:w-auto">
+                            Попробовать конфигуратор
+                          </Button>
+                        )}
                         <Button onClick={() => scrollToSection('portfolio')} size="lg" variant="outline" className="hover:scale-105 transition-transform w-full sm:w-auto">
                           Смотреть проекты
                         </Button>
@@ -961,7 +967,7 @@ const Index = () => {
                   <Icon name="Box" size={64} className="mx-auto mb-4 text-accent animate-float" />
                   <h3 className="text-xl font-bold text-primary mb-2">Интерактивный 3D конфигуратор</h3>
                   <p className="text-muted-foreground mb-6">Создавайте и визуализируйте вашу мебель в 3D</p>
-                  <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary">
+                  <Button onClick={() => window.location.href = '/configurator'} size="lg" className="bg-accent hover:bg-accent/90 text-primary">
                     Запустить конфигуратор
                   </Button>
                 </div>
