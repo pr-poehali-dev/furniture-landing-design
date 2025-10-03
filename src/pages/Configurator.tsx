@@ -118,7 +118,8 @@ const Configurator = () => {
       const prompt = `Professional 3D render of luxury ${styleText} ${furnitureType}, made of ${materialText}, ${colorText} color, high quality photorealistic rendering, studio lighting, white background, product photography, detailed texture`;
 
       try {
-        const imageUrl = 'https://pollinations.ai/p/' + encodeURIComponent(prompt);
+        const seed = Math.floor(Math.random() * 1000000);
+        const imageUrl = 'https://pollinations.ai/p/' + encodeURIComponent(prompt) + `?seed=${seed}&width=1024&height=1024&nologo=true`;
         setGeneratedImage(imageUrl);
         
         await new Promise(resolve => setTimeout(resolve, 2000));
@@ -181,7 +182,8 @@ const Configurator = () => {
       }
 
       try {
-        const imageUrl = 'https://pollinations.ai/p/' + encodeURIComponent(prompt);
+        const seed = Math.floor(Math.random() * 1000000);
+        const imageUrl = 'https://pollinations.ai/p/' + encodeURIComponent(prompt) + `?seed=${seed}&width=1024&height=1024&nologo=true`;
         setGeneratedImage(imageUrl);
         
         await new Promise(resolve => setTimeout(resolve, 2000));
