@@ -1012,10 +1012,7 @@ const Index = () => {
             <Button 
               onClick={() => window.location.href = '/promos'}
               className="bg-accent hover:bg-accent/90 text-primary px-6 md:px-8 py-4 md:py-6 text-base md:text-lg w-full sm:w-auto"
-            >
-              Узнать подробности всех акций
-              <Icon name="ArrowRight" size={20} className="ml-2" />
-            </Button>
+            >Подробнее об акциях -></Button>
           </div>
         </div>
       </section>
