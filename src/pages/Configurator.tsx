@@ -365,7 +365,7 @@ const Configurator = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             <Card>
-              <CardContent className="p-6 md:p-8">
+              <CardContent className="p-6 md:p-8 px-[15px] py-14">
                 <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
                   <Icon name="Settings" size={24} className="text-accent" />
                   {mode === 'furniture' ? 'Параметры мебели' : 'Параметры интерьера'}
