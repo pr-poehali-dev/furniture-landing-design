@@ -283,7 +283,7 @@ const Configurator = () => {
                     </Select>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
                       <Label htmlFor="width" className="text-sm font-semibold mb-2 block">
                         Ширина (см) *
@@ -376,7 +376,7 @@ const Configurator = () => {
                     </Select>
                   </div>
 
-                  <div className="flex gap-3 pt-4">
+                  <div className="flex flex-col sm:flex-row gap-3 pt-4">
                     <Button 
                       onClick={generateImage}
                       disabled={isGenerating}
@@ -399,8 +399,10 @@ const Configurator = () => {
                       onClick={resetConfig}
                       variant="outline"
                       size="lg"
+                      className="sm:w-auto"
                     >
-                      <Icon name="RotateCcw" size={20} />
+                      <Icon name="RotateCcw" size={20} className="sm:mr-0" />
+                      <span className="sm:hidden ml-2">Сбросить</span>
                     </Button>
                   </div>
                 </div>
@@ -423,7 +425,7 @@ const Configurator = () => {
                         className="w-full h-full object-contain"
                       />
                     </div>
-                    <div className="flex gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3">
                       <Button 
                         onClick={() => window.location.href = '/contacts'}
                         className="bg-accent hover:bg-accent/90 text-primary flex-1"
@@ -448,9 +450,9 @@ const Configurator = () => {
                   </div>
                 ) : (
                   <div className="aspect-square rounded-lg border-2 border-dashed border-border flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <Icon name="Box" size={64} className="mx-auto mb-4 text-muted-foreground opacity-50" />
-                      <p className="text-muted-foreground">
+                    <div className="text-center p-4 sm:p-8">
+                      <Icon name="Box" size={48} className="sm:w-16 sm:h-16 mx-auto mb-4 text-muted-foreground opacity-50" />
+                      <p className="text-muted-foreground text-sm sm:text-base">
                         Заполните параметры и нажмите "Создать 3D модель"
                       </p>
                     </div>
