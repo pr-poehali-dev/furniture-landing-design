@@ -1001,9 +1001,7 @@ const Index = () => {
                   <Icon name="Box" size={64} className="mx-auto mb-4 text-accent animate-float" />
                   <h3 className="text-xl font-bold text-primary mb-2">Интерактивный 3D конфигуратор</h3>
                   <p className="text-muted-foreground mb-6">Создавайте и визуализируйте вашу мебель в 3D</p>
-                  <Button onClick={() => window.location.href = '/configurator'} size="lg" className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80">
-                    Запустить конфигуратор
-                  </Button>
+                  <Button onClick={() => window.location.href = '/configurator'} size="lg" className="bg-accent hover:bg-accent/90 text-primary dark:bg-accent dark:text-primary-foreground dark:hover:bg-accent/80">Перейти в конфигуратор</Button>
                 </div>
               </div>
             </CardContent>
