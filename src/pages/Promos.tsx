@@ -232,7 +232,7 @@ const Promos = () => {
                           {promo.title}
                         </h2>
 
-                        <p className="text-lg text-foreground mb-6">
+                        <p className="text-foreground mb-6 text-sm">
                           {promo.description}
                         </p>
 
