@@ -365,17 +365,17 @@ const Configurator = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             <Card>
-              <CardContent className="p-6 md:p-8 px-[15px] py-14">
-                <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-                  <Icon name="Settings" size={24} className="text-accent" />
+              <CardContent className="p-6">
+                <h2 className="text-xl md:text-2xl font-bold text-primary mb-4 flex items-center gap-2">
+                  <Icon name="Settings" size={20} className="text-accent" />
                   {mode === 'furniture' ? 'Параметры мебели' : 'Параметры интерьера'}
                 </h2>
 
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {mode === 'furniture' ? (
                     <>
                       <div>
-                        <Label htmlFor="type" className="text-base font-semibold mb-2 block">
+                        <Label htmlFor="type" className="text-sm font-medium mb-1.5 block">
                           Тип мебели *
                         </Label>
                         <Select value={config.type} onValueChange={(value) => setConfig({...config, type: value})}>
@@ -395,44 +395,46 @@ const Configurator = () => {
                         </Select>
                       </div>
 
-                      <div>
-                        <Label htmlFor="material" className="text-base font-semibold mb-2 block">
-                          Материал
-                        </Label>
-                        <Select value={config.material} onValueChange={(value) => setConfig({...config, material: value})}>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Выберите материал" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {materials.map((material) => (
-                              <SelectItem key={material.value} value={material.value}>
-                                {material.label}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <Label htmlFor="material" className="text-sm font-medium mb-1.5 block">
+                            Материал
+                          </Label>
+                          <Select value={config.material} onValueChange={(value) => setConfig({...config, material: value})}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Материал" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {materials.map((material) => (
+                                <SelectItem key={material.value} value={material.value}>
+                                  {material.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+
+                        <div>
+                          <Label htmlFor="color" className="text-sm font-medium mb-1.5 block">
+                            Цвет
+                          </Label>
+                          <Select value={config.color} onValueChange={(value) => setConfig({...config, color: value})}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Цвет" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {colors.map((color) => (
+                                <SelectItem key={color.value} value={color.value}>
+                                  {color.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
                       </div>
 
                       <div>
-                        <Label htmlFor="color" className="text-base font-semibold mb-2 block">
-                          Цвет
-                        </Label>
-                        <Select value={config.color} onValueChange={(value) => setConfig({...config, color: value})}>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Выберите цвет" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {colors.map((color) => (
-                              <SelectItem key={color.value} value={color.value}>
-                                {color.label}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div>
-                        <Label htmlFor="style" className="text-base font-semibold mb-2 block">
+                        <Label htmlFor="style" className="text-sm font-medium mb-1.5 block">
                           Стиль
                         </Label>
                         <Select value={config.style} onValueChange={(value) => setConfig({...config, style: value})}>
@@ -452,7 +454,7 @@ const Configurator = () => {
                   ) : (
                     <>
                       <div>
-                        <Label htmlFor="roomType" className="text-base font-semibold mb-2 block">
+                        <Label htmlFor="roomType" className="text-sm font-medium mb-1.5 block">
                           Тип комнаты *
                         </Label>
                         <Select value={interiorConfig.roomType} onValueChange={(value) => setInteriorConfig({...interiorConfig, roomType: value})}>
@@ -469,21 +471,41 @@ const Configurator = () => {
                         </Select>
                       </div>
 
-                      <div>
-                        <Label htmlFor="area" className="text-base font-semibold mb-2 block">
-                          Площадь (м²)
-                        </Label>
-                        <Input
-                          id="area"
-                          type="number"
-                          placeholder="Например: 25"
-                          value={interiorConfig.area}
-                          onChange={(e) => setInteriorConfig({...interiorConfig, area: e.target.value})}
-                        />
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <Label htmlFor="area" className="text-sm font-medium mb-1.5 block">
+                            Площадь (м²)
+                          </Label>
+                          <Input
+                            id="area"
+                            type="number"
+                            placeholder="25"
+                            value={interiorConfig.area}
+                            onChange={(e) => setInteriorConfig({...interiorConfig, area: e.target.value})}
+                          />
+                        </div>
+
+                        <div>
+                          <Label htmlFor="interiorColor" className="text-sm font-medium mb-1.5 block">
+                            Цвет
+                          </Label>
+                          <Select value={interiorConfig.color} onValueChange={(value) => setInteriorConfig({...interiorConfig, color: value})}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Цвет" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {colors.map((color) => (
+                                <SelectItem key={color.value} value={color.value}>
+                                  {color.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
                       </div>
 
                       <div>
-                        <Label htmlFor="interiorStyle" className="text-base font-semibold mb-2 block">
+                        <Label htmlFor="interiorStyle" className="text-sm font-medium mb-1.5 block">
                           Стиль интерьера
                         </Label>
                         <Select value={interiorConfig.style} onValueChange={(value) => setInteriorConfig({...interiorConfig, style: value})}>
@@ -499,28 +521,10 @@ const Configurator = () => {
                           </SelectContent>
                         </Select>
                       </div>
-
-                      <div>
-                        <Label htmlFor="interiorColor" className="text-base font-semibold mb-2 block">
-                          Цветовая гамма
-                        </Label>
-                        <Select value={interiorConfig.color} onValueChange={(value) => setInteriorConfig({...interiorConfig, color: value})}>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Выберите цвет" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {colors.map((color) => (
-                              <SelectItem key={color.value} value={color.value}>
-                                {color.label}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
                     </>
                   )}
 
-                  <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                  <div className="flex flex-col sm:flex-row gap-3 pt-2">
                     <Button 
                       onClick={generateImage}
                       disabled={isGenerating}
