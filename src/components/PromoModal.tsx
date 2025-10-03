@@ -48,10 +48,10 @@ const PromoModal = ({ promo, isOpen, onClose }: PromoModalProps) => {
       onClick={onClose}
     >
       <div 
-        className="relative max-w-2xl w-full bg-background rounded-3xl shadow-2xl animate-scale-in my-8 max-h-[90vh] overflow-y-auto"
+        className="relative max-w-2xl w-full bg-background rounded-3xl shadow-2xl animate-scale-in my-8 max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="sticky top-0 right-0 flex justify-end p-4 bg-background/95 backdrop-blur-sm rounded-t-3xl z-10">
+        <div className="flex justify-end p-4 flex-shrink-0">
           <button
             onClick={onClose}
             className="w-10 h-10 rounded-full bg-secondary hover:bg-secondary/80 flex items-center justify-center transition-colors group"
@@ -61,7 +61,7 @@ const PromoModal = ({ promo, isOpen, onClose }: PromoModalProps) => {
           </button>
         </div>
 
-        <div className="px-8 pb-8 md:px-12 md:pb-12 -mt-4">
+        <div className="px-8 pb-8 md:px-12 md:pb-12 overflow-y-auto flex-1">
           <div className="flex items-start gap-4 mb-6">
             <Badge className="bg-accent text-primary text-lg px-4 py-2 flex-shrink-0">
               {promo.discount}
@@ -107,10 +107,10 @@ const PromoModal = ({ promo, isOpen, onClose }: PromoModalProps) => {
             </div>
           )}
 
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col gap-3">
             <Button 
               onClick={() => window.location.href = '/contacts'}
-              className="bg-accent hover:bg-accent/90 text-primary flex-1"
+              className="bg-accent hover:bg-accent/90 text-primary w-full"
               size="lg"
             >
               Получить консультацию
@@ -118,8 +118,9 @@ const PromoModal = ({ promo, isOpen, onClose }: PromoModalProps) => {
             </Button>
             <Button 
               onClick={onClose}
-              variant="outline"
-              size="lg"
+              variant="ghost"
+              size="sm"
+              className="w-full"
             >
               Закрыть
             </Button>
