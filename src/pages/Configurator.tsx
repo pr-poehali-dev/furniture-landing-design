@@ -27,7 +27,8 @@ const Configurator = () => {
   const [interiorConfig, setInteriorConfig] = useState({
     roomType: '',
     style: '',
-    color: ''
+    color: '',
+    area: ''
   });
 
   useEffect(() => {
@@ -144,8 +145,9 @@ const Configurator = () => {
       const roomType = roomTypes.find(r => r.value === interiorConfig.roomType)?.english || 'room';
       const styleText = styles.find(s => s.value === interiorConfig.style)?.english || 'modern';
       const colorText = colors.find(c => c.value === interiorConfig.color)?.english || 'neutral';
+      const areaText = interiorConfig.area ? `, ${interiorConfig.area} square meters` : '';
 
-      const prompt = `Beautiful ${styleText} ${roomType} interior design, ${colorText} color scheme, luxury furniture, professional interior photography, wide angle, natural lighting, high quality, detailed, cozy atmosphere, realistic`;
+      const prompt = `Beautiful ${styleText} ${roomType} interior design${areaText}, ${colorText} color scheme, luxury furniture, professional interior photography, wide angle, natural lighting, high quality, detailed, cozy atmosphere, realistic`;
 
       try {
         const imageUrl = 'https://pollinations.ai/p/' + encodeURIComponent(prompt);
@@ -179,7 +181,8 @@ const Configurator = () => {
     setInteriorConfig({
       roomType: '',
       style: '',
-      color: ''
+      color: '',
+      area: ''
     });
     setGeneratedImage(null);
   };
@@ -439,6 +442,19 @@ const Configurator = () => {
                             ))}
                           </SelectContent>
                         </Select>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="area" className="text-base font-semibold mb-2 block">
+                          Площадь (м²)
+                        </Label>
+                        <Input
+                          id="area"
+                          type="number"
+                          placeholder="Например: 25"
+                          value={interiorConfig.area}
+                          onChange={(e) => setInteriorConfig({...interiorConfig, area: e.target.value})}
+                        />
                       </div>
 
                       <div>
