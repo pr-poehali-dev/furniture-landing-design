@@ -558,6 +558,39 @@ const Configurator = () => {
                     </Button>
                   </div>
                 </div>
+
+                <div className="hidden lg:block mt-4 p-4 bg-accent/5 rounded-lg border border-accent/20">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon name="Lightbulb" size={20} className="text-accent" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-primary mb-1">Совет</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {mode === 'furniture' 
+                          ? 'Попробуйте разные комбинации материалов и стилей — классическое дерево отлично сочетается с современным дизайном, а металл добавляет нотки лофта.'
+                          : 'Для маленьких помещений выбирайте светлые тона и минимализм — это визуально увеличит пространство. Для больших комнат подойдут насыщенные цвета и классический стиль.'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="hidden lg:grid grid-cols-2 gap-3 mt-4">
+                  <div className="p-3 bg-primary/5 rounded-lg border border-primary/10">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Icon name="Clock" size={16} className="text-primary" />
+                      <span className="text-xs font-semibold text-primary">Быстро</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground">Генерация за 2-3 секунды</p>
+                  </div>
+                  <div className="p-3 bg-primary/5 rounded-lg border border-primary/10">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Icon name="Sparkles" size={16} className="text-primary" />
+                      <span className="text-xs font-semibold text-primary">Качество</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground">Фотореалистичные результаты</p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
