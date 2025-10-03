@@ -13,6 +13,7 @@ const Portfolio = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState('Все');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [mobileViewMode, setMobileViewMode] = useState<'slider' | 'grid'>('slider');
   const autoplayPlugin = useRef(
     Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
@@ -591,7 +592,7 @@ const Portfolio = () => {
             </p>
           </div>
 
-          <div className="mb-12 relative">
+          <div className="mb-8 relative">
             <Carousel
               opts={{
                 align: 'start',
@@ -634,6 +635,35 @@ const Portfolio = () => {
               <CarouselPrevious className="-left-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
               <CarouselNext className="-right-4 bg-background/80 backdrop-blur-sm hover:bg-background" />
             </Carousel>
+          </div>
+
+          <div className="md:hidden flex justify-center gap-2 mb-8">
+            <Button
+              variant={mobileViewMode === 'slider' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setMobileViewMode('slider')}
+              className={`${
+                mobileViewMode === 'slider'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'border-primary/30 text-primary'
+              }`}
+            >
+              <Icon name="ChevronsLeftRight" size={16} className="mr-2" />
+              Слайдер
+            </Button>
+            <Button
+              variant={mobileViewMode === 'grid' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setMobileViewMode('grid')}
+              className={`${
+                mobileViewMode === 'grid'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'border-primary/30 text-primary'
+              }`}
+            >
+              <Icon name="LayoutGrid" size={16} className="mr-2" />
+              Список
+            </Button>
           </div>
 
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
@@ -689,65 +719,120 @@ const Portfolio = () => {
             ))}
           </div>
 
-          <div className="md:hidden mb-16">
-            <Carousel 
-              className="w-full"
-              opts={{
-                align: 'start',
-                loop: true,
-              }}
-              plugins={[autoplayPlugin.current]}
-            >
-              <CarouselContent>
-                {filteredProjects.map((project) => (
-                  <CarouselItem key={project.id}>
-                    <Card 
-                      className="group overflow-hidden cursor-pointer"
-                      onClick={() => setSelectedImage(project.image)}
-                    >
-                      <CardContent className="p-0">
-                        <div className="relative h-96 overflow-hidden">
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                          
-                          <div className="absolute top-4 right-4">
-                            <Badge className="bg-accent text-primary">
-                              {project.category}
-                            </Badge>
-                          </div>
+          {mobileViewMode === 'slider' ? (
+            <div className="md:hidden mb-16">
+              <Carousel 
+                className="w-full"
+                opts={{
+                  align: 'start',
+                  loop: true,
+                }}
+                plugins={[autoplayPlugin.current]}
+              >
+                <CarouselContent>
+                  {filteredProjects.map((project) => (
+                    <CarouselItem key={project.id}>
+                      <Card 
+                        className="group overflow-hidden cursor-pointer"
+                        onClick={() => setSelectedImage(project.image)}
+                      >
+                        <CardContent className="p-0">
+                          <div className="relative h-96 overflow-hidden">
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                            
+                            <div className="absolute top-4 right-4">
+                              <Badge className="bg-accent text-primary">
+                                {project.category}
+                              </Badge>
+                            </div>
 
-                          <div className="absolute bottom-0 left-0 right-0 p-6">
-                            <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-lg">
-                              {project.title}
-                            </h3>
-                            <p className="text-white text-sm mb-3 drop-shadow-md">
-                              {project.description}
-                            </p>
-                            <div className="flex gap-4 text-white text-sm drop-shadow-md">
-                              <div className="flex items-center gap-1">
-                                <Icon name="Maximize2" size={16} />
-                                <span>{project.area}</span>
-                              </div>
-                              <div className="flex items-center gap-1">
-                                <Icon name="Calendar" size={16} />
-                                <span>{project.year}</span>
+                            <div className="absolute bottom-0 left-0 right-0 p-6">
+                              <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-lg">
+                                {project.title}
+                              </h3>
+                              <p className="text-white text-sm mb-3 drop-shadow-md">
+                                {project.description}
+                              </p>
+                              <div className="flex gap-4 text-white text-sm drop-shadow-md">
+                                <div className="flex items-center gap-1">
+                                  <Icon name="Maximize2" size={16} />
+                                  <span>{project.area}</span>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <Icon name="Calendar" size={16} />
+                                  <span>{project.year}</span>
+                                </div>
                               </div>
                             </div>
                           </div>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2" />
+                <CarouselNext className="right-2" />
+              </Carousel>
+            </div>
+          ) : (
+            <div className="md:hidden grid grid-cols-1 gap-6 mb-16">
+              {filteredProjects.map((project, index) => (
+                <Card 
+                  key={project.id}
+                  className="group overflow-hidden hover:shadow-2xl transition-all cursor-pointer animate-fade-in-scale"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                  onClick={() => setSelectedImage(project.image)}
+                >
+                  <CardContent className="p-0">
+                    <div className="relative h-80 overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                      
+                      <div className="absolute top-4 right-4">
+                        <Badge className="bg-accent text-primary">
+                          {project.category}
+                        </Badge>
+                      </div>
+
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="w-16 h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
+                          <Icon name="ZoomIn" size={28} className="text-primary" />
                         </div>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
-            </Carousel>
-          </div>
+                      </div>
+
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-lg">
+                          {project.title}
+                        </h3>
+                        <p className="text-white text-sm mb-3 drop-shadow-md">
+                          {project.description}
+                        </p>
+                        <div className="flex gap-4 text-white text-sm drop-shadow-md">
+                          <div className="flex items-center gap-1">
+                            <Icon name="Maximize2" size={16} />
+                            <span>{project.area}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Icon name="Calendar" size={16} />
+                            <span>{project.year}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
 
           {filteredProjects.length === 0 && (
             <div className="text-center py-20">
