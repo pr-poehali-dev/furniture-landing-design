@@ -652,10 +652,7 @@ const Index = () => {
               variant="outline" 
               onClick={() => window.location.href = '/portfolio'}
               className="border-accent text-accent hover:bg-accent hover:text-primary group"
-            >
-              Посмотреть всё портфолио
-              <Icon name="ExternalLink" size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            >Посмотреть все</Button>
           </div>
         </div>
       </section>
