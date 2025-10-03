@@ -584,9 +584,21 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="categories" className="py-20 bg-secondary/30 animate-on-scroll">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Наши направления</h2>
+      <section id="categories" className="py-20 bg-secondary/30 animate-on-scroll relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-float-slow"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: '2s' }}></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-accent text-primary px-4 py-2">Что мы создаём</Badge>
+            <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Наши направления</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              От кухонь до офисов — создаём мебель для любого пространства
+            </p>
+          </div>
+          
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {categories.map((category, index) => (
               <Card
@@ -608,17 +620,42 @@ const Index = () => {
                   const targetCategory = categoryMap[category.name];
                   window.location.href = `/portfolio?category=${encodeURIComponent(targetCategory)}`;
                 }}
-                className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group relative overflow-hidden"
+                className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer group relative overflow-hidden border-2 border-transparent hover:border-accent/20 animate-fade-in-scale"
+                style={{ animationDelay: `${index * 80}ms` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/0 via-accent/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="absolute top-0 right-0 w-24 h-24 bg-accent/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-y-12 translate-x-12"></div>
+                
                 <CardContent className="p-4 md:p-6 text-center relative z-10">
-                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 bg-accent/20 rounded-full flex items-center justify-center group-hover:bg-accent/30 transition-all group-hover:animate-float">
-                    <Icon name={category.icon} size={24} className="md:w-8 md:h-8 text-accent group-hover:scale-110 transition-transform" />
+                  <div className="w-14 h-14 md:w-20 md:h-20 mx-auto mb-4 md:mb-5 bg-gradient-to-br from-accent/20 to-accent/10 rounded-2xl flex items-center justify-center group-hover:from-accent/30 group-hover:to-accent/20 transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 shadow-lg group-hover:shadow-accent/20">
+                    <Icon name={category.icon} size={28} className="md:w-10 md:h-10 text-accent group-hover:scale-125 transition-transform duration-500" />
                   </div>
-                  <h3 className="font-semibold text-sm md:text-base text-foreground">{category.name}</h3>
+                  
+                  <h3 className="font-bold text-sm md:text-base text-foreground mb-2 group-hover:text-accent transition-colors duration-300">
+                    {category.name}
+                  </h3>
+                  
+                  <div className="flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <span className="text-xs text-muted-foreground">Смотреть</span>
+                    <Icon name="ArrowRight" size={14} className="text-accent" />
+                  </div>
                 </CardContent>
+                
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </Card>
             ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Button 
+              variant="outline" 
+              onClick={() => window.location.href = '/portfolio'}
+              className="border-accent text-accent hover:bg-accent hover:text-primary group"
+            >
+              Посмотреть всё портфолио
+              <Icon name="ExternalLink" size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
           </div>
         </div>
       </section>
