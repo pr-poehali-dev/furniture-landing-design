@@ -69,7 +69,7 @@ const Promos = () => {
       id: 3,
       title: 'Скидка на весь заказ',
       discount: '-10%',
-      image: '/img/78c2200b-5e7f-4f99-98d6-e8758dc67c96.jpg',
+      image: 'https://cdn.poehali.dev/files/06b06448-c35b-4e37-abb7-a04c1dd74a45.jpg',
       validUntil: '2027',
       description: 'Обставьте всю квартиру сразу и получите скидку на весь заказ! Это идеальное решение для тех, кто хочет создать гармоничный и стильный интерьер с нуля.',
       details: [
