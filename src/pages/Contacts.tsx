@@ -385,7 +385,7 @@ const Contacts = () => {
               <CardContent className="p-0">
                 <div className="relative w-full h-96 md:h-[500px] bg-secondary/20">
                   <iframe
-                    src="https://yandex.ru/map-widget/v1/?ll=131.9486%2C43.8040&z=17&l=map&pt=131.9486,43.8040,pm2rdm"
+                    src="https://yandex.ru/map-widget/v1/?ll=131.980000%2C43.789000&z=16&l=map&pt=131.980000,43.789000,pm2rdm"
                     width="100%"
                     height="100%"
                     frameBorder="0"
