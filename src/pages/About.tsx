@@ -305,7 +305,7 @@ const About = () => {
         </div>
       </section>
 
-      <section ref={statsRef} className="py-20 bg-secondary/20">
+      <section ref={statsRef} className="bg-secondary/20 py-[33px]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
