@@ -341,7 +341,7 @@ const Configurator = () => {
               Выберите параметры и получите реалистичное изображение за секунды
             </p>
 
-            <div className="flex justify-center gap-4 mb-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-4 px-4">
               <Button
                 onClick={() => {
                   setMode('furniture');
