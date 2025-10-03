@@ -191,8 +191,8 @@ const Promos = () => {
         </div>
       )}
 
-      <section className="pt-32 pb-20 px-4">
-        <div className="container mx-auto">
+      <section className="pt-32 pb-20">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-accent text-primary px-4 py-2">Актуальные предложения</Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">Наши акции</h1>

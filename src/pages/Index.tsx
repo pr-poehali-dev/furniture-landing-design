@@ -470,9 +470,9 @@ const Index = () => {
         </div>
       )}
 
-      <section id="home" className="pt-32 pb-20 px-4 relative overflow-hidden animate-on-scroll">
+      <section id="home" className="pt-32 pb-20 relative overflow-hidden animate-on-scroll">
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-secondary/10 animate-gradient-shift bg-[length:200%_200%]"></div>
-        <div className="container mx-auto relative z-10">
+        <div className="container mx-auto px-4 relative z-10">
           <Carousel
             opts={{ loop: true }}
             plugins={[Autoplay({ delay: 5000 })]}
@@ -525,8 +525,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4">
-        <div className="container mx-auto">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Почему выбирают нас</h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -584,8 +584,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="categories" className="py-20 px-4 bg-secondary/30 animate-on-scroll">
-        <div className="container mx-auto">
+      <section id="categories" className="py-20 bg-secondary/30 animate-on-scroll">
+        <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Наши направления</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {categories.map((category, index) => (
@@ -623,8 +623,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4">
-        <div className="container mx-auto">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Как мы работаем</h2>
             <p className="text-base md:text-lg text-muted-foreground">
@@ -650,8 +650,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about" className="py-20 px-4 bg-background animate-on-scroll">
-        <div className="container mx-auto">
+      <section id="about" className="py-20 bg-background animate-on-scroll">
+        <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-3">
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary leading-none mb-8">
@@ -705,8 +705,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-secondary/20">
-        <div className="container mx-auto">
+      <section className="py-20 bg-secondary/20">
+        <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-12 gap-6 mb-16">
             <div className="md:col-span-7">
               <div 
@@ -795,8 +795,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about-old" className="py-20 px-4 animate-on-scroll">
-        <div className="container mx-auto">
+      <section id="about-old" className="py-20 animate-on-scroll">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Наша история</h2>
             <p className="text-base md:text-lg text-muted-foreground">
@@ -833,8 +833,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="portfolio" className="py-20 px-4 bg-background animate-on-scroll">
-        <div className="container mx-auto">
+      <section id="portfolio" className="py-20 bg-background animate-on-scroll">
+        <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-6">
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
@@ -952,8 +952,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="configurator" className="py-20 px-4 animate-on-scroll">
-        <div className="container mx-auto text-center">
+      <section id="configurator" className="py-20 animate-on-scroll">
+        <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-primary mb-6">3D Конфигуратор</h2>
           <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
             Создайте мебель своей мечты в нашем интерактивном 3D конфигураторе. 
@@ -977,8 +977,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-secondary/20">
-        <div className="container mx-auto">
+      <section className="py-20 bg-secondary/20">
+        <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div className="md:sticky md:top-24">
               <p className="text-sm text-muted-foreground mb-2 uppercase tracking-wider">FAQs</p>
@@ -1026,8 +1026,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="promos" className="py-20 px-4 bg-secondary/30 animate-on-scroll">
-        <div className="container mx-auto">
+      <section id="promos" className="py-20 bg-secondary/30 animate-on-scroll">
+        <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Актуальные акции</h2>
           <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-10">
             {promos.map((promo, index) => (
@@ -1058,8 +1058,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contacts" className="py-20 px-4 animate-on-scroll">
-        <div className="container mx-auto">
+      <section id="contacts" className="py-20 animate-on-scroll">
+        <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Свяжитесь с нами</h2>

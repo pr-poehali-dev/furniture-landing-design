@@ -245,9 +245,9 @@ const About = () => {
         </div>
       )}
 
-      <section className="pt-32 pb-20 px-4 relative overflow-hidden">
+      <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-secondary/10"></div>
-        <div className="container mx-auto relative z-10">
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-accent text-primary px-4 py-2">О компании</Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">
@@ -296,8 +296,8 @@ const About = () => {
         </div>
       </section>
 
-      <section ref={statsRef} className="py-20 px-4 bg-secondary/20">
-        <div className="container mx-auto">
+      <section ref={statsRef} className="py-20 bg-secondary/20">
+        <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-5xl md:text-6xl font-bold text-primary mb-2">{counts.products}+</div>
@@ -321,8 +321,8 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4">
-        <div className="container mx-auto">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Наши ценности</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -349,8 +349,8 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-secondary/20">
-        <div className="container mx-auto">
+      <section className="py-20 bg-secondary/20">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Ключевые фигуры</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -377,8 +377,8 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4">
-        <div className="container mx-auto">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Наша история</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -421,8 +421,8 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-accent/5">
-        <div className="container mx-auto text-center">
+      <section className="py-20 bg-accent/5">
+        <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-primary mb-6">
             Готовы начать свой проект?
           </h2>

@@ -581,8 +581,8 @@ const Portfolio = () => {
         </div>
       )}
 
-      <section className="pt-32 pb-12 px-4">
-        <div className="container mx-auto">
+      <section className="pt-32 pb-12">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-accent text-primary px-4 py-2">Наши работы</Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">Портфолио</h1>
