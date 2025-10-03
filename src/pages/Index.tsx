@@ -482,7 +482,7 @@ const Index = () => {
               {heroSlides.map((slide, index) => (
                 <CarouselItem key={index}>
                   <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="animate-fade-in-up">
+                    <div className="animate-fade-in-up mx-[15px] px-[41px]">
                       <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-primary mb-4 md:mb-6 leading-tight">
                         {slide.title}
                       </h2>
