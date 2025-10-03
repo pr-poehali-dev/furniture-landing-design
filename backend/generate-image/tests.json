@@ -1,0 +1,23 @@
+{
+  "tests": [
+    {
+      "name": "Test OPTIONS for CORS",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Test image generation with prompt",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "prompt": "Modern sofa, minimalist style, fabric material, gray color"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "imageUrl": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
