@@ -40,40 +40,40 @@ const Configurator = () => {
   };
 
   const furnitureTypes = [
-    { value: 'sofa', label: 'Диван', icon: 'Sofa' },
-    { value: 'wardrobe', label: 'Шкаф', icon: 'Shirt' },
-    { value: 'bed', label: 'Кровать', icon: 'BedDouble' },
-    { value: 'table', label: 'Стол', icon: 'Table' },
-    { value: 'chair', label: 'Стул', icon: 'Armchair' },
-    { value: 'kitchen', label: 'Кухня', icon: 'UtensilsCrossed' },
-    { value: 'dresser', label: 'Комод', icon: 'Box' },
-    { value: 'bookshelf', label: 'Стеллаж', icon: 'BookOpen' }
+    { value: 'sofa', label: 'Диван', icon: 'Sofa', english: 'sofa' },
+    { value: 'wardrobe', label: 'Шкаф', icon: 'Shirt', english: 'wardrobe' },
+    { value: 'bed', label: 'Кровать', icon: 'BedDouble', english: 'bed' },
+    { value: 'table', label: 'Стол', icon: 'Table', english: 'table' },
+    { value: 'chair', label: 'Стул', icon: 'Armchair', english: 'chair' },
+    { value: 'kitchen', label: 'Кухня', icon: 'UtensilsCrossed', english: 'kitchen cabinet' },
+    { value: 'dresser', label: 'Комод', icon: 'Box', english: 'dresser' },
+    { value: 'bookshelf', label: 'Стеллаж', icon: 'BookOpen', english: 'bookshelf' }
   ];
 
   const materials = [
-    { value: 'wood', label: 'Дерево' },
-    { value: 'mdf', label: 'МДФ' },
-    { value: 'metal', label: 'Металл' },
-    { value: 'glass', label: 'Стекло' },
-    { value: 'leather', label: 'Кожа' },
-    { value: 'fabric', label: 'Ткань' }
+    { value: 'wood', label: 'Дерево', english: 'natural wood' },
+    { value: 'mdf', label: 'МДФ', english: 'MDF board' },
+    { value: 'metal', label: 'Металл', english: 'metal' },
+    { value: 'glass', label: 'Стекло', english: 'glass' },
+    { value: 'leather', label: 'Кожа', english: 'leather upholstery' },
+    { value: 'fabric', label: 'Ткань', english: 'fabric upholstery' }
   ];
 
   const colors = [
-    { value: 'white', label: 'Белый' },
-    { value: 'black', label: 'Черный' },
-    { value: 'brown', label: 'Коричневый' },
-    { value: 'beige', label: 'Бежевый' },
-    { value: 'gray', label: 'Серый' },
-    { value: 'blue', label: 'Синий' }
+    { value: 'white', label: 'Белый', english: 'white' },
+    { value: 'black', label: 'Черный', english: 'black' },
+    { value: 'brown', label: 'Коричневый', english: 'brown' },
+    { value: 'beige', label: 'Бежевый', english: 'beige' },
+    { value: 'gray', label: 'Серый', english: 'gray' },
+    { value: 'blue', label: 'Синий', english: 'blue' }
   ];
 
   const styles = [
-    { value: 'modern', label: 'Современный' },
-    { value: 'classic', label: 'Классический' },
-    { value: 'minimalist', label: 'Минимализм' },
-    { value: 'loft', label: 'Лофт' },
-    { value: 'scandinavian', label: 'Скандинавский' }
+    { value: 'modern', label: 'Современный', english: 'modern' },
+    { value: 'classic', label: 'Классический', english: 'classic' },
+    { value: 'minimalist', label: 'Минимализм', english: 'minimalist' },
+    { value: 'loft', label: 'Лофт', english: 'industrial loft' },
+    { value: 'scandinavian', label: 'Скандинавский', english: 'scandinavian' }
   ];
 
   const generateImage = async () => {
@@ -88,12 +88,12 @@ const Configurator = () => {
 
     setIsGenerating(true);
 
-    const furnitureType = furnitureTypes.find(t => t.value === config.type)?.label || config.type;
-    const materialText = materials.find(m => m.value === config.material)?.label || 'modern material';
-    const colorText = colors.find(c => c.value === config.color)?.label || 'neutral color';
-    const styleText = styles.find(s => s.value === config.style)?.label || 'contemporary style';
+    const furnitureType = furnitureTypes.find(t => t.value === config.type)?.english || 'furniture';
+    const materialText = materials.find(m => m.value === config.material)?.english || 'modern material';
+    const colorText = colors.find(c => c.value === config.color)?.english || 'neutral color';
+    const styleText = styles.find(s => s.value === config.style)?.english || 'contemporary';
 
-    const prompt = `Professional 3D render of luxury ${furnitureType}, ${styleText}, ${materialText}, ${colorText}, dimensions ${config.width}x${config.height}x${config.depth}cm, high quality photorealistic rendering, studio lighting, white background, product photography`;
+    const prompt = `Professional 3D render of luxury ${styleText} ${furnitureType}, made of ${materialText}, ${colorText} color, dimensions ${config.width}x${config.height}x${config.depth}cm, high quality photorealistic rendering, studio lighting, white background, product photography, detailed texture`;
 
     try {
       const imageUrl = 'https://pollinations.ai/p/' + encodeURIComponent(prompt);
