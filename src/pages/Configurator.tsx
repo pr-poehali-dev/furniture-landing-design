@@ -369,9 +369,9 @@ const Configurator = () => {
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:items-start">
+          <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 lg:items-start">
             <Card className="h-fit">
-              <CardContent className="p-6">
+              <CardContent className="p-4 sm:p-6">
                 <h2 className="text-xl md:text-2xl font-bold text-primary mb-4 flex items-center gap-2">
                   <Icon name="Settings" size={20} className="text-accent" />
                   {mode === 'furniture' ? 'Параметры мебели' : 'Параметры интерьера'}
@@ -595,7 +595,7 @@ const Configurator = () => {
             </Card>
 
             <Card className="bg-secondary/20 h-fit">
-              <CardContent className="p-6">
+              <CardContent className="p-4 sm:p-6">
                 <h2 className="text-xl md:text-2xl font-bold text-primary mb-4 flex items-center gap-2">
                   <Icon name="Image" size={20} className="text-accent" />
                   Предпросмотр
