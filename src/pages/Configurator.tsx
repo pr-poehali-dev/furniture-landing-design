@@ -16,14 +16,18 @@ const Configurator = () => {
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
   const { toast } = useToast();
 
+  const [mode, setMode] = useState<'furniture' | 'interior'>('furniture');
   const [config, setConfig] = useState({
     type: '',
-    width: '',
-    height: '',
-    depth: '',
     material: '',
     color: '',
     style: ''
+  });
+
+  const [interiorConfig, setInteriorConfig] = useState({
+    roomType: '',
+    style: '',
+    color: ''
   });
 
   useEffect(() => {
@@ -76,55 +80,106 @@ const Configurator = () => {
     { value: 'scandinavian', label: 'Скандинавский', english: 'scandinavian' }
   ];
 
+  const roomTypes = [
+    { value: 'living', label: 'Гостиная', english: 'living room' },
+    { value: 'bedroom', label: 'Спальня', english: 'bedroom' },
+    { value: 'kitchen', label: 'Кухня', english: 'kitchen' },
+    { value: 'bathroom', label: 'Ванная', english: 'bathroom' },
+    { value: 'office', label: 'Кабинет', english: 'home office' },
+    { value: 'dining', label: 'Столовая', english: 'dining room' },
+    { value: 'children', label: 'Детская', english: 'children room' }
+  ];
+
   const generateImage = async () => {
-    if (!config.type || !config.width || !config.height || !config.depth) {
-      toast({
-        title: "Заполните все поля",
-        description: "Пожалуйста, укажите тип мебели и все размеры",
-        variant: "destructive"
-      });
-      return;
-    }
+    if (mode === 'furniture') {
+      if (!config.type) {
+        toast({
+          title: "Заполните поля",
+          description: "Пожалуйста, выберите тип мебели",
+          variant: "destructive"
+        });
+        return;
+      }
 
-    setIsGenerating(true);
+      setIsGenerating(true);
 
-    const furnitureType = furnitureTypes.find(t => t.value === config.type)?.english || 'furniture';
-    const materialText = materials.find(m => m.value === config.material)?.english || 'modern material';
-    const colorText = colors.find(c => c.value === config.color)?.english || 'neutral color';
-    const styleText = styles.find(s => s.value === config.style)?.english || 'contemporary';
+      const furnitureType = furnitureTypes.find(t => t.value === config.type)?.english || 'furniture';
+      const materialText = materials.find(m => m.value === config.material)?.english || 'modern material';
+      const colorText = colors.find(c => c.value === config.color)?.english || 'neutral color';
+      const styleText = styles.find(s => s.value === config.style)?.english || 'contemporary';
 
-    const prompt = `Professional 3D render of luxury ${styleText} ${furnitureType}, made of ${materialText}, ${colorText} color, dimensions ${config.width}x${config.height}x${config.depth}cm, high quality photorealistic rendering, studio lighting, white background, product photography, detailed texture`;
+      const prompt = `Professional 3D render of luxury ${styleText} ${furnitureType}, made of ${materialText}, ${colorText} color, high quality photorealistic rendering, studio lighting, white background, product photography, detailed texture`;
 
-    try {
-      const imageUrl = 'https://pollinations.ai/p/' + encodeURIComponent(prompt);
-      setGeneratedImage(imageUrl);
-      
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      toast({
-        title: "Готово!",
-        description: "Ваша мебель создана. Сохраните или отправьте на расчёт стоимости."
-      });
-    } catch (error) {
-      toast({
-        title: "Ошибка",
-        description: "Не удалось создать изображение. Попробуйте ещё раз.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsGenerating(false);
+      try {
+        const imageUrl = 'https://pollinations.ai/p/' + encodeURIComponent(prompt);
+        setGeneratedImage(imageUrl);
+        
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        toast({
+          title: "Готово!",
+          description: "Ваша мебель создана. Сохраните или отправьте на расчёт стоимости."
+        });
+      } catch (error) {
+        toast({
+          title: "Ошибка",
+          description: "Не удалось создать изображение. Попробуйте ещё раз.",
+          variant: "destructive"
+        });
+      } finally {
+        setIsGenerating(false);
+      }
+    } else {
+      if (!interiorConfig.roomType) {
+        toast({
+          title: "Заполните поля",
+          description: "Пожалуйста, выберите тип комнаты",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      setIsGenerating(true);
+
+      const roomType = roomTypes.find(r => r.value === interiorConfig.roomType)?.english || 'room';
+      const styleText = styles.find(s => s.value === interiorConfig.style)?.english || 'modern';
+      const colorText = colors.find(c => c.value === interiorConfig.color)?.english || 'neutral';
+
+      const prompt = `Beautiful ${styleText} ${roomType} interior design, ${colorText} color scheme, luxury furniture, professional interior photography, wide angle, natural lighting, high quality, detailed, cozy atmosphere, realistic`;
+
+      try {
+        const imageUrl = 'https://pollinations.ai/p/' + encodeURIComponent(prompt);
+        setGeneratedImage(imageUrl);
+        
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        toast({
+          title: "Готово!",
+          description: "Интерьер вашей комнаты готов. Сохраните или отправьте на расчёт."
+        });
+      } catch (error) {
+        toast({
+          title: "Ошибка",
+          description: "Не удалось создать изображение. Попробуйте ещё раз.",
+          variant: "destructive"
+        });
+      } finally {
+        setIsGenerating(false);
+      }
     }
   };
 
   const resetConfig = () => {
     setConfig({
       type: '',
-      width: '',
-      height: '',
-      depth: '',
       material: '',
       color: '',
       style: ''
+    });
+    setInteriorConfig({
+      roomType: '',
+      style: '',
+      color: ''
     });
     setGeneratedImage(null);
   };
@@ -246,11 +301,38 @@ const Configurator = () => {
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-accent text-primary px-4 py-2">Попробуйте сейчас</Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">3D Конфигуратор мебели</h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Создайте мебель вашей мечты: выберите тип, укажите размеры и материалы. 
-              Мы мгновенно создадим реалистичное 3D изображение вашего проекта
+            <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">3D Конфигуратор</h1>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+              Создайте мебель или визуализируйте интерьер комнаты с помощью ИИ. 
+              Выберите параметры и получите реалистичное изображение за секунды
             </p>
+
+            <div className="flex justify-center gap-4 mb-4">
+              <Button
+                onClick={() => {
+                  setMode('furniture');
+                  setGeneratedImage(null);
+                }}
+                variant={mode === 'furniture' ? 'default' : 'outline'}
+                className={mode === 'furniture' ? 'bg-accent hover:bg-accent/90 text-primary' : ''}
+                size="lg"
+              >
+                <Icon name="Armchair" size={20} className="mr-2" />
+                Мебель
+              </Button>
+              <Button
+                onClick={() => {
+                  setMode('interior');
+                  setGeneratedImage(null);
+                }}
+                variant={mode === 'interior' ? 'default' : 'outline'}
+                className={mode === 'interior' ? 'bg-accent hover:bg-accent/90 text-primary' : ''}
+                size="lg"
+              >
+                <Icon name="Home" size={20} className="mr-2" />
+                Интерьер
+              </Button>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -258,123 +340,144 @@ const Configurator = () => {
               <CardContent className="p-6 md:p-8">
                 <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
                   <Icon name="Settings" size={24} className="text-accent" />
-                  Параметры мебели
+                  {mode === 'furniture' ? 'Параметры мебели' : 'Параметры интерьера'}
                 </h2>
 
                 <div className="space-y-6">
-                  <div>
-                    <Label htmlFor="type" className="text-base font-semibold mb-2 block">
-                      Тип мебели *
-                    </Label>
-                    <Select value={config.type} onValueChange={(value) => setConfig({...config, type: value})}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Выберите тип мебели" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {furnitureTypes.map((type) => (
-                          <SelectItem key={type.value} value={type.value}>
-                            <div className="flex items-center gap-2">
-                              <Icon name={type.icon as any} size={16} />
-                              {type.label}
-                            </div>
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+                  {mode === 'furniture' ? (
+                    <>
+                      <div>
+                        <Label htmlFor="type" className="text-base font-semibold mb-2 block">
+                          Тип мебели *
+                        </Label>
+                        <Select value={config.type} onValueChange={(value) => setConfig({...config, type: value})}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Выберите тип мебели" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {furnitureTypes.map((type) => (
+                              <SelectItem key={type.value} value={type.value}>
+                                <div className="flex items-center gap-2">
+                                  <Icon name={type.icon as any} size={16} />
+                                  {type.label}
+                                </div>
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div>
-                      <Label htmlFor="width" className="text-sm font-semibold mb-2 block">
-                        Ширина (см) *
-                      </Label>
-                      <Input
-                        id="width"
-                        type="number"
-                        placeholder="200"
-                        value={config.width}
-                        onChange={(e) => setConfig({...config, width: e.target.value})}
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="height" className="text-sm font-semibold mb-2 block">
-                        Высота (см) *
-                      </Label>
-                      <Input
-                        id="height"
-                        type="number"
-                        placeholder="100"
-                        value={config.height}
-                        onChange={(e) => setConfig({...config, height: e.target.value})}
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="depth" className="text-sm font-semibold mb-2 block">
-                        Глубина (см) *
-                      </Label>
-                      <Input
-                        id="depth"
-                        type="number"
-                        placeholder="80"
-                        value={config.depth}
-                        onChange={(e) => setConfig({...config, depth: e.target.value})}
-                      />
-                    </div>
-                  </div>
+                      <div>
+                        <Label htmlFor="material" className="text-base font-semibold mb-2 block">
+                          Материал
+                        </Label>
+                        <Select value={config.material} onValueChange={(value) => setConfig({...config, material: value})}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Выберите материал" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {materials.map((material) => (
+                              <SelectItem key={material.value} value={material.value}>
+                                {material.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
 
-                  <div>
-                    <Label htmlFor="material" className="text-base font-semibold mb-2 block">
-                      Материал
-                    </Label>
-                    <Select value={config.material} onValueChange={(value) => setConfig({...config, material: value})}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Выберите материал" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {materials.map((material) => (
-                          <SelectItem key={material.value} value={material.value}>
-                            {material.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+                      <div>
+                        <Label htmlFor="color" className="text-base font-semibold mb-2 block">
+                          Цвет
+                        </Label>
+                        <Select value={config.color} onValueChange={(value) => setConfig({...config, color: value})}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Выберите цвет" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {colors.map((color) => (
+                              <SelectItem key={color.value} value={color.value}>
+                                {color.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
 
-                  <div>
-                    <Label htmlFor="color" className="text-base font-semibold mb-2 block">
-                      Цвет
-                    </Label>
-                    <Select value={config.color} onValueChange={(value) => setConfig({...config, color: value})}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Выберите цвет" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {colors.map((color) => (
-                          <SelectItem key={color.value} value={color.value}>
-                            {color.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+                      <div>
+                        <Label htmlFor="style" className="text-base font-semibold mb-2 block">
+                          Стиль
+                        </Label>
+                        <Select value={config.style} onValueChange={(value) => setConfig({...config, style: value})}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Выберите стиль" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {styles.map((style) => (
+                              <SelectItem key={style.value} value={style.value}>
+                                {style.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div>
+                        <Label htmlFor="roomType" className="text-base font-semibold mb-2 block">
+                          Тип комнаты *
+                        </Label>
+                        <Select value={interiorConfig.roomType} onValueChange={(value) => setInteriorConfig({...interiorConfig, roomType: value})}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Выберите тип комнаты" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {roomTypes.map((room) => (
+                              <SelectItem key={room.value} value={room.value}>
+                                {room.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
 
-                  <div>
-                    <Label htmlFor="style" className="text-base font-semibold mb-2 block">
-                      Стиль
-                    </Label>
-                    <Select value={config.style} onValueChange={(value) => setConfig({...config, style: value})}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Выберите стиль" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {styles.map((style) => (
-                          <SelectItem key={style.value} value={style.value}>
-                            {style.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+                      <div>
+                        <Label htmlFor="interiorStyle" className="text-base font-semibold mb-2 block">
+                          Стиль интерьера
+                        </Label>
+                        <Select value={interiorConfig.style} onValueChange={(value) => setInteriorConfig({...interiorConfig, style: value})}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Выберите стиль" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {styles.map((style) => (
+                              <SelectItem key={style.value} value={style.value}>
+                                {style.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="interiorColor" className="text-base font-semibold mb-2 block">
+                          Цветовая гамма
+                        </Label>
+                        <Select value={interiorConfig.color} onValueChange={(value) => setInteriorConfig({...interiorConfig, color: value})}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Выберите цвет" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {colors.map((color) => (
+                              <SelectItem key={color.value} value={color.value}>
+                                {color.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </>
+                  )}
 
                   <div className="flex flex-col sm:flex-row gap-3 pt-4">
                     <Button 
@@ -391,7 +494,7 @@ const Configurator = () => {
                       ) : (
                         <>
                           <Icon name="Wand2" size={20} className="mr-2" />
-                          Создать 3D модель
+                          {mode === 'furniture' ? 'Создать мебель' : 'Создать интерьер'}
                         </>
                       )}
                     </Button>
@@ -421,7 +524,7 @@ const Configurator = () => {
                     <div className="relative aspect-square rounded-lg overflow-hidden bg-white">
                       <img 
                         src={generatedImage} 
-                        alt="Сгенерированная мебель"
+                        alt={mode === 'furniture' ? 'Сгенерированная мебель' : 'Сгенерированный интерьер'}
                         className="w-full h-full object-contain"
                       />
                     </div>
@@ -439,7 +542,7 @@ const Configurator = () => {
                         onClick={() => {
                           const link = document.createElement('a');
                           link.href = generatedImage;
-                          link.download = 'furniture-3d-model.jpg';
+                          link.download = mode === 'furniture' ? 'furniture-model.jpg' : 'interior-design.jpg';
                           link.click();
                         }}
                       >
@@ -451,9 +554,11 @@ const Configurator = () => {
                 ) : (
                   <div className="aspect-square rounded-lg border-2 border-dashed border-border flex items-center justify-center">
                     <div className="text-center p-4 sm:p-8">
-                      <Icon name="Box" size={48} className="sm:w-16 sm:h-16 mx-auto mb-4 text-muted-foreground opacity-50" />
+                      <Icon name={mode === 'furniture' ? 'Box' : 'Home'} size={48} className="sm:w-16 sm:h-16 mx-auto mb-4 text-muted-foreground opacity-50" />
                       <p className="text-muted-foreground text-sm sm:text-base">
-                        Заполните параметры и нажмите "Создать 3D модель"
+                        {mode === 'furniture' 
+                          ? 'Выберите параметры и создайте мебель' 
+                          : 'Выберите параметры и создайте интерьер'}
                       </p>
                     </div>
                   </div>
@@ -465,11 +570,11 @@ const Configurator = () => {
           <div className="mt-16 grid md:grid-cols-3 gap-6">
             <Card className="text-center p-6">
               <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                <Icon name="Ruler" size={32} className="text-accent" />
+                <Icon name="Sparkles" size={32} className="text-accent" />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-2">Точные размеры</h3>
+              <h3 className="text-xl font-bold text-primary mb-2">Генерация с ИИ</h3>
               <p className="text-muted-foreground">
-                Укажите размеры до миллиметра для идеального результата
+                Искусственный интеллект создаёт реалистичные изображения по вашим параметрам
               </p>
             </Card>
 
@@ -477,9 +582,9 @@ const Configurator = () => {
               <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
                 <Icon name="Palette" size={32} className="text-accent" />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-2">Любые материалы</h3>
+              <h3 className="text-xl font-bold text-primary mb-2">Любые стили</h3>
               <p className="text-muted-foreground">
-                Выбирайте из дерева, МДФ, металла, стекла и других материалов
+                От классики до лофта — выбирайте стиль, материалы и цвета на ваш вкус
               </p>
             </Card>
 
@@ -489,7 +594,7 @@ const Configurator = () => {
               </div>
               <h3 className="text-xl font-bold text-primary mb-2">Мгновенный результат</h3>
               <p className="text-muted-foreground">
-                Получите реалистичную 3D визуализацию за несколько секунд
+                Получите визуализацию мебели или интерьера за несколько секунд
               </p>
             </Card>
           </div>
