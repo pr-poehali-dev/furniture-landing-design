@@ -238,19 +238,6 @@ const Promos = () => {
 
                         <div className="mb-6">
                           <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2">
-                            <Icon name="Gift" size={20} className="text-accent" />
-                            Преимущества:
-                          </h3>
-                          <ul className="space-y-2 mb-4">
-                            {promo.details.map((detail, index) => (
-                              <li key={index} className="flex items-start gap-2 text-muted-foreground">
-                                <Icon name="CheckCircle2" size={18} className="text-accent mt-1 flex-shrink-0" />
-                                <span>{detail}</span>
-                              </li>
-                            ))}
-                          </ul>
-
-                          <h3 className="text-xl font-semibold text-primary mb-3 flex items-center gap-2 mt-6">
                             <Icon name="Sparkles" size={20} className="text-accent" />
                             Что входит в акцию:
                           </h3>
